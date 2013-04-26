@@ -46,43 +46,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calendar.cs" />
-    <Compile Include="CalendarWeek.cs" />
-    <Compile Include="Card.cs" />
-    <Compile Include="CardCreationController.cs" />
-    <Compile Include="CardReader.cs" />
-    <Compile Include="DBCalendarInterface.cs" />
-    <Compile Include="DBUserInterface.cs" />
-    <Compile Include="Door.cs" />
-    <Compile Include="DoorAccessController.cs" />
-    <Compile Include="DoorGroup.cs" />
-    <Compile Include="DoorInterface.cs" />
-    <Compile Include="Event.cs" />
-    <Compile Include="ExceptionDay.cs" />
-    <Compile Include="ExceptionTimeSlot.cs" />
+    <Compile Include="Generated Classes\Calendar.cs" />
+    <Compile Include="Generated Classes\CalendarWeek.cs" />
+    <Compile Include="Generated Classes\Card.cs" />
+    <Compile Include="Generated Classes\CardCreationController.cs" />
+    <Compile Include="Generated Classes\CardReader.cs" />
+    <Compile Include="Generated Classes\DBCalendarInterface.cs" />
+    <Compile Include="Generated Classes\DBUserInterface.cs" />
+    <Compile Include="Generated Classes\Door.cs" />
+    <Compile Include="Generated Classes\DoorAccessController.cs" />
+    <Compile Include="Generated Classes\DoorGroup.cs" />
+    <Compile Include="Generated Classes\DoorInterface.cs" />
+    <Compile Include="Generated Classes\Event.cs" />
+    <Compile Include="Generated Classes\ExceptionDay.cs" />
+    <Compile Include="Generated Classes\ExceptionTimeSlot.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterfacePrinter.cs" />
-    <Compile Include="MainPage.cs" />
-    <Compile Include="PageCardCreation.cs" />
-    <Compile Include="PageInputPassword.cs" />
-    <Compile Include="PageNotificationMsg.cs" />
-    <Compile Include="PageRegistrationConfirmation.cs" />
-    <Compile Include="PageSavedInfoConfirmation.cs" />
-    <Compile Include="PageUpdateCalendar.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="PersonGroup.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Generated Classes\InterfacePrinter.cs" />
+    <Compile Include="Generated Classes\MainPage.cs" />
+    <Compile Include="Generated Classes\PageCardCreation.cs" />
+    <Compile Include="Generated Classes\PageInputPassword.cs" />
+    <Compile Include="Generated Classes\PageNotificationMsg.cs" />
+    <Compile Include="Generated Classes\PageRegistrationConfirmation.cs" />
+    <Compile Include="Generated Classes\PageSavedInfoConfirmation.cs" />
+    <Compile Include="Generated Classes\PageUpdateCalendar.cs" />
+    <Compile Include="Generated Classes\Person.cs" />
+    <Compile Include="Generated Classes\PersonGroup.cs" />
+    <Compile Include="Generated Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecurityAttendantInterface.cs" />
-    <Compile Include="TimeSlot.cs" />
-    <Compile Include="TypicalDay.cs" />
-    <Compile Include="TypicalWeek.cs" />
-    <Compile Include="UpdateCalendarController.cs" />
+    <Compile Include="Generated Classes\SecurityAttendantInterface.cs" />
+    <Compile Include="Generated Classes\TimeSlot.cs" />
+    <Compile Include="Generated Classes\TypicalDay.cs" />
+    <Compile Include="Generated Classes\TypicalWeek.cs" />
+    <Compile Include="Generated Classes\UpdateCalendarController.cs" />
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +101,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
