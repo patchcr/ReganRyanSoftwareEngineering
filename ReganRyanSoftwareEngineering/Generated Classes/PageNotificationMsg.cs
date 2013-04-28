@@ -1,27 +1,15 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class PageNotificationMsg {
 
+        public void PageNotificationMsg() {
 
-
-
-
-namespace Model 1
-{
-    private class PageNotificationMsg
-    {
-
-
-
-
-        public void PageNotificationMsg ()        
-        {
-            
         }
 
-        public void Display ()        
-        {
-            
+        public void Display() {
+
         }
 
     }
+
 }

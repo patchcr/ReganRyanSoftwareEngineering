@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace ReganRyanSoftwareEngineering
 {
-    public partial class Form1 : Form
+    public partial class SupervisorInterface : Form
     {
-        public Form1()
+        public SupervisorInterface()
         {
             InitializeComponent();
         }
@@ -23,6 +23,10 @@ namespace ReganRyanSoftwareEngineering
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void SupervisorInterface_Load(object sender, EventArgs e) {
 
         }
     }

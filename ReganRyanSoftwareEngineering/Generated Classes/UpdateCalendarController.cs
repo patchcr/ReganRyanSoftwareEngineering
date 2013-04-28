@@ -1,32 +1,19 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class UpdateCalendarController {
 
+        public void StartUpdateCalendar() {
 
-
-
-
-namespace Model 1
-{
-    private class UpdateCalendarController
-    {
-
-
-
-
-        public void StartUpdateCalendar ()        
-        {
-            
         }
 
-        public void CalendarDaySelect ()        
-        {
-            
+        public void CalendarDaySelect() {
+
         }
 
-        public void ModificationInput ()        
-        {
-            
+        public void ModificationInput() {
+
         }
 
     }
+
 }

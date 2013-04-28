@@ -1,22 +1,11 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class ExceptionTimeSlot {
 
+        public void CreateExceptionTimeSlot() {
 
-
-
-
-namespace Model 1
-{
-    private class ExceptionTimeSlot
-    {
-
-
-
-
-        public void CreateExceptionTimeSlot ()        
-        {
-            
         }
 
     }
+
 }

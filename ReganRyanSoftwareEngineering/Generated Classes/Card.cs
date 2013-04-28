@@ -1,43 +1,29 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class Card {
 
+        private object cardNumber;
 
+        private object creationDate;
 
+        private object activationStatus;
 
+        public void CreateCard() {
 
-namespace Model 1
-{
-    private class Card
-    {
-
-
-        private object cardNumber ;
-
-        private object creationDate ;
-
-        private object activationStatus ;
-
-
-
-        public void CreateCard ()        
-        {
-            
         }
 
-        public void ActivateCard ()        
-        {
-            
+        public void ActivateCard() {
+
         }
 
-        public void DeactivateCard ()        
-        {
-            
+        public void DeactivateCard() {
+
         }
 
-        public void GenerateCardNumber ()        
-        {
-            
+        public void GenerateCardNumber() {
+
         }
 
     }
+
 }

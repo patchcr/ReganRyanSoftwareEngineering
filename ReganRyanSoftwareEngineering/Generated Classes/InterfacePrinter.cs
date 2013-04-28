@@ -1,22 +1,11 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class InterfacePrinter {
 
+        public void PrintCard() {
 
-
-
-
-namespace Model 1
-{
-    private class InterfacePrinter
-    {
-
-
-
-
-        public void PrintCard ()        
-        {
-            
         }
 
     }
+
 }

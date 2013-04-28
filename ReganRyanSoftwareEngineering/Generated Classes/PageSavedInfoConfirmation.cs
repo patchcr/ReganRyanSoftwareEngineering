@@ -1,27 +1,15 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class PageSavedInfoConfirmation {
 
+        public void PageSavedInfoConfirmation() {
 
-
-
-
-namespace Model 1
-{
-    private class PageSavedInfoConfirmation
-    {
-
-
-
-
-        public void PageSavedInfoConfirmation ()        
-        {
-            
         }
 
-        public void Display ()        
-        {
-            
+        public void Display() {
+
         }
 
     }
+
 }

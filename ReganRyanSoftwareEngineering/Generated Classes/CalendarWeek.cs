@@ -1,19 +1,9 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class CalendarWeek {
 
-
-
-
-
-namespace Model 1
-{
-    private class CalendarWeek
-    {
-
-
-        private object number ;
-
-
+        private object number;
 
     }
+
 }

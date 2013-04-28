@@ -1,21 +1,11 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class DoorGroup {
 
+        private object code;
 
-
-
-
-namespace Model 1
-{
-    private class DoorGroup
-    {
-
-
-        private object code ;
-
-        private object description ;
-
-
+        private object description;
 
     }
+
 }

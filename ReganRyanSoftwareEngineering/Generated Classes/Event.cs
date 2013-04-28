@@ -1,21 +1,11 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class Event {
 
+        private object number;
 
-
-
-
-namespace Model 1
-{
-    private class Event
-    {
-
-
-        private object number ;
-
-        private object description ;
-
-
+        private object description;
 
     }
+
 }

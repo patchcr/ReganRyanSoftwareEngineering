@@ -1,48 +1,33 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class Door {
 
+        private object number;
 
+        private object closeState;
 
+        private object lockState;
 
+        public void OpenDoor() {
 
-namespace Model 1
-{
-    private class Door
-    {
-
-
-        private object number ;
-
-        private object closeState ;
-
-        private object lockState ;
-
-
-
-        public void OpenDoor ()        
-        {
-            
         }
 
-        public void CloseDoor ()        
-        {
-            
+        public void CloseDoor() {
+
         }
 
-        public void Unlock ()        
-        {
-            
+        public void Unlock() {
+
         }
 
-        public void Lock ()        
-        {
-            
+        public void Lock() {
+
         }
 
-        public void FindDoorGroup ()        
-        {
-            
+        public void FindDoorGroup() {
+
         }
 
     }
+
 }

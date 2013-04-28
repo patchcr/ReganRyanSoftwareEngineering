@@ -5,7 +5,7 @@
 
 
 
-namespace Model 1
+namespace ReganRyanSoftwareEngineering
 {
     private class DoorInterface
     {

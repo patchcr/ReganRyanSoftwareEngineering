@@ -1,22 +1,11 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class SecurityAttendantInterface {
 
+        public void DisplayAlertMessage() {
 
-
-
-
-namespace Model 1
-{
-    private class SecurityAttendantInterface
-    {
-
-
-
-
-        public void DisplayAlertMessage ()        
-        {
-            
         }
 
     }
+
 }

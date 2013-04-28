@@ -1,32 +1,19 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    private class CardCreationController {
 
+        public void StartCardCreation() {
 
-
-
-
-namespace Model 1
-{
-    private class CardCreationController
-    {
-
-
-
-
-        public void StartCardCreation ()        
-        {
-            
         }
 
-        public void PersonInfoInput ()        
-        {
-            
+        public void PersonInfoInput() {
+
         }
 
-        public void PasswordInput ()        
-        {
-            
+        public void PasswordInput() {
+
         }
 
     }
+
 }
