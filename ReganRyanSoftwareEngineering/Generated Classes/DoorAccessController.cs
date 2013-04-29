@@ -5,10 +5,6 @@ namespace ReganRyanSoftwareEngineering {
 
     public class DoorAccessController {
 
-        public DoorAccessController() {
-            
-        }
-
         public void PasswordValidationRequest() {
 
         }
@@ -21,8 +17,13 @@ namespace ReganRyanSoftwareEngineering {
 
         }
 
-        public void AccessPermissionsValidationRequest(DateTime date, int accessHour, List<PersonGroup> personGroups, DoorGroup doorGroup) {
-
+        public bool AccessPermissionsValidationRequest(DateTime date, int accessHour, List<PersonGroup> personGroups, DoorGroup doorGroup) {
+            foreach (PersonGroup pg in personGroups) {
+                if (GetCalendar(pg, doorGroup).ValidateAccess(date, accessHour)) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public Calendar GetCalendar(PersonGroup personGroup, DoorGroup doorGroup) {

@@ -8,6 +8,12 @@
 
         private bool accessPermission;
 
+        public TimeSlot(int startHour, int endHour, bool accessPermission) {
+            this.startHour = startHour;
+            this.endHour = endHour;
+            this.accessPermission = accessPermission;
+        }
+
         public int StartHour {
             get { return startHour; }
         }

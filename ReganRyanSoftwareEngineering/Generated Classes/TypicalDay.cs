@@ -8,8 +8,13 @@ namespace ReganRyanSoftwareEngineering {
 
         public TimeSlot[] timeSlots;
 
-        public TypicalDay() {
+        public TypicalDay(string name) {
+            this.name = name;
             timeSlots = new TimeSlot[24];
+        }
+
+        public string Name {
+            get { return name; }
         }
 
         public TimeSlot[] ReadSlots() {

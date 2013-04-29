@@ -1,4 +1,6 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System.Timers;
+
+namespace ReganRyanSoftwareEngineering {
 
     public class CardReader {
 
@@ -6,17 +8,20 @@
 
         private string networkAddress;
 
+        private Door door;
+
         private int alarmTimer;
 
         private bool alarmState;
 
-        private object timeKeeper;
+        private Timer timeKeeper;
 
-        private object activityMode;
+        private bool activityMode;
 
-        public CardReader(string name, string networdAddress) {
+        public CardReader(string name, string networdAddress, Door door) {
             this.name = name;
             this.networkAddress = networdAddress;
+            this.door = door;
             alarmState = false;
         }
 
@@ -29,19 +34,20 @@
         }
 
         public void ActiveMode() {
-
+            activityMode = true;
         }
 
         public void StandbyMode() {
-
+            activityMode = false;
         }
 
         public void TurnTimeKeeperOn() {
-
+            timeKeeper = new Timer();
+            timeKeeper.Start();
         }
 
         public void TurnTimeKeeperOff() {
-
+            timeKeeper.Stop();
         }
 
         public void ReadCard() {

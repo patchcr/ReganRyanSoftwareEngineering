@@ -2,9 +2,17 @@
 
     public class Event {
 
-        private object number;
+        private int number;
 
-        private object description;
+        private string description;
+
+        public Event(string description) {
+            this.description = description;
+        }
+
+        public string Description {
+            get { return description; }
+        }
 
     }
 

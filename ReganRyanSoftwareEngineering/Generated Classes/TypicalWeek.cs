@@ -5,8 +5,6 @@ namespace ReganRyanSoftwareEngineering {
 
     public class TypicalWeek {
 
-        private string code;
-
         private TypicalDay[] days;
 
         public TypicalWeek(string code) {
@@ -16,10 +14,6 @@ namespace ReganRyanSoftwareEngineering {
         public TypicalDay ReadDay(DateTime date) {
             Console.WriteLine((int)date.DayOfWeek);
             return days[(int)date.DayOfWeek];
-        }
-
-        public void SaveModificationInWeek() {
-
         }
 
     }
