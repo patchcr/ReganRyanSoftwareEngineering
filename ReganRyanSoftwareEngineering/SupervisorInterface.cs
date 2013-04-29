@@ -44,5 +44,30 @@ namespace ReganRyanSoftwareEngineering
         {
 
         }
+
+        private void CreateNewUserButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            groupBox3.Visible = true;
+        }
+
+        private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            groupBox1.Visible = true;
+        }
+
+        private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
+        {
+            groupBox2.Visible = true;
+        }
+
+        private void ReactivateCardButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateTypicalWeekButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

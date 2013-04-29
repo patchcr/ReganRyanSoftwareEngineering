@@ -42,7 +42,11 @@
             this.UserGroupSelectSubmit = new System.Windows.Forms.Button();
             this.ListSelectUserGroup = new System.Windows.Forms.ListBox();
             this.PageUpdateCalendar = new System.Windows.Forms.TabPage();
+            this.UpdateTypicalWeekButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox24 = new System.Windows.Forms.CheckBox();
+            this.checkBox23 = new System.Windows.Forms.CheckBox();
+            this.checkBox22 = new System.Windows.Forms.CheckBox();
             this.checkBox21 = new System.Windows.Forms.CheckBox();
             this.checkBox20 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
@@ -95,10 +99,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.ReactivateCardTextbox = new System.Windows.Forms.TextBox();
             this.ReactivateCardButton = new System.Windows.Forms.Button();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
-            this.checkBox23 = new System.Windows.Forms.CheckBox();
-            this.checkBox24 = new System.Windows.Forms.CheckBox();
-            this.UpdateTypicalWeekButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -163,7 +163,7 @@
             // 
             // FirstNameEntry
             // 
-            this.FirstNameEntry.Location = new System.Drawing.Point(6, 34);
+            this.FirstNameEntry.Location = new System.Drawing.Point(6, 19);
             this.FirstNameEntry.Name = "FirstNameEntry";
             this.FirstNameEntry.Size = new System.Drawing.Size(100, 20);
             this.FirstNameEntry.TabIndex = 1;
@@ -171,16 +171,17 @@
             // 
             // CreateNewUserButton
             // 
-            this.CreateNewUserButton.Location = new System.Drawing.Point(6, 86);
+            this.CreateNewUserButton.Location = new System.Drawing.Point(6, 71);
             this.CreateNewUserButton.Name = "CreateNewUserButton";
             this.CreateNewUserButton.Size = new System.Drawing.Size(109, 23);
             this.CreateNewUserButton.TabIndex = 0;
             this.CreateNewUserButton.Text = "Create New User";
             this.CreateNewUserButton.UseVisualStyleBackColor = true;
+            this.CreateNewUserButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CreateNewUserButton_MouseClick);
             // 
             // LastNameEntry
             // 
-            this.LastNameEntry.Location = new System.Drawing.Point(6, 60);
+            this.LastNameEntry.Location = new System.Drawing.Point(6, 45);
             this.LastNameEntry.Name = "LastNameEntry";
             this.LastNameEntry.Size = new System.Drawing.Size(100, 20);
             this.LastNameEntry.TabIndex = 2;
@@ -196,19 +197,21 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Step 2. Select Password";
+            this.groupBox3.Visible = false;
             // 
             // savePasswordButton
             // 
-            this.savePasswordButton.Location = new System.Drawing.Point(44, 42);
+            this.savePasswordButton.Location = new System.Drawing.Point(43, 19);
             this.savePasswordButton.Name = "savePasswordButton";
             this.savePasswordButton.Size = new System.Drawing.Size(100, 23);
             this.savePasswordButton.TabIndex = 2;
             this.savePasswordButton.Text = "Save Password";
             this.savePasswordButton.UseVisualStyleBackColor = true;
+            this.savePasswordButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.savePasswordButton_MouseClick);
             // 
             // EnterPasswordMaskedText
             // 
-            this.EnterPasswordMaskedText.Location = new System.Drawing.Point(7, 42);
+            this.EnterPasswordMaskedText.Location = new System.Drawing.Point(6, 19);
             this.EnterPasswordMaskedText.Mask = "0000";
             this.EnterPasswordMaskedText.Name = "EnterPasswordMaskedText";
             this.EnterPasswordMaskedText.Size = new System.Drawing.Size(30, 20);
@@ -225,6 +228,7 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Step 4. Confirmation";
+            this.groupBox2.Visible = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // richTextBox1
@@ -265,6 +269,7 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Step 3 Select Groups";
+            this.groupBox1.Visible = false;
             // 
             // UserGroupSelectSubmit
             // 
@@ -274,6 +279,7 @@
             this.UserGroupSelectSubmit.TabIndex = 1;
             this.UserGroupSelectSubmit.Text = "Submit";
             this.UserGroupSelectSubmit.UseVisualStyleBackColor = true;
+            this.UserGroupSelectSubmit.Click += new System.EventHandler(this.UserGroupSelectSubmit_Click);
             // 
             // ListSelectUserGroup
             // 
@@ -298,6 +304,16 @@
             this.PageUpdateCalendar.TabIndex = 1;
             this.PageUpdateCalendar.Text = "Update Calendar";
             this.PageUpdateCalendar.UseVisualStyleBackColor = true;
+            // 
+            // UpdateTypicalWeekButton
+            // 
+            this.UpdateTypicalWeekButton.Location = new System.Drawing.Point(333, 43);
+            this.UpdateTypicalWeekButton.Name = "UpdateTypicalWeekButton";
+            this.UpdateTypicalWeekButton.Size = new System.Drawing.Size(133, 23);
+            this.UpdateTypicalWeekButton.TabIndex = 5;
+            this.UpdateTypicalWeekButton.Text = "Update Typical Week";
+            this.UpdateTypicalWeekButton.UseVisualStyleBackColor = true;
+            this.UpdateTypicalWeekButton.Click += new System.EventHandler(this.UpdateTypicalWeekButton_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -383,6 +399,33 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(96, 556);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // checkBox24
+            // 
+            this.checkBox24.AutoSize = true;
+            this.checkBox24.Location = new System.Drawing.Point(74, 535);
+            this.checkBox24.Name = "checkBox24";
+            this.checkBox24.Size = new System.Drawing.Size(15, 14);
+            this.checkBox24.TabIndex = 70;
+            this.checkBox24.UseVisualStyleBackColor = true;
+            // 
+            // checkBox23
+            // 
+            this.checkBox23.AutoSize = true;
+            this.checkBox23.Location = new System.Drawing.Point(74, 512);
+            this.checkBox23.Name = "checkBox23";
+            this.checkBox23.Size = new System.Drawing.Size(15, 14);
+            this.checkBox23.TabIndex = 69;
+            this.checkBox23.UseVisualStyleBackColor = true;
+            // 
+            // checkBox22
+            // 
+            this.checkBox22.AutoSize = true;
+            this.checkBox22.Location = new System.Drawing.Point(74, 489);
+            this.checkBox22.Name = "checkBox22";
+            this.checkBox22.Size = new System.Drawing.Size(15, 14);
+            this.checkBox22.TabIndex = 68;
+            this.checkBox22.UseVisualStyleBackColor = true;
             // 
             // checkBox21
             // 
@@ -852,42 +895,7 @@
             this.ReactivateCardButton.TabIndex = 2;
             this.ReactivateCardButton.Text = "Reactivate Card";
             this.ReactivateCardButton.UseVisualStyleBackColor = true;
-            // 
-            // checkBox22
-            // 
-            this.checkBox22.AutoSize = true;
-            this.checkBox22.Location = new System.Drawing.Point(74, 489);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(15, 14);
-            this.checkBox22.TabIndex = 68;
-            this.checkBox22.UseVisualStyleBackColor = true;
-            // 
-            // checkBox23
-            // 
-            this.checkBox23.AutoSize = true;
-            this.checkBox23.Location = new System.Drawing.Point(74, 512);
-            this.checkBox23.Name = "checkBox23";
-            this.checkBox23.Size = new System.Drawing.Size(15, 14);
-            this.checkBox23.TabIndex = 69;
-            this.checkBox23.UseVisualStyleBackColor = true;
-            // 
-            // checkBox24
-            // 
-            this.checkBox24.AutoSize = true;
-            this.checkBox24.Location = new System.Drawing.Point(74, 535);
-            this.checkBox24.Name = "checkBox24";
-            this.checkBox24.Size = new System.Drawing.Size(15, 14);
-            this.checkBox24.TabIndex = 70;
-            this.checkBox24.UseVisualStyleBackColor = true;
-            // 
-            // UpdateTypicalWeekButton
-            // 
-            this.UpdateTypicalWeekButton.Location = new System.Drawing.Point(333, 43);
-            this.UpdateTypicalWeekButton.Name = "UpdateTypicalWeekButton";
-            this.UpdateTypicalWeekButton.Size = new System.Drawing.Size(133, 23);
-            this.UpdateTypicalWeekButton.TabIndex = 5;
-            this.UpdateTypicalWeekButton.Text = "Update Typical Week";
-            this.UpdateTypicalWeekButton.UseVisualStyleBackColor = true;
+            this.ReactivateCardButton.Click += new System.EventHandler(this.ReactivateCardButton_Click);
             // 
             // SupervisorInterface
             // 
