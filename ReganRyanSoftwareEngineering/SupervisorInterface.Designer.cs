@@ -42,7 +42,12 @@
             this.UserGroupSelectSubmit = new System.Windows.Forms.Button();
             this.ListSelectUserGroup = new System.Windows.Forms.ListBox();
             this.PageUpdateCalendar = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.UpdateTypicalWeekButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBox24 = new System.Windows.Forms.CheckBox();
+            this.checkBox23 = new System.Windows.Forms.CheckBox();
+            this.checkBox22 = new System.Windows.Forms.CheckBox();
             this.checkBox21 = new System.Windows.Forms.CheckBox();
             this.checkBox20 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
@@ -92,13 +97,18 @@
             this.ListSelectUserGroup2 = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.DoorGroups = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.CreateDoorGroupButton = new System.Windows.Forms.Button();
+            this.UserGroups = new System.Windows.Forms.TabPage();
+            this.CreateUserButton = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.Misc = new System.Windows.Forms.TabPage();
             this.ReactivateCardTextbox = new System.Windows.Forms.TextBox();
             this.ReactivateCardButton = new System.Windows.Forms.Button();
-            this.checkBox22 = new System.Windows.Forms.CheckBox();
-            this.checkBox23 = new System.Windows.Forms.CheckBox();
-            this.checkBox24 = new System.Windows.Forms.CheckBox();
-            this.UpdateTypicalWeekButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -107,7 +117,9 @@
             this.groupBox1.SuspendLayout();
             this.PageUpdateCalendar.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.DoorGroups.SuspendLayout();
+            this.UserGroups.SuspendLayout();
+            this.Misc.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -120,13 +132,14 @@
             this.label1.Size = new System.Drawing.Size(226, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Supervisor Interface";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.PageCardCreation);
             this.tabControl1.Controls.Add(this.PageUpdateCalendar);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.DoorGroups);
+            this.tabControl1.Controls.Add(this.UserGroups);
+            this.tabControl1.Controls.Add(this.Misc);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(0, 42);
             this.tabControl1.Multiline = true;
@@ -163,7 +176,7 @@
             // 
             // FirstNameEntry
             // 
-            this.FirstNameEntry.Location = new System.Drawing.Point(6, 34);
+            this.FirstNameEntry.Location = new System.Drawing.Point(6, 19);
             this.FirstNameEntry.Name = "FirstNameEntry";
             this.FirstNameEntry.Size = new System.Drawing.Size(100, 20);
             this.FirstNameEntry.TabIndex = 1;
@@ -171,16 +184,17 @@
             // 
             // CreateNewUserButton
             // 
-            this.CreateNewUserButton.Location = new System.Drawing.Point(6, 86);
+            this.CreateNewUserButton.Location = new System.Drawing.Point(6, 71);
             this.CreateNewUserButton.Name = "CreateNewUserButton";
             this.CreateNewUserButton.Size = new System.Drawing.Size(109, 23);
             this.CreateNewUserButton.TabIndex = 0;
             this.CreateNewUserButton.Text = "Create New User";
             this.CreateNewUserButton.UseVisualStyleBackColor = true;
+            this.CreateNewUserButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CreateNewUserButton_MouseClick);
             // 
             // LastNameEntry
             // 
-            this.LastNameEntry.Location = new System.Drawing.Point(6, 60);
+            this.LastNameEntry.Location = new System.Drawing.Point(6, 45);
             this.LastNameEntry.Name = "LastNameEntry";
             this.LastNameEntry.Size = new System.Drawing.Size(100, 20);
             this.LastNameEntry.TabIndex = 2;
@@ -196,19 +210,21 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Step 2. Select Password";
+            this.groupBox3.Visible = false;
             // 
             // savePasswordButton
             // 
-            this.savePasswordButton.Location = new System.Drawing.Point(44, 42);
+            this.savePasswordButton.Location = new System.Drawing.Point(43, 19);
             this.savePasswordButton.Name = "savePasswordButton";
             this.savePasswordButton.Size = new System.Drawing.Size(100, 23);
             this.savePasswordButton.TabIndex = 2;
             this.savePasswordButton.Text = "Save Password";
             this.savePasswordButton.UseVisualStyleBackColor = true;
+            this.savePasswordButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.savePasswordButton_MouseClick);
             // 
             // EnterPasswordMaskedText
             // 
-            this.EnterPasswordMaskedText.Location = new System.Drawing.Point(7, 42);
+            this.EnterPasswordMaskedText.Location = new System.Drawing.Point(6, 19);
             this.EnterPasswordMaskedText.Mask = "0000";
             this.EnterPasswordMaskedText.Name = "EnterPasswordMaskedText";
             this.EnterPasswordMaskedText.Size = new System.Drawing.Size(30, 20);
@@ -225,7 +241,7 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Step 4. Confirmation";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            this.groupBox2.Visible = false;
             // 
             // richTextBox1
             // 
@@ -253,7 +269,6 @@
             this.PersonInfoDisplay.Size = new System.Drawing.Size(75, 13);
             this.PersonInfoDisplay.TabIndex = 0;
             this.PersonInfoDisplay.Text = "Combined Info";
-            this.PersonInfoDisplay.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // groupBox1
             // 
@@ -265,6 +280,7 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Step 3 Select Groups";
+            this.groupBox1.Visible = false;
             // 
             // UserGroupSelectSubmit
             // 
@@ -274,6 +290,7 @@
             this.UserGroupSelectSubmit.TabIndex = 1;
             this.UserGroupSelectSubmit.Text = "Submit";
             this.UserGroupSelectSubmit.UseVisualStyleBackColor = true;
+            this.UserGroupSelectSubmit.Click += new System.EventHandler(this.UserGroupSelectSubmit_Click);
             // 
             // ListSelectUserGroup
             // 
@@ -285,6 +302,7 @@
             // 
             // PageUpdateCalendar
             // 
+            this.PageUpdateCalendar.Controls.Add(this.label5);
             this.PageUpdateCalendar.Controls.Add(this.UpdateTypicalWeekButton);
             this.PageUpdateCalendar.Controls.Add(this.tableLayoutPanel1);
             this.PageUpdateCalendar.Controls.Add(this.ListSelectDoorGroup);
@@ -299,12 +317,37 @@
             this.PageUpdateCalendar.Text = "Update Calendar";
             this.PageUpdateCalendar.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(260, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(158, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "M     T     W     R     F      S      S";
+            // 
+            // UpdateTypicalWeekButton
+            // 
+            this.UpdateTypicalWeekButton.Location = new System.Drawing.Point(28, 293);
+            this.UpdateTypicalWeekButton.Name = "UpdateTypicalWeekButton";
+            this.UpdateTypicalWeekButton.Size = new System.Drawing.Size(120, 23);
+            this.UpdateTypicalWeekButton.TabIndex = 5;
+            this.UpdateTypicalWeekButton.Text = "Update Typical Week";
+            this.UpdateTypicalWeekButton.UseVisualStyleBackColor = true;
+            this.UpdateTypicalWeekButton.Click += new System.EventHandler(this.UpdateTypicalWeekButton_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
-            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox24, 1, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox23, 1, 22);
             this.tableLayoutPanel1.Controls.Add(this.checkBox22, 1, 21);
@@ -381,15 +424,42 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(96, 556);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(237, 556);
             this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // checkBox24
+            // 
+            this.checkBox24.AutoSize = true;
+            this.checkBox24.Location = new System.Drawing.Point(74, 535);
+            this.checkBox24.Name = "checkBox24";
+            this.checkBox24.Size = new System.Drawing.Size(14, 14);
+            this.checkBox24.TabIndex = 70;
+            this.checkBox24.UseVisualStyleBackColor = true;
+            // 
+            // checkBox23
+            // 
+            this.checkBox23.AutoSize = true;
+            this.checkBox23.Location = new System.Drawing.Point(74, 512);
+            this.checkBox23.Name = "checkBox23";
+            this.checkBox23.Size = new System.Drawing.Size(14, 14);
+            this.checkBox23.TabIndex = 69;
+            this.checkBox23.UseVisualStyleBackColor = true;
+            // 
+            // checkBox22
+            // 
+            this.checkBox22.AutoSize = true;
+            this.checkBox22.Location = new System.Drawing.Point(74, 489);
+            this.checkBox22.Name = "checkBox22";
+            this.checkBox22.Size = new System.Drawing.Size(14, 14);
+            this.checkBox22.TabIndex = 68;
+            this.checkBox22.UseVisualStyleBackColor = true;
             // 
             // checkBox21
             // 
             this.checkBox21.AutoSize = true;
             this.checkBox21.Location = new System.Drawing.Point(74, 466);
             this.checkBox21.Name = "checkBox21";
-            this.checkBox21.Size = new System.Drawing.Size(15, 14);
+            this.checkBox21.Size = new System.Drawing.Size(14, 14);
             this.checkBox21.TabIndex = 67;
             this.checkBox21.UseVisualStyleBackColor = true;
             // 
@@ -398,7 +468,7 @@
             this.checkBox20.AutoSize = true;
             this.checkBox20.Location = new System.Drawing.Point(74, 443);
             this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(15, 14);
+            this.checkBox20.Size = new System.Drawing.Size(14, 14);
             this.checkBox20.TabIndex = 66;
             this.checkBox20.UseVisualStyleBackColor = true;
             // 
@@ -407,7 +477,7 @@
             this.checkBox19.AutoSize = true;
             this.checkBox19.Location = new System.Drawing.Point(74, 420);
             this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(15, 14);
+            this.checkBox19.Size = new System.Drawing.Size(14, 14);
             this.checkBox19.TabIndex = 65;
             this.checkBox19.UseVisualStyleBackColor = true;
             // 
@@ -416,7 +486,7 @@
             this.checkBox18.AutoSize = true;
             this.checkBox18.Location = new System.Drawing.Point(74, 397);
             this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(15, 14);
+            this.checkBox18.Size = new System.Drawing.Size(14, 14);
             this.checkBox18.TabIndex = 64;
             this.checkBox18.UseVisualStyleBackColor = true;
             // 
@@ -425,7 +495,7 @@
             this.checkBox17.AutoSize = true;
             this.checkBox17.Location = new System.Drawing.Point(74, 374);
             this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(15, 14);
+            this.checkBox17.Size = new System.Drawing.Size(14, 14);
             this.checkBox17.TabIndex = 63;
             this.checkBox17.UseVisualStyleBackColor = true;
             // 
@@ -434,7 +504,7 @@
             this.checkBox16.AutoSize = true;
             this.checkBox16.Location = new System.Drawing.Point(74, 351);
             this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(15, 14);
+            this.checkBox16.Size = new System.Drawing.Size(14, 14);
             this.checkBox16.TabIndex = 62;
             this.checkBox16.UseVisualStyleBackColor = true;
             // 
@@ -443,7 +513,7 @@
             this.checkBox15.AutoSize = true;
             this.checkBox15.Location = new System.Drawing.Point(74, 328);
             this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(15, 14);
+            this.checkBox15.Size = new System.Drawing.Size(14, 14);
             this.checkBox15.TabIndex = 61;
             this.checkBox15.UseVisualStyleBackColor = true;
             // 
@@ -452,7 +522,7 @@
             this.checkBox14.AutoSize = true;
             this.checkBox14.Location = new System.Drawing.Point(74, 305);
             this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(15, 14);
+            this.checkBox14.Size = new System.Drawing.Size(14, 14);
             this.checkBox14.TabIndex = 60;
             this.checkBox14.UseVisualStyleBackColor = true;
             // 
@@ -461,7 +531,7 @@
             this.checkBox13.AutoSize = true;
             this.checkBox13.Location = new System.Drawing.Point(74, 282);
             this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(15, 14);
+            this.checkBox13.Size = new System.Drawing.Size(14, 14);
             this.checkBox13.TabIndex = 59;
             this.checkBox13.UseVisualStyleBackColor = true;
             // 
@@ -470,7 +540,7 @@
             this.checkBox12.AutoSize = true;
             this.checkBox12.Location = new System.Drawing.Point(74, 259);
             this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(15, 14);
+            this.checkBox12.Size = new System.Drawing.Size(14, 14);
             this.checkBox12.TabIndex = 58;
             this.checkBox12.UseVisualStyleBackColor = true;
             // 
@@ -479,7 +549,7 @@
             this.checkBox11.AutoSize = true;
             this.checkBox11.Location = new System.Drawing.Point(74, 236);
             this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(15, 14);
+            this.checkBox11.Size = new System.Drawing.Size(14, 14);
             this.checkBox11.TabIndex = 57;
             this.checkBox11.UseVisualStyleBackColor = true;
             // 
@@ -488,7 +558,7 @@
             this.checkBox10.AutoSize = true;
             this.checkBox10.Location = new System.Drawing.Point(74, 213);
             this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(15, 14);
+            this.checkBox10.Size = new System.Drawing.Size(14, 14);
             this.checkBox10.TabIndex = 56;
             this.checkBox10.UseVisualStyleBackColor = true;
             // 
@@ -497,7 +567,7 @@
             this.checkBox9.AutoSize = true;
             this.checkBox9.Location = new System.Drawing.Point(74, 190);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(15, 14);
+            this.checkBox9.Size = new System.Drawing.Size(14, 14);
             this.checkBox9.TabIndex = 55;
             this.checkBox9.UseVisualStyleBackColor = true;
             // 
@@ -506,7 +576,7 @@
             this.checkBox8.AutoSize = true;
             this.checkBox8.Location = new System.Drawing.Point(74, 167);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(15, 14);
+            this.checkBox8.Size = new System.Drawing.Size(14, 14);
             this.checkBox8.TabIndex = 54;
             this.checkBox8.UseVisualStyleBackColor = true;
             // 
@@ -515,7 +585,7 @@
             this.checkBox7.AutoSize = true;
             this.checkBox7.Location = new System.Drawing.Point(74, 144);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(15, 14);
+            this.checkBox7.Size = new System.Drawing.Size(14, 14);
             this.checkBox7.TabIndex = 53;
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
@@ -524,7 +594,7 @@
             this.checkBox6.AutoSize = true;
             this.checkBox6.Location = new System.Drawing.Point(74, 121);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(15, 14);
+            this.checkBox6.Size = new System.Drawing.Size(14, 14);
             this.checkBox6.TabIndex = 52;
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
@@ -533,7 +603,7 @@
             this.checkBox5.AutoSize = true;
             this.checkBox5.Location = new System.Drawing.Point(74, 98);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(15, 14);
+            this.checkBox5.Size = new System.Drawing.Size(14, 14);
             this.checkBox5.TabIndex = 51;
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
@@ -542,7 +612,7 @@
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(74, 75);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(15, 14);
+            this.checkBox4.Size = new System.Drawing.Size(14, 14);
             this.checkBox4.TabIndex = 50;
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
@@ -551,7 +621,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Location = new System.Drawing.Point(74, 52);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(15, 14);
+            this.checkBox3.Size = new System.Drawing.Size(14, 14);
             this.checkBox3.TabIndex = 49;
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
@@ -560,7 +630,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(74, 29);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
+            this.checkBox2.Size = new System.Drawing.Size(14, 14);
             this.checkBox2.TabIndex = 48;
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
@@ -776,7 +846,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(74, 6);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
+            this.checkBox1.Size = new System.Drawing.Size(14, 14);
             this.checkBox1.TabIndex = 47;
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -823,17 +893,108 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Select User Group";
             // 
-            // tabPage1
+            // DoorGroups
             // 
-            this.tabPage1.Controls.Add(this.ReactivateCardTextbox);
-            this.tabPage1.Controls.Add(this.ReactivateCardButton);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(928, 697);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Misc";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.DoorGroups.Controls.Add(this.button2);
+            this.DoorGroups.Controls.Add(this.button1);
+            this.DoorGroups.Controls.Add(this.CreateDoorGroupButton);
+            this.DoorGroups.Location = new System.Drawing.Point(4, 22);
+            this.DoorGroups.Name = "DoorGroups";
+            this.DoorGroups.Padding = new System.Windows.Forms.Padding(3);
+            this.DoorGroups.Size = new System.Drawing.Size(928, 697);
+            this.DoorGroups.TabIndex = 3;
+            this.DoorGroups.Text = "Door Groups";
+            this.DoorGroups.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(212, 58);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Edit Group";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(70, 99);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Display Group";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // CreateDoorGroupButton
+            // 
+            this.CreateDoorGroupButton.Location = new System.Drawing.Point(70, 59);
+            this.CreateDoorGroupButton.Name = "CreateDoorGroupButton";
+            this.CreateDoorGroupButton.Size = new System.Drawing.Size(114, 23);
+            this.CreateDoorGroupButton.TabIndex = 0;
+            this.CreateDoorGroupButton.Text = "Create Door Group";
+            this.CreateDoorGroupButton.UseVisualStyleBackColor = true;
+            // 
+            // UserGroups
+            // 
+            this.UserGroups.Controls.Add(this.CreateUserButton);
+            this.UserGroups.Controls.Add(this.button3);
+            this.UserGroups.Controls.Add(this.button4);
+            this.UserGroups.Controls.Add(this.button5);
+            this.UserGroups.Location = new System.Drawing.Point(4, 22);
+            this.UserGroups.Name = "UserGroups";
+            this.UserGroups.Padding = new System.Windows.Forms.Padding(3);
+            this.UserGroups.Size = new System.Drawing.Size(928, 697);
+            this.UserGroups.TabIndex = 4;
+            this.UserGroups.Text = "User Groups";
+            this.UserGroups.UseVisualStyleBackColor = true;
+            // 
+            // CreateUserButton
+            // 
+            this.CreateUserButton.Location = new System.Drawing.Point(180, 70);
+            this.CreateUserButton.Name = "CreateUserButton";
+            this.CreateUserButton.Size = new System.Drawing.Size(75, 23);
+            this.CreateUserButton.TabIndex = 6;
+            this.CreateUserButton.Text = "Create User";
+            this.CreateUserButton.UseVisualStyleBackColor = true;
+            this.CreateUserButton.Click += new System.EventHandler(this.CreateUserButton_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(180, 29);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Edit Group";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(38, 70);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(97, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Display Group";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(38, 30);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(114, 23);
+            this.button5.TabIndex = 3;
+            this.button5.Text = "Create User Group";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // Misc
+            // 
+            this.Misc.Controls.Add(this.ReactivateCardTextbox);
+            this.Misc.Controls.Add(this.ReactivateCardButton);
+            this.Misc.Location = new System.Drawing.Point(4, 22);
+            this.Misc.Name = "Misc";
+            this.Misc.Padding = new System.Windows.Forms.Padding(3);
+            this.Misc.Size = new System.Drawing.Size(928, 697);
+            this.Misc.TabIndex = 2;
+            this.Misc.Text = "Misc";
+            this.Misc.UseVisualStyleBackColor = true;
             // 
             // ReactivateCardTextbox
             // 
@@ -852,42 +1013,7 @@
             this.ReactivateCardButton.TabIndex = 2;
             this.ReactivateCardButton.Text = "Reactivate Card";
             this.ReactivateCardButton.UseVisualStyleBackColor = true;
-            // 
-            // checkBox22
-            // 
-            this.checkBox22.AutoSize = true;
-            this.checkBox22.Location = new System.Drawing.Point(74, 489);
-            this.checkBox22.Name = "checkBox22";
-            this.checkBox22.Size = new System.Drawing.Size(15, 14);
-            this.checkBox22.TabIndex = 68;
-            this.checkBox22.UseVisualStyleBackColor = true;
-            // 
-            // checkBox23
-            // 
-            this.checkBox23.AutoSize = true;
-            this.checkBox23.Location = new System.Drawing.Point(74, 512);
-            this.checkBox23.Name = "checkBox23";
-            this.checkBox23.Size = new System.Drawing.Size(15, 14);
-            this.checkBox23.TabIndex = 69;
-            this.checkBox23.UseVisualStyleBackColor = true;
-            // 
-            // checkBox24
-            // 
-            this.checkBox24.AutoSize = true;
-            this.checkBox24.Location = new System.Drawing.Point(74, 535);
-            this.checkBox24.Name = "checkBox24";
-            this.checkBox24.Size = new System.Drawing.Size(15, 14);
-            this.checkBox24.TabIndex = 70;
-            this.checkBox24.UseVisualStyleBackColor = true;
-            // 
-            // UpdateTypicalWeekButton
-            // 
-            this.UpdateTypicalWeekButton.Location = new System.Drawing.Point(333, 43);
-            this.UpdateTypicalWeekButton.Name = "UpdateTypicalWeekButton";
-            this.UpdateTypicalWeekButton.Size = new System.Drawing.Size(133, 23);
-            this.UpdateTypicalWeekButton.TabIndex = 5;
-            this.UpdateTypicalWeekButton.Text = "Update Typical Week";
-            this.UpdateTypicalWeekButton.UseVisualStyleBackColor = true;
+            this.ReactivateCardButton.Click += new System.EventHandler(this.ReactivateCardButton_Click);
             // 
             // SupervisorInterface
             // 
@@ -912,8 +1038,10 @@
             this.PageUpdateCalendar.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.DoorGroups.ResumeLayout(false);
+            this.UserGroups.ResumeLayout(false);
+            this.Misc.ResumeLayout(false);
+            this.Misc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -929,7 +1057,7 @@
         private System.Windows.Forms.TextBox LastNameEntry;
         private System.Windows.Forms.TextBox FirstNameEntry;
         private System.Windows.Forms.Button CreateNewUserButton;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage Misc;
         private System.Windows.Forms.TextBox ReactivateCardTextbox;
         private System.Windows.Forms.Button ReactivateCardButton;
         private System.Windows.Forms.ListBox ListSelectUserGroup;
@@ -996,6 +1124,16 @@
         private System.Windows.Forms.CheckBox checkBox23;
         private System.Windows.Forms.CheckBox checkBox22;
         private System.Windows.Forms.Button UpdateTypicalWeekButton;
+        private System.Windows.Forms.TabPage DoorGroups;
+        private System.Windows.Forms.TabPage UserGroups;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button CreateDoorGroupButton;
+        private System.Windows.Forms.Button CreateUserButton;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label5;
     }
 
 }

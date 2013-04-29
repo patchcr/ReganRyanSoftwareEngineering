@@ -16,33 +16,40 @@ namespace ReganRyanSoftwareEngineering
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void SupervisorInterface_Load(object sender, EventArgs e) {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void CreateNewUserButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            groupBox3.Visible = true;
+        }
+
+        private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            groupBox1.Visible = true;
+        }
+
+        private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
+        {
+            groupBox2.Visible = true;
+        }
+
+        private void ReactivateCardButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void UpdateTypicalWeekButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click_1(object sender, EventArgs e)
+        private void CreateUserButton_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedIndex = 0;
 
         }
+
     }
 }
