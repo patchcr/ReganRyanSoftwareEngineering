@@ -11,11 +11,12 @@ namespace ReganRyanSoftwareEngineering
 {
     public partial class EntryPage : Form
     {
+        public CardReaderInstallation cri;
         public EntryPage()
         {
             InitializeComponent();
+            cri = new CardReaderInstallation();
         }
-
         private void AdminConsoleButton_Click(object sender, EventArgs e)
         {
             SupervisorInterface si = new SupervisorInterface();
@@ -31,6 +32,8 @@ namespace ReganRyanSoftwareEngineering
         private void CardReaderSelectorButton_Click(object sender, EventArgs e)
         {
             CardReaderSelector crs = new CardReaderSelector();
+            crs.Parent = this;
+            //crs.sendCardReaders(cri);
             crs.Show();
         }
     }

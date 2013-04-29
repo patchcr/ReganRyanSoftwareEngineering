@@ -272,8 +272,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.Misc = new System.Windows.Forms.TabPage();
-            this.ReactivateCardTextbox = new System.Windows.Forms.TextBox();
-            this.ReactivateCardButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -287,7 +285,6 @@
             this.EditDoorGroupBox.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.UserGroups.SuspendLayout();
-            this.Misc.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -642,7 +639,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -2812,8 +2809,6 @@
             // 
             // Misc
             // 
-            this.Misc.Controls.Add(this.ReactivateCardTextbox);
-            this.Misc.Controls.Add(this.ReactivateCardButton);
             this.Misc.Location = new System.Drawing.Point(4, 22);
             this.Misc.Name = "Misc";
             this.Misc.Padding = new System.Windows.Forms.Padding(3);
@@ -2821,25 +2816,6 @@
             this.Misc.TabIndex = 2;
             this.Misc.Text = "Misc";
             this.Misc.UseVisualStyleBackColor = true;
-            // 
-            // ReactivateCardTextbox
-            // 
-            this.ReactivateCardTextbox.Location = new System.Drawing.Point(26, 36);
-            this.ReactivateCardTextbox.Name = "ReactivateCardTextbox";
-            this.ReactivateCardTextbox.Size = new System.Drawing.Size(100, 20);
-            this.ReactivateCardTextbox.TabIndex = 3;
-            this.ReactivateCardTextbox.Text = "Card #";
-            // 
-            // ReactivateCardButton
-            // 
-            this.ReactivateCardButton.AutoEllipsis = true;
-            this.ReactivateCardButton.Location = new System.Drawing.Point(141, 36);
-            this.ReactivateCardButton.Name = "ReactivateCardButton";
-            this.ReactivateCardButton.Size = new System.Drawing.Size(101, 23);
-            this.ReactivateCardButton.TabIndex = 2;
-            this.ReactivateCardButton.Text = "Reactivate Card";
-            this.ReactivateCardButton.UseVisualStyleBackColor = true;
-            this.ReactivateCardButton.Click += new System.EventHandler(this.ReactivateCardButton_Click);
             // 
             // SupervisorInterface
             // 
@@ -2873,8 +2849,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.UserGroups.ResumeLayout(false);
-            this.Misc.ResumeLayout(false);
-            this.Misc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2891,8 +2865,6 @@
         private System.Windows.Forms.TextBox FirstNameEntry;
         private System.Windows.Forms.Button CreateNewUserButton;
         private System.Windows.Forms.TabPage Misc;
-        private System.Windows.Forms.TextBox ReactivateCardTextbox;
-        private System.Windows.Forms.Button ReactivateCardButton;
         private System.Windows.Forms.ListBox ListSelectUserGroup;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button ConfirmInfoPrintCard;

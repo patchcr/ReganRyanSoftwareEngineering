@@ -11,9 +11,26 @@ namespace ReganRyanSoftwareEngineering
 {
     public partial class CardReaderSelector : Form
     {
+        CardReaderInstallation crit;
         public CardReaderSelector()
         {
             InitializeComponent();
+        }
+        public void sendCardReaders(CardReaderInstallation cri)
+        {
+            this.crit = cri;
+        }
+
+        private void LaunchCardReader_Click(object sender, EventArgs e)
+        {
+            //Form b = this.Parent;
+            //b.
+            //Program.
+            //Form blah = ReganRyanSoftwareEngineering.EntryPage.ActiveForm;
+            //CardReaderInstallation crit = new CardReaderInstallation();
+            crit = (CardReaderInstallation)this.Parent;
+            CardReaderPanel crp = new CardReaderPanel(crit.getCardReaderbyID("1234"));
+            crp.Show();
         }
     }
 }

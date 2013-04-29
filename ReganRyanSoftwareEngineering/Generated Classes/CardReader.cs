@@ -25,6 +25,11 @@ namespace ReganRyanSoftwareEngineering {
             alarmState = false;
         }
 
+        public string getName()
+        {
+            return this.name;
+        }
+
         public void TurnAlarmTimerOn() {
             alarmState = true;
         }

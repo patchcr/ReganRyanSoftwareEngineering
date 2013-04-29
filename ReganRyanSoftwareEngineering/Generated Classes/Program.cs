@@ -13,7 +13,8 @@ namespace ReganRyanSoftwareEngineering {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EntryPage());
+            EntryPage ep = new EntryPage();
+            Application.Run(ep);
         }
     }
 

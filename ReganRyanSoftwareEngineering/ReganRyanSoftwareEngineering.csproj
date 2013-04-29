@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardReaderPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CardReaderPanel.Designer.cs">
+      <DependentUpon>CardReaderPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="CardReaderInstallation.cs" />
     <Compile Include="CardReaderSelector.cs">
       <SubType>Form</SubType>
@@ -112,12 +118,9 @@
     <Compile Include="Generated Classes\TypicalDay.cs" />
     <Compile Include="Generated Classes\TypicalWeek.cs" />
     <Compile Include="Generated Classes\UpdateCalendarController.cs" />
-    <Compile Include="UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="CardReaderPanel.resx">
+      <DependentUpon>CardReaderPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CardReaderSelector.resx">
       <DependentUpon>CardReaderSelector.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,9 +142,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="Properties\DataSources\CardReaderSelector.datasource" />
+    <None Include="Properties\DataSources\PersonGroup.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
