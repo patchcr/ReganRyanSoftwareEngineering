@@ -13,6 +13,21 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -33,6 +48,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ReganRyanSoftwareEngineering.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +65,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CardReaderInstallation.cs" />
+    <Compile Include="CardReaderSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CardReaderSelector.Designer.cs">
+      <DependentUpon>CardReaderSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntryPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryPage.Designer.cs">
+      <DependentUpon>EntryPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Generated Classes\Calendar.cs" />
     <Compile Include="Generated Classes\Card.cs" />
     <Compile Include="Generated Classes\CardCreationController.cs" />
@@ -58,6 +88,12 @@
     <Compile Include="Generated Classes\DoorGroup.cs" />
     <Compile Include="Generated Classes\DoorInterface.cs" />
     <Compile Include="Generated Classes\Event.cs" />
+    <Compile Include="SecurityConsoleInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecurityConsoleInterface.Designer.cs">
+      <DependentUpon>SecurityConsoleInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupervisorInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +118,15 @@
     <Compile Include="UserControl1.Designer.cs">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CardReaderSelector.resx">
+      <DependentUpon>CardReaderSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntryPage.resx">
+      <DependentUpon>EntryPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecurityConsoleInterface.resx">
+      <DependentUpon>SecurityConsoleInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupervisorInterface.resx">
       <DependentUpon>SupervisorInterface.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +151,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
