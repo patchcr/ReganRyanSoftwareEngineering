@@ -1,10 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class PageCardCreation {
-
-        public void PageCardCreation() {
-
-        }
+    public class PageCardCreation {
 
         public void Display(object cardNumber) {
 

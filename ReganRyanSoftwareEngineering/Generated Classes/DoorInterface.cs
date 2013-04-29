@@ -7,7 +7,7 @@
 
 namespace ReganRyanSoftwareEngineering
 {
-    private class DoorInterface
+    public class DoorInterface
     {
 
 

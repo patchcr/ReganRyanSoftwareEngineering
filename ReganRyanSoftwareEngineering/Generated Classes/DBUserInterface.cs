@@ -2,7 +2,7 @@
 
 namespace ReganRyanSoftwareEngineering {
 
-    private class DBUserInterface {
+    public class DBUserInterface {
 
         private static DBUserInterface instance = new DBUserInterface();
 

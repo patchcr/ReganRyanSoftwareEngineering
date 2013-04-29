@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class CardReader {
+    public class CardReader {
 
         private string name;
 

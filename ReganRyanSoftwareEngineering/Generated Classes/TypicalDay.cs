@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class TypicalDay {
+    public class TypicalDay {
 
         private object name;
 

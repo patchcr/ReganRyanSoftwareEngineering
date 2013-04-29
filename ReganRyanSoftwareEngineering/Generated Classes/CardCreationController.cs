@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class CardCreationController {
+    public class CardCreationController {
 
         public void StartCardCreation() {
 

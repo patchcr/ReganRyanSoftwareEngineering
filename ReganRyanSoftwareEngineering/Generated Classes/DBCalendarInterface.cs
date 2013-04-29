@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class DBCalendarInterface {
+    public class DBCalendarInterface {
 
         public void RetrieveCalendar(object personGroup, object doorGroup) {
 

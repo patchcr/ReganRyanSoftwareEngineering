@@ -1,26 +1,9 @@
-﻿
+﻿namespace ReganRyanSoftwareEngineering {
 
+    public class PageRegistrationConfirmation {
 
+        public void Display() {
 
-
-
-
-namespace ReganRyanSoftwareEngineering
-{
-    private class PageRegistrationConfirmation
-    {
-
-
-
-
-        public void PageRegistrationConfirmation ()        
-        {
-            
-        }
-
-        public void Display ()        
-        {
-            
         }
 
     }

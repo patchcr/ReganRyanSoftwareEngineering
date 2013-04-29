@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class ExceptionDay : TypicalDay {
+    public class ExceptionDay : TypicalDay {
 
         private object date;
 

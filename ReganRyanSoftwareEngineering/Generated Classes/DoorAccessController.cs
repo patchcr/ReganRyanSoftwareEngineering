@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class DoorAccessController {
+    public class DoorAccessController {
 
         public void PasswordValidationRequest() {
 

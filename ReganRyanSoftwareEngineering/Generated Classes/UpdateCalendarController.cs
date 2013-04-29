@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class UpdateCalendarController {
+    public class UpdateCalendarController {
 
         public void StartUpdateCalendar() {
 

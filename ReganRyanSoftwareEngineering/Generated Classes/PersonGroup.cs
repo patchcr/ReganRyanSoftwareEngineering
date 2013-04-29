@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class PersonGroup {
+    public class PersonGroup {
 
         private object code;
 

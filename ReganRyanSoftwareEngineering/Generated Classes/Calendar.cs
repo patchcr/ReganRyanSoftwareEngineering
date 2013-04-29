@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class Calendar {
+    public class Calendar {
 
         private int number;
 

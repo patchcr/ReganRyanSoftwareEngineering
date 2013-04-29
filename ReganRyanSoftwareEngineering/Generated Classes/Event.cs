@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class Event {
+    public class Event {
 
         private object number;
 

@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class TypicalWeek {
+    public class TypicalWeek {
 
         private object code;
 

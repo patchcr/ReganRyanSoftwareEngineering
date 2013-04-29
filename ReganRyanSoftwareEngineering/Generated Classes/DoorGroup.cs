@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class DoorGroup {
+    public class DoorGroup {
 
         private object code;
 

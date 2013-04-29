@@ -1,10 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class PageUpdateCalendar {
-
-        public void PageUpdateCalendar() {
-
-        }
+    public class PageUpdateCalendar {
 
         public void Display() {
 

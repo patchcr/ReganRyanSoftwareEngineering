@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class TimeSlot {
+    public class TimeSlot {
 
         private object startHour;
 

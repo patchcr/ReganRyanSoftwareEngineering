@@ -2,7 +2,7 @@
 
 namespace ReganRyanSoftwareEngineering {
 
-    private class Card {
+    public class Card {
 
         private int cardNumber;
 

@@ -1,6 +1,6 @@
 ﻿namespace ReganRyanSoftwareEngineering {
 
-    private class MainPage {
+    public class MainPage {
 
         public void ChooseCardCreation() {
 

@@ -2,7 +2,7 @@
 
 namespace ReganRyanSoftwareEngineering {
 
-    private class Person {
+    public class Person {
 
         private int id;
 
@@ -11,6 +11,8 @@ namespace ReganRyanSoftwareEngineering {
         private string lastName;
 
         private string password;
+
+        private Card card;
 
         private HashSet<PersonGroup> personGroups;
 
@@ -33,7 +35,7 @@ namespace ReganRyanSoftwareEngineering {
             get { return lastName;  }
         }
 
-        public override bool Equals(Person p) {
+        public bool Equals(Person p) {
             return p.ID == ID;
         }
 
