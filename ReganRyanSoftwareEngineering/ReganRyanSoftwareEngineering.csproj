@@ -69,12 +69,8 @@
     </Compile>
     <Compile Include="Generated Classes\InterfacePrinter.cs" />
     <Compile Include="Generated Classes\MainPage.cs" />
-    <Compile Include="Generated Classes\PageCardCreation.cs" />
-    <Compile Include="Generated Classes\PageInputPassword.cs" />
     <Compile Include="Generated Classes\PageNotificationMsg.cs" />
     <Compile Include="Generated Classes\PageRegistrationConfirmation.cs" />
-    <Compile Include="Generated Classes\PageSavedInfoConfirmation.cs" />
-    <Compile Include="Generated Classes\PageUpdateCalendar.cs" />
     <Compile Include="Generated Classes\Person.cs" />
     <Compile Include="Generated Classes\PersonGroup.cs" />
     <Compile Include="Generated Classes\Program.cs" />
