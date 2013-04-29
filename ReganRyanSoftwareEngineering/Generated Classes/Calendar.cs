@@ -13,8 +13,13 @@ namespace ReganRyanSoftwareEngineering {
             this.week = week;
         }
 
-        public void ModifyCalendarDay(TypicalDay date) {
+        public TypicalWeek getTypicalWeek()
+        {
+            return this.week;
+        }
 
+        public void ModifyTypicalWeek(TypicalWeek week) {
+            this.week = week;
         }
 
         public void ValidateDate(DateTime date) {

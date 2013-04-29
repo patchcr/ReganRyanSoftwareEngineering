@@ -23,6 +23,7 @@ namespace ReganRyanSoftwareEngineering
         private void CreateNewUserButton_MouseClick(object sender, MouseEventArgs e)
         {
             groupBox3.Visible = true;
+            label15.Text = FirstNameEntry.Text;
         }
 
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
@@ -42,7 +43,34 @@ namespace ReganRyanSoftwareEngineering
 
         private void UpdateTypicalWeekButton_Click(object sender, EventArgs e)
         {
-
+            PersonGroup usergroup = (PersonGroup)ListSelectUserGroup2.SelectedItem;
+            DoorGroup doorgroup = (DoorGroup)ListSelectDoorGroup.SelectedItem;
+            DBCalendarInterface dbcal = DBCalendarInterface.GetInstance();
+            Calendar cal = dbcal.RetrieveCalendar(usergroup, doorgroup);
+            TypicalWeek week = cal.getTypicalWeek();
+            CheckBox check;
+            for (int i = 0; i < 7; i++)
+            {
+                // 4/28/2013 is a Sunday
+                TypicalDay dayOfWeek = week.ReadDay(new DateTime(2013, 4, 28+i));
+                TimeSlot[] ts = dayOfWeek.timeSlots;
+                for (int j = 0; j < 24; j++)
+                {
+                    check = (CheckBox)this.tableLayoutPanel1.Controls.Container.GetControlFromPosition(i+1, j);
+                    if (check.Checked)
+                    {
+                        ts[i].GrantAccess();
+                    }
+                    else
+                    {
+                        ts[i].RevokeAccess();
+                    }
+                }
+                dayOfWeek.timeSlots = ts;
+                week.setTypicalDay(dayOfWeek, i);
+            }
+            cal.ModifyTypicalWeek(week);
+            // I think we need to send cal back to the dbCalendarInterface for storage?
         }
 
         private void CreateUserButton_Click(object sender, EventArgs e)
@@ -61,5 +89,6 @@ namespace ReganRyanSoftwareEngineering
             EditDoorGroupBox.Visible = true;
         }
 
+ 
     }
 }

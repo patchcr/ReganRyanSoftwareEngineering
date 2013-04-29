@@ -59,15 +59,12 @@
     <Compile Include="Generated Classes\DoorGroup.cs" />
     <Compile Include="Generated Classes\DoorInterface.cs" />
     <Compile Include="Generated Classes\Event.cs" />
-    <Compile Include="Generated Classes\ExceptionDay.cs" />
-    <Compile Include="Generated Classes\ExceptionTimeSlot.cs" />
     <Compile Include="SupervisorInterface.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SupervisorInterface.Designer.cs">
       <DependentUpon>SupervisorInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generated Classes\InterfacePrinter.cs" />
     <Compile Include="Generated Classes\MainPage.cs" />
     <Compile Include="Generated Classes\PageNotificationMsg.cs" />
     <Compile Include="Generated Classes\PageRegistrationConfirmation.cs" />
