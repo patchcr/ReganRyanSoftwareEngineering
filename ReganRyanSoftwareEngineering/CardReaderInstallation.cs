@@ -13,8 +13,8 @@ namespace ReganRyanSoftwareEngineering {
             cardReaders = new Dictionary<string, CardReader>();
         }
 
-        public void AddCardReader(string name, string nat) {
-            cardReaders.Add(name, new CardReader(name, nat));
+        public void AddCardReader(string name, string nat, Door door) {
+            cardReaders.Add(name, new CardReader(name, nat, door));
         }
 
     }
