@@ -1,27 +1,32 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System;
+
+namespace ReganRyanSoftwareEngineering {
 
     private class Card {
 
-        private object cardNumber;
+        private int cardNumber;
 
-        private object creationDate;
+        private DateTime creationDate;
 
-        private object activationStatus;
+        private bool activationStatus;
 
-        public void CreateCard() {
-
+        public Card() {
+            this.cardNumber = GenerateCardNumber();
+            creationDate = new DateTime();
+            activationStatus = true;
         }
 
         public void ActivateCard() {
-
+            activationStatus = true;
         }
 
         public void DeactivateCard() {
-
+            activationStatus = false;
         }
 
-        public void GenerateCardNumber() {
-
+        private int GenerateCardNumber() {
+            Random random = new Random();
+            return random.Next(Int32.MaxValue);
         }
 
     }

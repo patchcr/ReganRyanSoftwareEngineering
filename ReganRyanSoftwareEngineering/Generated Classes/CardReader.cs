@@ -1,23 +1,31 @@
 ﻿namespace ReganRyanSoftwareEngineering {
+
     private class CardReader {
 
+        private string name;
 
-        private object networkAddress;
+        private string networkAddress;
 
-        private object alarmTimer;
+        private int alarmTimer;
 
-        private object alarmState;
+        private bool alarmState;
 
         private object timeKeeper;
 
         private object activityMode;
 
-        public void TurnAlarmTimerOn() {
+        public CardReader(string name, string networdAddress) {
+            this.name = name;
+            this.networkAddress = networdAddress;
+            alarmState = false;
+        }
 
+        public void TurnAlarmTimerOn() {
+            alarmState = true;
         }
 
         public void TurnAlarmTimerOff() {
-
+            alarmState = false;
         }
 
         public void ActiveMode() {
@@ -73,4 +81,5 @@
         }
 
     }
+
 }

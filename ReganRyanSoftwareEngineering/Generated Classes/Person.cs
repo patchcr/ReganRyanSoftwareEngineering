@@ -1,39 +1,60 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System.Collections.Generic;
+
+namespace ReganRyanSoftwareEngineering {
 
     private class Person {
 
-        private object ID;
+        private int id;
 
-        private object firstName;
+        private string firstName;
 
-        private object lastName;
+        private string lastName;
 
-        private object profile;
+        private string password;
 
-        private object password;
+        private HashSet<PersonGroup> personGroups;
 
-        public void CreatePerson() {
-
+        public Person(int id, string firstName, string lastName, string password) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.password = password;
         }
 
-        public void VerifyExistence() {
-
+        public int ID {
+            get { return id; }
         }
 
-        public void ValidatePassword() {
+        public string FirstName {
+            get { return firstName; }
+        }
 
+        public string LastName {
+            get { return lastName;  }
+        }
+
+        public override bool Equals(Person p) {
+            return p.ID == ID;
+        }
+
+        public bool VerifyExistence() {
+            return DBUserInterface.GetInstance().VerifyExistence(this);
+        }
+
+        public bool ValidatePassword(string pass) {
+            return pass.Equals(password);
         }
 
         public void SaveInfo() {
-
+            DBUserInterface.GetInstance().Save(this);
         }
 
-        public void SavePassword() {
-
+        public void SavePassword(string password) {
+            this.password = password;
         }
 
-        public void FindPersonGroups() {
-
+        public HashSet<PersonGroup> FindPersonGroups() {
+            return personGroups;
         }
 
     }

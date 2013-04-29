@@ -2,7 +2,7 @@
 
     private class CalendarWeek {
 
-        private object number;
+        private int number;
 
     }
 

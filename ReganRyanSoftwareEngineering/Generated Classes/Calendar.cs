@@ -2,11 +2,9 @@
 
     private class Calendar {
 
-        private object number;
+        private int number;
 
-        private object year;
-
-
+        private int year;
 
         public void CreateCalendar() {
 
