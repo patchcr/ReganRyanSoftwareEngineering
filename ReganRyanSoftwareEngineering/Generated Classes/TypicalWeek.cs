@@ -1,15 +1,21 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System.Collections.Generic;
+using System;
+
+namespace ReganRyanSoftwareEngineering {
 
     public class TypicalWeek {
 
-        private object code;
+        private string code;
 
-        public void ReadDay(object date) {
+        private TypicalDay[] days;
 
+        public TypicalWeek(string code) {
+            days = new TypicalDay[7];
         }
 
-        public void DetermineDay(object date) {
-
+        public TypicalDay ReadDay(DateTime date) {
+            Console.WriteLine((int)date.DayOfWeek);
+            return days[(int)date.DayOfWeek];
         }
 
         public void SaveModificationInWeek() {

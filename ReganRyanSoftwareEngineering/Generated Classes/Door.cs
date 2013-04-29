@@ -2,30 +2,45 @@
 
     public class Door {
 
-        private object number;
+        private int number;
 
-        private object closeState;
+        private bool closeState;
 
-        private object lockState;
+        private bool lockState;
+
+        private DoorGroup doorGroup;
+
+        public Door(int number, DoorGroup doorGroup) {
+            this.number = number;
+            this.doorGroup = doorGroup;
+        }
+
+        public bool CloseState {
+            get { return closeState; }
+        }
+
+        public bool LockState {
+            get { return lockState; }
+        }
 
         public void OpenDoor() {
-
+            closeState = false;
         }
 
         public void CloseDoor() {
-
+            closeState = true;
         }
 
         public void Unlock() {
-
+            lockState = false;
         }
 
         public void Lock() {
-
+            lockState = true;
         }
 
-        public void FindDoorGroup() {
-
+        public DoorGroup FindDoorGroup() {
+            return doorGroup;
         }
 
     }

@@ -1,11 +1,19 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System.Collections.Generic;
+
+namespace ReganRyanSoftwareEngineering {
 
     public class TypicalDay {
 
-        private object name;
+        private string name;
 
-        public void ReadSlots() {
+        public TimeSlot[] timeSlots;
 
+        public TypicalDay() {
+            timeSlots = new TimeSlot[24];
+        }
+
+        public TimeSlot[] ReadSlots() {
+            return timeSlots;
         }
 
     }

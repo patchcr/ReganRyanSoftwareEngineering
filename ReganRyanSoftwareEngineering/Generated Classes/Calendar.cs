@@ -1,33 +1,32 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System;
+
+namespace ReganRyanSoftwareEngineering {
 
     public class Calendar {
 
-        private int number;
-
         private int year;
 
-        public void CreateCalendar() {
+        private TypicalWeek week;
+
+        public Calendar(int year, TypicalWeek week) {
+            this.year = year;
+            this.week = week;
+        }
+
+        public void ModifyCalendarDay(TypicalDay date) {
 
         }
 
-        public void ModifyCalendarDay(object date) {
-
-        }
-
-        public void ValidateDate(object date) {
-
-        }
-
-        public void DetermineWeek() {
-
+        public void ValidateDate(DateTime date) {
+            
         }
 
         public void SaveModificationInCalendar() {
 
         }
 
-        public void ValidateAccess(object date, object accessHour) {
-
+        public bool ValidateAccess(DateTime date, int accessHour) {
+            return week.ReadDay(date).ReadSlots()[accessHour].ReadAccessPermission();
         }
 
     }

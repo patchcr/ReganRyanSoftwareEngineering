@@ -16,11 +16,14 @@ namespace ReganRyanSoftwareEngineering {
 
         private HashSet<PersonGroup> personGroups;
 
-        public Person(int id, string firstName, string lastName, string password) {
+        public Person(int id, string firstName, string lastName, 
+            string password, HashSet<PersonGroup> personGroups) {
+
             this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.password = password;
+            this.personGroups = personGroups;
         }
 
         public int ID {

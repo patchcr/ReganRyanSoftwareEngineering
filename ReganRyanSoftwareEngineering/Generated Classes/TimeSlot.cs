@@ -2,22 +2,30 @@
 
     public class TimeSlot {
 
-        private object startHour;
+        private int startHour;
 
-        private object endHour;
+        private int endHour;
 
-        private object accessPermission;
+        private bool accessPermission;
+
+        public int StartHour {
+            get { return startHour; }
+        }
+
+        public int EndHour {
+            get { return endHour; }
+        }
 
         public void GrantAccess() {
-
+            accessPermission = true;
         }
 
         public void RevokeAccess() {
-
+            accessPermission = false;
         }
 
-        public void ReadAccessPermission() {
-
+        public bool ReadAccessPermission() {
+            return accessPermission;
         }
 
     }

@@ -1,6 +1,13 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System.Collections.Generic;
+using System;
+
+namespace ReganRyanSoftwareEngineering {
 
     public class DoorAccessController {
+
+        public DoorAccessController() {
+            
+        }
 
         public void PasswordValidationRequest() {
 
@@ -14,12 +21,12 @@
 
         }
 
-        public void AccessPermissionsValidationRequest(object date, object accessHour, object personGroups, object doorGroup) {
+        public void AccessPermissionsValidationRequest(DateTime date, int accessHour, List<PersonGroup> personGroups, DoorGroup doorGroup) {
 
         }
 
-        public void GetCalendar(object personGroup, object doorGroup) {
-
+        public Calendar GetCalendar(PersonGroup personGroup, DoorGroup doorGroup) {
+            return DBCalendarInterface.GetInstance().RetrieveCalendar(personGroup, doorGroup);
         }
 
         public void DoorUnlockRequest() {
