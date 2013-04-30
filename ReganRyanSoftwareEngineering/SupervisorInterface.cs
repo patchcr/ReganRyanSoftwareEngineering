@@ -11,28 +11,35 @@ namespace ReganRyanSoftwareEngineering
 {
     public partial class SupervisorInterface : Form
     {
+        private Person personCreated;
+
         public SupervisorInterface()
         {
             InitializeComponent();
+
         }
 
         private void SupervisorInterface_Load(object sender, EventArgs e) {
-
+            
         }
 
         private void CreateNewUserButton_MouseClick(object sender, MouseEventArgs e)
         {
+            Random rand = new Random(1234);
+            int pid = rand.Next(100);
+            personCreated = new Person(pid, FirstNameEntry.Text, LastNameEntry.Text, "", null);
             groupBox3.Visible = true;
-            label15.Text = FirstNameEntry.Text;
         }
 
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
         {
+            personCreated.SavePassword(EnterPasswordMaskedText.Text);
             groupBox1.Visible = true;
         }
 
         private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
         {
+            label15.Text = FirstNameEntry.Text;
             groupBox2.Visible = true;
         }
 

@@ -32,8 +32,6 @@ namespace ReganRyanSoftwareEngineering
         private void CardReaderSelectorButton_Click(object sender, EventArgs e)
         {
             CardReaderSelector crs = new CardReaderSelector();
-            crs.Parent = this;
-            //crs.sendCardReaders(cri);
             crs.Show();
         }
     }

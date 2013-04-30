@@ -23,12 +23,7 @@ namespace ReganRyanSoftwareEngineering
 
         private void LaunchCardReader_Click(object sender, EventArgs e)
         {
-            //Form b = this.Parent;
-            //b.
-            //Program.
-            //Form blah = ReganRyanSoftwareEngineering.EntryPage.ActiveForm;
-            //CardReaderInstallation crit = new CardReaderInstallation();
-            crit = (CardReaderInstallation)this.Parent;
+            CardReaderInstallation crit = new CardReaderInstallation();
             CardReaderPanel crp = new CardReaderPanel(crit.getCardReaderbyID("1234"));
             crp.Show();
         }

@@ -58,6 +58,11 @@ namespace ReganRyanSoftwareEngineering {
             this.password = password;
         }
 
+        public void SavePersonGroups(HashSet<PersonGroup> personGroups)
+        {
+            this.personGroups = personGroups;
+        }
+
         public HashSet<PersonGroup> FindPersonGroups() {
             return personGroups;
         }
