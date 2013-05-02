@@ -77,6 +77,8 @@
     <Compile Include="CardReaderSelector.Designer.cs">
       <DependentUpon>CardReaderSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generated Classes\DBCardInterface.cs" />
+    <Compile Include="Generated Classes\DBCardReaderInterface.cs" />
     <Compile Include="EntryPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,9 +108,6 @@
     <Compile Include="SupervisorInterface.Designer.cs">
       <DependentUpon>SupervisorInterface.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generated Classes\MainPage.cs" />
-    <Compile Include="Generated Classes\PageNotificationMsg.cs" />
-    <Compile Include="Generated Classes\PageRegistrationConfirmation.cs" />
     <Compile Include="Generated Classes\Person.cs" />
     <Compile Include="Generated Classes\PersonGroup.cs" />
     <Compile Include="Generated Classes\Program.cs" />

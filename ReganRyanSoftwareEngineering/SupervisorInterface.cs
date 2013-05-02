@@ -23,6 +23,9 @@ namespace ReganRyanSoftwareEngineering
             
         }
 
+        /************************
+         * Create New User Tab *
+         * *********************/
         private void CreateNewUserButton_MouseClick(object sender, MouseEventArgs e)
         {
             Random rand = new Random(1234);
@@ -30,24 +33,24 @@ namespace ReganRyanSoftwareEngineering
             personCreated = new Person(pid, FirstNameEntry.Text, LastNameEntry.Text, "", null);
             groupBox3.Visible = true;
         }
-
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
         {
             personCreated.SavePassword(EnterPasswordMaskedText.Text);
             groupBox1.Visible = true;
         }
-
         private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
         {
             label15.Text = FirstNameEntry.Text;
             groupBox2.Visible = true;
         }
-
-        private void ReactivateCardButton_Click(object sender, EventArgs e)
+        private void ConfirmInfoPrintCard_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("New User Successfully Created. Card is Printing.");
         }
 
+        /***********************
+         * Update Calendar Tab *
+         * *********************/
         private void UpdateTypicalWeekButton_Click(object sender, EventArgs e)
         {
             PersonGroup usergroup = (PersonGroup)ListSelectUserGroup2.SelectedItem;
@@ -80,6 +83,15 @@ namespace ReganRyanSoftwareEngineering
             // I think we need to send cal back to the dbCalendarInterface for storage?
         }
 
+        /*******************
+         * Door Groups Tab *
+         * *****************/
+        private void DoorGroups_Layout(object sender, LayoutEventArgs e)
+        {
+            // TODO Use this function to populate the list boxes.
+
+        }
+
         private void CreateUserButton_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 0;
@@ -95,6 +107,13 @@ namespace ReganRyanSoftwareEngineering
         {
             EditDoorGroupBox.Visible = true;
         }
+
+        private void ReactivateCardButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
 
  
     }

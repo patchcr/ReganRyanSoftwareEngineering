@@ -11,34 +11,50 @@ namespace ReganRyanSoftwareEngineering
 {
     public partial class CardReaderPanel : Form
     {
+        private CardReader currentReader;
+        private DateTime currentTime;
+        private DBCardInterface dbcard;
+        
         public CardReaderPanel()
         {
             InitializeComponent();
         }
-        public CardReaderPanel(CardReader cr)
+        public CardReaderPanel(CardReader cr, DateTime date)
         {
             InitializeComponent();
+            dbcard = DBCardInterface.GetInstance();
+            currentReader = cr;
+            currentTime = date;
             ReaderNameLabel.Text = cr.getName();
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-            // TODO: Find a real alert dialog for rejected input.
-            ThreadExceptionDialog al = new ThreadExceptionDialog(new Exception("Alert, Invalid Password"));
-            al.ShowDialog();
-        }
-
-        private void SubmitPasswordButton_Click(object sender, EventArgs e)
-        {
-            // At some point we want to show message if password was correct.
-            groupBox3.Visible = true;
+            // NOTE for date formating "g" was found here: http://msdn.microsoft.com/en-us/library/zdtaw1bw.aspx
+            DateTimeLabel.Text = date.ToString("g");
         }
 
         private void SwipeButton_Click(object sender, EventArgs e)
         {
-            // If the Card Number is valid we want to show the password entry
-            groupBox2.Visible = true;
+            // TODO We should convert this CardNumberTextBox to a masked field or test that the Text does not contain anything but numbers.
+            if (dbcard.ValidateCard(CardNumberTextBox.Text))
+            {
+                groupBox2.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Invalid Card Number. Please try again");
+            }
         }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            MessageBox.Show("Invalid Password Entry. The password must be 4 numbers. No other characters are allowed.");
+        }
+
+        private void SubmitPasswordButton_Click(object sender, EventArgs e)
+        {
+            // TODO Logic for checking to see if the password was correct.  All we have is the cardNumber and password. So some reverse lookup is needed.
+            groupBox3.Visible = true;
+        }
+
+        
 
 
     }

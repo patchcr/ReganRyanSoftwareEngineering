@@ -40,24 +40,29 @@
             this.EnterPasswordTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.DateTimeLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 22);
+            this.label1.Location = new System.Drawing.Point(13, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Card Reader";
+            this.label1.Text = "Card Reader:";
             // 
             // ReaderNameLabel
             // 
             this.ReaderNameLabel.AutoSize = true;
-            this.ReaderNameLabel.Location = new System.Drawing.Point(118, 22);
+            this.ReaderNameLabel.Location = new System.Drawing.Point(89, 0);
             this.ReaderNameLabel.Name = "ReaderNameLabel";
             this.ReaderNameLabel.Size = new System.Drawing.Size(35, 13);
             this.ReaderNameLabel.TabIndex = 1;
@@ -162,16 +167,51 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Door Unlocked!";
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Date and Time:";
+            // 
+            // DateTimeLabel
+            // 
+            this.DateTimeLabel.AutoSize = true;
+            this.DateTimeLabel.Location = new System.Drawing.Point(89, 20);
+            this.DateTimeLabel.Name = "DateTimeLabel";
+            this.DateTimeLabel.Size = new System.Drawing.Size(35, 13);
+            this.DateTimeLabel.TabIndex = 9;
+            this.DateTimeLabel.Text = "label6";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57F));
+            this.tableLayoutPanel1.Controls.Add(this.DateTimeLabel, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ReaderNameLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 12);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 41);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
             // CardReaderPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(267, 388);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.ReaderNameLabel);
-            this.Controls.Add(this.label1);
             this.Name = "CardReaderPanel";
             this.Text = "CardReader";
             this.groupBox1.ResumeLayout(false);
@@ -180,8 +220,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -199,5 +240,8 @@
         private System.Windows.Forms.MaskedTextBox EnterPasswordTextBox;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label DateTimeLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -67,6 +67,13 @@ namespace ReganRyanSoftwareEngineering {
             return personGroups;
         }
 
+        // TODO is this method necessary?
+        public void AssociateCard(Card card)
+        {
+            this.card = card;
+            this.card.SetPersonID(id);
+        }
+
     }
 
 }

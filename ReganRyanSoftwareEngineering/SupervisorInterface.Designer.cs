@@ -255,23 +255,24 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DoorGroups = new System.Windows.Forms.TabPage();
             this.EditDoorGroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SaveEditedDoorGroupButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.InEditExistingDoorsList = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.NewDoorGroupNameTextbox = new System.Windows.Forms.TextBox();
+            this.ExistingDoorsList = new System.Windows.Forms.ListBox();
             this.CreateDoorGroupButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ExistDoorGroupsList = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.EditDoorGroupButton = new System.Windows.Forms.Button();
             this.UserGroups = new System.Windows.Forms.TabPage();
             this.CreateUserButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.Misc = new System.Windows.Forms.TabPage();
+            this.label37 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -285,6 +286,7 @@
             this.EditDoorGroupBox.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.UserGroups.SuspendLayout();
+            this.Misc.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -552,6 +554,7 @@
             this.ConfirmInfoPrintCard.TabIndex = 1;
             this.ConfirmInfoPrintCard.Text = "Confirm and Print";
             this.ConfirmInfoPrintCard.UseVisualStyleBackColor = true;
+            this.ConfirmInfoPrintCard.Click += new System.EventHandler(this.ConfirmInfoPrintCard_Click);
             // 
             // PersonInfoDisplay
             // 
@@ -639,7 +642,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -2630,9 +2633,9 @@
             this.DoorGroups.Controls.Add(this.EditDoorGroupBox);
             this.DoorGroups.Controls.Add(this.groupBox5);
             this.DoorGroups.Controls.Add(this.label9);
-            this.DoorGroups.Controls.Add(this.listBox1);
+            this.DoorGroups.Controls.Add(this.ExistDoorGroupsList);
             this.DoorGroups.Controls.Add(this.label7);
-            this.DoorGroups.Controls.Add(this.button2);
+            this.DoorGroups.Controls.Add(this.EditDoorGroupButton);
             this.DoorGroups.Location = new System.Drawing.Point(4, 22);
             this.DoorGroups.Name = "DoorGroups";
             this.DoorGroups.Padding = new System.Windows.Forms.Padding(3);
@@ -2640,12 +2643,13 @@
             this.DoorGroups.TabIndex = 3;
             this.DoorGroups.Text = "Door Groups";
             this.DoorGroups.UseVisualStyleBackColor = true;
+            this.DoorGroups.Layout += new System.Windows.Forms.LayoutEventHandler(this.DoorGroups_Layout);
             // 
             // EditDoorGroupBox
             // 
-            this.EditDoorGroupBox.Controls.Add(this.button1);
+            this.EditDoorGroupBox.Controls.Add(this.SaveEditedDoorGroupButton);
             this.EditDoorGroupBox.Controls.Add(this.label11);
-            this.EditDoorGroupBox.Controls.Add(this.listBox3);
+            this.EditDoorGroupBox.Controls.Add(this.InEditExistingDoorsList);
             this.EditDoorGroupBox.Location = new System.Drawing.Point(426, 31);
             this.EditDoorGroupBox.Name = "EditDoorGroupBox";
             this.EditDoorGroupBox.Size = new System.Drawing.Size(200, 189);
@@ -2654,14 +2658,14 @@
             this.EditDoorGroupBox.Text = "Edit Group";
             this.EditDoorGroupBox.Visible = false;
             // 
-            // button1
+            // SaveEditedDoorGroupButton
             // 
-            this.button1.Location = new System.Drawing.Point(6, 150);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SaveEditedDoorGroupButton.Location = new System.Drawing.Point(6, 150);
+            this.SaveEditedDoorGroupButton.Name = "SaveEditedDoorGroupButton";
+            this.SaveEditedDoorGroupButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveEditedDoorGroupButton.TabIndex = 2;
+            this.SaveEditedDoorGroupButton.Text = "Save";
+            this.SaveEditedDoorGroupButton.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -2672,18 +2676,18 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Select Doors";
             // 
-            // listBox3
+            // InEditExistingDoorsList
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(6, 47);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(120, 95);
-            this.listBox3.TabIndex = 0;
+            this.InEditExistingDoorsList.FormattingEnabled = true;
+            this.InEditExistingDoorsList.Location = new System.Drawing.Point(6, 47);
+            this.InEditExistingDoorsList.Name = "InEditExistingDoorsList";
+            this.InEditExistingDoorsList.Size = new System.Drawing.Size(120, 95);
+            this.InEditExistingDoorsList.TabIndex = 0;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox1);
-            this.groupBox5.Controls.Add(this.listBox2);
+            this.groupBox5.Controls.Add(this.NewDoorGroupNameTextbox);
+            this.groupBox5.Controls.Add(this.ExistingDoorsList);
             this.groupBox5.Controls.Add(this.CreateDoorGroupButton);
             this.groupBox5.Location = new System.Drawing.Point(56, 181);
             this.groupBox5.Name = "groupBox5";
@@ -2692,22 +2696,22 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Create a New Door Group";
             // 
-            // textBox1
+            // NewDoorGroupNameTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.Text = "Name of Group";
-            this.textBox1.Visible = false;
+            this.NewDoorGroupNameTextbox.Location = new System.Drawing.Point(6, 19);
+            this.NewDoorGroupNameTextbox.Name = "NewDoorGroupNameTextbox";
+            this.NewDoorGroupNameTextbox.Size = new System.Drawing.Size(100, 20);
+            this.NewDoorGroupNameTextbox.TabIndex = 6;
+            this.NewDoorGroupNameTextbox.Text = "Name of Group";
+            this.NewDoorGroupNameTextbox.Visible = false;
             // 
-            // listBox2
+            // ExistingDoorsList
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(6, 45);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 95);
-            this.listBox2.TabIndex = 7;
+            this.ExistingDoorsList.FormattingEnabled = true;
+            this.ExistingDoorsList.Location = new System.Drawing.Point(6, 45);
+            this.ExistingDoorsList.Name = "ExistingDoorsList";
+            this.ExistingDoorsList.Size = new System.Drawing.Size(120, 95);
+            this.ExistingDoorsList.TabIndex = 7;
             // 
             // CreateDoorGroupButton
             // 
@@ -2727,14 +2731,14 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Doors In Group";
             // 
-            // listBox1
+            // ExistDoorGroupsList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(56, 48);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 4;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.ExistDoorGroupsList.FormattingEnabled = true;
+            this.ExistDoorGroupsList.Location = new System.Drawing.Point(56, 48);
+            this.ExistDoorGroupsList.Name = "ExistDoorGroupsList";
+            this.ExistDoorGroupsList.Size = new System.Drawing.Size(120, 95);
+            this.ExistDoorGroupsList.TabIndex = 4;
+            this.ExistDoorGroupsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -2745,16 +2749,16 @@
             this.label7.TabIndex = 3;
             this.label7.Text = "Existing Door Groups";
             // 
-            // button2
+            // EditDoorGroupButton
             // 
-            this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(302, 31);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Edit Group";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.EditDoorGroupButton.Enabled = false;
+            this.EditDoorGroupButton.Location = new System.Drawing.Point(302, 31);
+            this.EditDoorGroupButton.Name = "EditDoorGroupButton";
+            this.EditDoorGroupButton.Size = new System.Drawing.Size(75, 23);
+            this.EditDoorGroupButton.TabIndex = 2;
+            this.EditDoorGroupButton.Text = "Edit Group";
+            this.EditDoorGroupButton.UseVisualStyleBackColor = true;
+            this.EditDoorGroupButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // UserGroups
             // 
@@ -2809,6 +2813,7 @@
             // 
             // Misc
             // 
+            this.Misc.Controls.Add(this.label37);
             this.Misc.Location = new System.Drawing.Point(4, 22);
             this.Misc.Name = "Misc";
             this.Misc.Padding = new System.Windows.Forms.Padding(3);
@@ -2816,6 +2821,15 @@
             this.Misc.TabIndex = 2;
             this.Misc.Text = "Misc";
             this.Misc.UseVisualStyleBackColor = true;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(84, 55);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(233, 13);
+            this.label37.TabIndex = 0;
+            this.label37.Text = "NOTE: need to include Card Reactivation Here.";
             // 
             // SupervisorInterface
             // 
@@ -2849,6 +2863,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.UserGroups.ResumeLayout(false);
+            this.Misc.ResumeLayout(false);
+            this.Misc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2930,7 +2946,7 @@
         private System.Windows.Forms.Button UpdateTypicalWeekButton;
         private System.Windows.Forms.TabPage DoorGroups;
         private System.Windows.Forms.TabPage UserGroups;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button EditDoorGroupButton;
         private System.Windows.Forms.Button CreateDoorGroupButton;
         private System.Windows.Forms.Button CreateUserButton;
         private System.Windows.Forms.Button button3;
@@ -3081,15 +3097,15 @@
         private System.Windows.Forms.CheckBox checkBox27;
         private System.Windows.Forms.CheckBox checkBox26;
         private System.Windows.Forms.CheckBox checkBox25;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ExistDoorGroupsList;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox EditDoorGroupBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SaveEditedDoorGroupButton;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox InEditExistingDoorsList;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TextBox NewDoorGroupNameTextbox;
+        private System.Windows.Forms.ListBox ExistingDoorsList;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label13;
@@ -3104,6 +3120,7 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label37;
     }
 
 }

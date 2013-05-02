@@ -20,6 +20,16 @@ namespace ReganRyanSoftwareEngineering {
             return personList.Contains(p);
         }
 
+        public bool VerifyExistence(int personID)
+        {
+            foreach (Person p in personList)
+            {
+                if (p.ID == personID)
+                    return true;
+            }
+            return false;
+        }
+
         public void Save(Person p) {
             personList.Add(p);
         }

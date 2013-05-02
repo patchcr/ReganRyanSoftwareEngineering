@@ -14,7 +14,7 @@
             this.number = number;
             this.doorGroup = doorGroup;
         }
-
+        public int GetDoorNumber() { return this.number; }
         public bool CloseState {
             get { return closeState; }
         }

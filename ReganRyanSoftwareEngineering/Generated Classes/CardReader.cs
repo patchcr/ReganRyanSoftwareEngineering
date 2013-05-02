@@ -46,6 +46,21 @@ namespace ReganRyanSoftwareEngineering {
             activityMode = false;
         }
 
+        public bool IsActive()
+        {
+            return activityMode;
+        }
+
+        public string GetNetWorkAddress()
+        {
+            return this.networkAddress;
+        }
+
+        public Door GetDoor()
+        {
+            return this.door;
+        }
+
         public void TurnTimeKeeperOn() {
             timeKeeper = new Timer();
             timeKeeper.Start();
