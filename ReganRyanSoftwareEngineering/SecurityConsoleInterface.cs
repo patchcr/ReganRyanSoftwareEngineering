@@ -7,38 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ReganRyanSoftwareEngineering
-{
-    public partial class SecurityConsoleInterface : Form
-    {
-        private DBCardReaderInterface crdb;
-        public SecurityConsoleInterface()
-        {
+namespace ReganRyanSoftwareEngineering {
+
+    public partial class SecurityConsoleInterface : Form {
+
+        private CardReaderInstallation cri;
+
+        public SecurityConsoleInterface() {
             InitializeComponent();
-            crdb = new DBCardReaderInterface();
-            Dictionary<String, CardReader> dict = crdb.GetCardReadersList();
+            cri = CardReaderInstallation.Instance;
+            Dictionary<String, CardReader> dict = cri.CardReaders;
             IList<String> crli = (IList<String>)dict.Keys.ToList();
-            CardReaderSelectionList.DataSource = crli ;
+            CardReaderSelectionList.DataSource = crli;
         }
 
-    
 
-        private void CardReaderSelectionList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CardReader selected = crdb.GetCardReader(CardReaderSelectionList.SelectedItem.ToString());
+
+        private void CardReaderSelectionList_SelectedIndexChanged(object sender, EventArgs e) {
+            CardReader selected = cri.GetCardReader(CardReaderSelectionList.SelectedItem.ToString());
             ReaderNameLabel.Text = selected.getName();
             ReaderStatusLabel.Text = selected.IsActive().ToString();
             ReaderNetworkAddressLabel.Text = selected.GetNetWorkAddress();
-            ReaderDoorLocationLabel.Text = selected.GetDoor().GetDoorNumber().ToString();
+            ReaderDoorLocationLabel.Text = selected.GetDoor().Number.ToString();
         }
 
-        private void ReactivateCardReaderButton_Click(object sender, EventArgs e)
-        {
+        private void ReactivateCardReaderButton_Click(object sender, EventArgs e) {
             CardReader cr;
             String name = (String)CardReaderSelectionList.SelectedItem; //.getName();
-            cr = crdb.GetCardReader(name);
+            cr = cri.GetCardReader(name);
             cr.ActiveMode();
-            
+
         }
 
     }

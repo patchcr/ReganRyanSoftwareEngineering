@@ -2,6 +2,8 @@
 
     public class Door {
 
+        private static int curNum = 0;
+
         private int number;
 
         private bool closeState;
@@ -10,11 +12,16 @@
 
         private DoorGroup doorGroup;
 
-        public Door(int number, DoorGroup doorGroup) {
-            this.number = number;
+        public Door(DoorGroup doorGroup) {
+            this.number = curNum;
+            curNum++;
             this.doorGroup = doorGroup;
         }
-        public int GetDoorNumber() { return this.number; }
+
+        public int Number {
+            get { return this.number; }
+        }
+
         public bool CloseState {
             get { return closeState; }
         }

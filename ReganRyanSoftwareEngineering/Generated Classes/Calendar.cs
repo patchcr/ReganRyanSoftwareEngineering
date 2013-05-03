@@ -8,26 +8,22 @@ namespace ReganRyanSoftwareEngineering {
 
         private TypicalWeek week;
 
-        public Calendar(int year, TypicalWeek week) {
+        public Calendar(int year) {
             this.year = year;
-            this.week = week;
+            this.week = new TypicalWeek();
         }
 
-        public TypicalWeek getTypicalWeek()
-        {
-            return this.week;
+        public TypicalWeek TypicalWeek {
+            get { return week; }
+            set { this.week = value; }
         }
 
-        public void ModifyTypicalWeek(TypicalWeek week) {
-            this.week = week;
-        }
-
-        public void ValidateDate(DateTime date) {
-            
+        public bool ValidateDate(DateTime date) {
+            return date.Year == year;
         }
 
         public void SaveModificationInCalendar() {
-
+            // Do nothing as data is not persisted to database in this version
         }
 
         public bool ValidateAccess(DateTime date, int accessHour) {

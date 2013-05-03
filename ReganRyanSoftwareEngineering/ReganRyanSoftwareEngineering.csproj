@@ -77,8 +77,7 @@
     <Compile Include="CardReaderSelector.Designer.cs">
       <DependentUpon>CardReaderSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generated Classes\DBCardInterface.cs" />
-    <Compile Include="Generated Classes\DBCardReaderInterface.cs" />
+    <Compile Include="Generated Classes\DBCalendarInterface.cs" />
     <Compile Include="EntryPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,9 +86,7 @@
     </Compile>
     <Compile Include="Generated Classes\Calendar.cs" />
     <Compile Include="Generated Classes\Card.cs" />
-    <Compile Include="Generated Classes\CardCreationController.cs" />
     <Compile Include="Generated Classes\CardReader.cs" />
-    <Compile Include="Generated Classes\DBCalendarInterface.cs" />
     <Compile Include="Generated Classes\DBUserInterface.cs" />
     <Compile Include="Generated Classes\Door.cs" />
     <Compile Include="Generated Classes\DoorAccessController.cs" />

@@ -1,4 +1,5 @@
 ﻿using System.Timers;
+using System.Collections.Generic;
 
 namespace ReganRyanSoftwareEngineering {
 
@@ -18,15 +19,17 @@ namespace ReganRyanSoftwareEngineering {
 
         private bool activityMode;
 
+        private List<Event> events;
+
         public CardReader(string name, string networdAddress, Door door) {
             this.name = name;
             this.networkAddress = networdAddress;
             this.door = door;
             alarmState = false;
+            events = new List<Event>();
         }
 
-        public string getName()
-        {
+        public string getName() {
             return this.name;
         }
 
@@ -46,18 +49,15 @@ namespace ReganRyanSoftwareEngineering {
             activityMode = false;
         }
 
-        public bool IsActive()
-        {
+        public bool IsActive() {
             return activityMode;
         }
 
-        public string GetNetWorkAddress()
-        {
+        public string GetNetWorkAddress() {
             return this.networkAddress;
         }
 
-        public Door GetDoor()
-        {
+        public Door GetDoor() {
             return this.door;
         }
 

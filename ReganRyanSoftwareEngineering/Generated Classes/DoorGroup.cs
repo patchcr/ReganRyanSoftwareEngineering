@@ -1,4 +1,6 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System.Collections.Generic;
+
+namespace ReganRyanSoftwareEngineering {
 
     public class DoorGroup {
 
@@ -17,6 +19,14 @@
 
         public string Description {
             get { return description; }
+        }
+
+        public override bool Equals(object p) {
+            return (p is DoorGroup) && code.Equals(((DoorGroup) p).Code);
+        }
+
+        public override int GetHashCode() {
+            return code.GetHashCode();
         }
 
     }

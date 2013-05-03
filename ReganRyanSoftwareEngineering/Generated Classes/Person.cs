@@ -4,6 +4,8 @@ namespace ReganRyanSoftwareEngineering {
 
     public class Person {
 
+        private static int curCount = 1;
+
         private int id;
 
         private string firstName;
@@ -16,14 +18,16 @@ namespace ReganRyanSoftwareEngineering {
 
         private HashSet<PersonGroup> personGroups;
 
-        public Person(int id, string firstName, string lastName, 
+        public Person(string firstName, string lastName,
             string password, HashSet<PersonGroup> personGroups) {
 
-            this.id = id;
+            this.id = curCount;
+            curCount++;
             this.firstName = firstName;
             this.lastName = lastName;
             this.password = password;
             card = new Card();
+            card.SetPersonID(ID);
             this.personGroups = personGroups;
         }
 
@@ -36,19 +40,23 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public string LastName {
-            get { return lastName;  }
+            get { return lastName; }
         }
 
         public Card Card {
             get { return card; }
         }
 
-        public bool Equals(Person p) {
-            return p.ID == ID;
+        public override bool Equals(object p) {
+            return (p is Person) && ID.Equals(((Person) p).ID);
+        }
+
+        public override int GetHashCode() {
+            return ID.GetHashCode();
         }
 
         public bool VerifyExistence() {
-            return DBUserInterface.GetInstance().VerifyExistence(this);
+            return DBUserInterface.Instance.VerifyExistence(this);
         }
 
         public bool ValidatePassword(string pass) {
@@ -56,27 +64,19 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public void SaveInfo() {
-            DBUserInterface.GetInstance().Save(this);
+            DBUserInterface.Instance.Save(this);
         }
 
         public void SavePassword(string password) {
             this.password = password;
         }
 
-        public void SavePersonGroups(HashSet<PersonGroup> personGroups)
-        {
+        public void SavePersonGroups(HashSet<PersonGroup> personGroups) {
             this.personGroups = personGroups;
         }
 
         public HashSet<PersonGroup> FindPersonGroups() {
             return personGroups;
-        }
-
-        // TODO is this method necessary?
-        public void AssociateCard(Card card)
-        {
-            this.card = card;
-            this.card.SetPersonID(id);
         }
 
     }

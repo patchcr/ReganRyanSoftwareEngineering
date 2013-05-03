@@ -5,21 +5,29 @@ using System.Text;
 
 namespace ReganRyanSoftwareEngineering {
 
-   public class CardReaderInstallation {
+    public class CardReaderInstallation {
+
+        private static CardReaderInstallation instance = new CardReaderInstallation();
+
+        public static CardReaderInstallation Instance {
+            get { return instance; }
+        }
 
         private Dictionary<string, CardReader> cardReaders;
 
         public CardReaderInstallation() {
             cardReaders = new Dictionary<string, CardReader>();
-            AddCardReader("1234", "10.0.0.0", new Door(123, new DoorGroup("code", "description")));
+        }
+
+        public Dictionary<string, CardReader> CardReaders {
+            get { return cardReaders; }
         }
 
         public void AddCardReader(string name, string nat, Door door) {
             cardReaders.Add(name, new CardReader(name, nat, door));
         }
 
-        public CardReader getCardReaderbyID(string id)
-        {
+        public CardReader GetCardReader(string id) {
             return cardReaders[id];
         }
 

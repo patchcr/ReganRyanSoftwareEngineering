@@ -13,7 +13,7 @@ namespace ReganRyanSoftwareEngineering
     {
         private CardReader currentReader;
         private DateTime currentTime;
-        private DBCardInterface dbcard;
+        private DoorAccessController dac;
         
         public CardReaderPanel()
         {
@@ -22,7 +22,7 @@ namespace ReganRyanSoftwareEngineering
         public CardReaderPanel(CardReader cr, DateTime date)
         {
             InitializeComponent();
-            dbcard = DBCardInterface.GetInstance();
+            dac = DoorAccessController.Instance;
             currentReader = cr;
             currentTime = date;
             ReaderNameLabel.Text = cr.getName();
@@ -33,7 +33,7 @@ namespace ReganRyanSoftwareEngineering
         private void SwipeButton_Click(object sender, EventArgs e)
         {
             // TODO We should convert this CardNumberTextBox to a masked field or test that the Text does not contain anything but numbers.
-            if (dbcard.ValidateCard(CardNumberTextBox.Text))
+            if (dac.ValidateCard(Int32.Parse(CardNumberTextBox.Text)))
             {
                 groupBox2.Visible = true;
             }

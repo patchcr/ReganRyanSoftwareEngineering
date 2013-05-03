@@ -7,8 +7,8 @@ namespace ReganRyanSoftwareEngineering {
 
         public static DBCalendarInterface instance = new DBCalendarInterface();
 
-        public static DBCalendarInterface GetInstance() {
-            return instance;
+        public static DBCalendarInterface Instance {
+            get { return instance; }
         }
 
         private Dictionary<Tuple<PersonGroup, DoorGroup>, Calendar> calendars;

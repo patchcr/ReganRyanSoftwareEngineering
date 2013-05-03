@@ -6,27 +6,26 @@ namespace ReganRyanSoftwareEngineering {
 
         private static DBUserInterface instance = new DBUserInterface();
 
-        public static DBUserInterface GetInstance() {
-            return instance;
+        public static DBUserInterface Instance {
+            get { return instance; }
         }
 
-        private HashSet<Person> personList;
-
-        private HashSet<PersonGroup> personGroups;
+        private List<Person> personList;
 
         private DBUserInterface() {
-            personList = new HashSet<Person>();
-            personGroups = new HashSet<PersonGroup>();
+            personList = new List<Person>();
+        }
+
+        public List<Person> PersonList {
+            get { return personList; }
         }
 
         public bool VerifyExistence(Person p) {
             return personList.Contains(p);
         }
 
-        public bool VerifyExistence(int personID)
-        {
-            foreach (Person p in personList)
-            {
+        public bool VerifyExistence(int personID) {
+            foreach (Person p in personList) {
                 if (p.ID == personID)
                     return true;
             }
@@ -35,10 +34,6 @@ namespace ReganRyanSoftwareEngineering {
 
         public void Save(Person p) {
             personList.Add(p);
-        }
-
-        public HashSet<PersonGroup> GetPersonGroups() {
-            return personGroups;
         }
 
     }

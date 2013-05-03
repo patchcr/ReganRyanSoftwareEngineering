@@ -7,12 +7,11 @@ namespace ReganRyanSoftwareEngineering {
 
         private TypicalDay[] days;
 
-        public TypicalWeek(string code) {
+        public TypicalWeek() {
             days = new TypicalDay[7];
         }
 
-        public void setTypicalDay(TypicalDay day, int index)
-        {
+        public void setTypicalDay(TypicalDay day, int index) {
             days[index] = day;
         }
 

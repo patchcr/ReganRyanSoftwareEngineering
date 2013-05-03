@@ -1,4 +1,6 @@
-﻿namespace ReganRyanSoftwareEngineering {
+﻿using System;
+
+namespace ReganRyanSoftwareEngineering {
 
     public class PersonGroup {
 
@@ -17,6 +19,14 @@
 
         public string Description {
             get { return description; }
+        }
+
+        public override bool Equals(object p) {
+            return (p is PersonGroup) && code.Equals(((PersonGroup) p).Code);
+        }
+
+        public override int GetHashCode() {
+            return code.GetHashCode();
         }
 
     }
