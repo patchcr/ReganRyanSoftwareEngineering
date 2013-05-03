@@ -56,7 +56,11 @@ namespace ReganRyanSoftwareEngineering {
         public List<Person> FindPeopleByGroup(PersonGroup pg) {
             List<Person> list = new List<Person>();
             foreach (Person p in DBUserInterface.Instance.PersonList) {
-
+                foreach (PersonGroup _pg in p.FindPersonGroups()) {
+                    if (pg.Equals(_pg)) {
+                        list.Add(p);
+                    }
+                }
             }
             return list;
         }
