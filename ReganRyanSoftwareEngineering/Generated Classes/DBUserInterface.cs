@@ -12,8 +12,11 @@ namespace ReganRyanSoftwareEngineering {
 
         private HashSet<Person> personList;
 
+        private HashSet<PersonGroup> personGroups;
+
         private DBUserInterface() {
             personList = new HashSet<Person>();
+            personGroups = new HashSet<PersonGroup>();
         }
 
         public bool VerifyExistence(Person p) {
@@ -32,6 +35,10 @@ namespace ReganRyanSoftwareEngineering {
 
         public void Save(Person p) {
             personList.Add(p);
+        }
+
+        public HashSet<PersonGroup> GetPersonGroups() {
+            return personGroups;
         }
 
     }

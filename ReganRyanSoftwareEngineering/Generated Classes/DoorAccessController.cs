@@ -5,6 +5,12 @@ namespace ReganRyanSoftwareEngineering {
 
     public class DoorAccessController {
 
+        private List<Door> doors;
+
+        public DoorAccessController() {
+            doors = new List<Door>();
+        }
+
         public void PasswordValidationRequest() {
 
         }

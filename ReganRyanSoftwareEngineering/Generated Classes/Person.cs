@@ -23,6 +23,7 @@ namespace ReganRyanSoftwareEngineering {
             this.firstName = firstName;
             this.lastName = lastName;
             this.password = password;
+            card = new Card();
             this.personGroups = personGroups;
         }
 
@@ -36,6 +37,10 @@ namespace ReganRyanSoftwareEngineering {
 
         public string LastName {
             get { return lastName;  }
+        }
+
+        public Card Card {
+            get { return card; }
         }
 
         public bool Equals(Person p) {

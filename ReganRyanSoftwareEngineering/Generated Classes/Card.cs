@@ -13,8 +13,8 @@ namespace ReganRyanSoftwareEngineering {
         private int personID;
 
         public Card() {
-            this.cardNumber = generateCardNumber();
-            creationDate = new DateTime();
+            this.cardNumber = GenerateCardNumber();
+            creationDate = DateTime.Now;
             activationStatus = true;
         }
 
@@ -26,27 +26,27 @@ namespace ReganRyanSoftwareEngineering {
             activationStatus = false;
         }
 
-        private int generateCardNumber() {
+        private int GenerateCardNumber() {
             Random random = new Random();
             return random.Next(Int32.MaxValue);
         }
 
-        public int GetCardNumber()
-        {
+        public int GetCardNumber() {
             return cardNumber;
         }
-        public bool isActive()
-        {
+
+        public bool isActive() {
             return activationStatus;
         }
-        public void SetPersonID(int id)
-        {
+
+        public void SetPersonID(int id) {
             this.personID = id;
         }
-        public int GetPersonID()
-        {
+
+        public int GetPersonID() {
             return this.personID;
         }
+
     }
 
 }
