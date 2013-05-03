@@ -254,25 +254,46 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DoorGroups = new System.Windows.Forms.TabPage();
+            this.CreateNewDoorGroupButton = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.ExistDoorGroupsList = new System.Windows.Forms.ListBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.EditDoorGroupBox = new System.Windows.Forms.GroupBox();
+            this.NameOfDoorGroupNameTextbox = new System.Windows.Forms.TextBox();
             this.SaveEditedDoorGroupButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.InEditExistingDoorsList = new System.Windows.Forms.ListBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.NewDoorGroupNameTextbox = new System.Windows.Forms.TextBox();
             this.ExistingDoorsList = new System.Windows.Forms.ListBox();
-            this.CreateDoorGroupButton = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.ExistDoorGroupsList = new System.Windows.Forms.ListBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.EditDoorGroupButton = new System.Windows.Forms.Button();
             this.UserGroups = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.NameOfUserGroupTextbox = new System.Windows.Forms.TextBox();
+            this.SaveUserGroupButton = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.ExistingUserListBox = new System.Windows.Forms.ListBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.ExistingUsersListBox = new System.Windows.Forms.ListBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.CreateUserButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.Misc = new System.Windows.Forms.TabPage();
+            this.EditUserGroupButton = new System.Windows.Forms.Button();
+            this.CreateNewUserGroupButton = new System.Windows.Forms.Button();
+            this.InitializeCardReaders = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label37 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.ReaderNameLabel = new System.Windows.Forms.Label();
+            this.ReaderStatusLabel = new System.Windows.Forms.Label();
+            this.ReaderNetworkAddressLabel = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.ReaderDoorLocationLabel = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.CardReaderListBox = new System.Windows.Forms.ListBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -283,10 +304,14 @@
             this.PageUpdateCalendar.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.DoorGroups.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.EditDoorGroupBox.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.UserGroups.SuspendLayout();
-            this.Misc.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.InitializeCardReaders.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -306,7 +331,7 @@
             this.tabControl1.Controls.Add(this.PageUpdateCalendar);
             this.tabControl1.Controls.Add(this.DoorGroups);
             this.tabControl1.Controls.Add(this.UserGroups);
-            this.tabControl1.Controls.Add(this.Misc);
+            this.tabControl1.Controls.Add(this.InitializeCardReaders);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tabControl1.Location = new System.Drawing.Point(0, 42);
             this.tabControl1.Multiline = true;
@@ -642,7 +667,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -2630,11 +2655,9 @@
             // 
             // DoorGroups
             // 
+            this.DoorGroups.Controls.Add(this.CreateNewDoorGroupButton);
+            this.DoorGroups.Controls.Add(this.groupBox6);
             this.DoorGroups.Controls.Add(this.EditDoorGroupBox);
-            this.DoorGroups.Controls.Add(this.groupBox5);
-            this.DoorGroups.Controls.Add(this.label9);
-            this.DoorGroups.Controls.Add(this.ExistDoorGroupsList);
-            this.DoorGroups.Controls.Add(this.label7);
             this.DoorGroups.Controls.Add(this.EditDoorGroupButton);
             this.DoorGroups.Location = new System.Drawing.Point(4, 22);
             this.DoorGroups.Name = "DoorGroups";
@@ -2645,22 +2668,70 @@
             this.DoorGroups.UseVisualStyleBackColor = true;
             this.DoorGroups.Layout += new System.Windows.Forms.LayoutEventHandler(this.DoorGroups_Layout);
             // 
+            // CreateNewDoorGroupButton
+            // 
+            this.CreateNewDoorGroupButton.Location = new System.Drawing.Point(536, 66);
+            this.CreateNewDoorGroupButton.Name = "CreateNewDoorGroupButton";
+            this.CreateNewDoorGroupButton.Size = new System.Drawing.Size(104, 23);
+            this.CreateNewDoorGroupButton.TabIndex = 12;
+            this.CreateNewDoorGroupButton.Text = "Create New Group";
+            this.CreateNewDoorGroupButton.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.ExistDoorGroupsList);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Location = new System.Drawing.Point(37, 31);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(493, 355);
+            this.groupBox6.TabIndex = 11;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Existing Door Groups";
+            // 
+            // ExistDoorGroupsList
+            // 
+            this.ExistDoorGroupsList.FormattingEnabled = true;
+            this.ExistDoorGroupsList.Location = new System.Drawing.Point(6, 20);
+            this.ExistDoorGroupsList.Name = "ExistDoorGroupsList";
+            this.ExistDoorGroupsList.Size = new System.Drawing.Size(120, 329);
+            this.ExistDoorGroupsList.TabIndex = 4;
+            this.ExistDoorGroupsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(271, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Group Members";
+            // 
             // EditDoorGroupBox
             // 
+            this.EditDoorGroupBox.Controls.Add(this.NameOfDoorGroupNameTextbox);
             this.EditDoorGroupBox.Controls.Add(this.SaveEditedDoorGroupButton);
             this.EditDoorGroupBox.Controls.Add(this.label11);
-            this.EditDoorGroupBox.Controls.Add(this.InEditExistingDoorsList);
-            this.EditDoorGroupBox.Location = new System.Drawing.Point(426, 31);
+            this.EditDoorGroupBox.Controls.Add(this.ExistingDoorsList);
+            this.EditDoorGroupBox.Location = new System.Drawing.Point(665, 31);
             this.EditDoorGroupBox.Name = "EditDoorGroupBox";
-            this.EditDoorGroupBox.Size = new System.Drawing.Size(200, 189);
+            this.EditDoorGroupBox.Size = new System.Drawing.Size(229, 355);
             this.EditDoorGroupBox.TabIndex = 10;
             this.EditDoorGroupBox.TabStop = false;
             this.EditDoorGroupBox.Text = "Edit Group";
             this.EditDoorGroupBox.Visible = false;
             // 
+            // NameOfDoorGroupNameTextbox
+            // 
+            this.NameOfDoorGroupNameTextbox.Location = new System.Drawing.Point(6, 85);
+            this.NameOfDoorGroupNameTextbox.Name = "NameOfDoorGroupNameTextbox";
+            this.NameOfDoorGroupNameTextbox.Size = new System.Drawing.Size(120, 20);
+            this.NameOfDoorGroupNameTextbox.TabIndex = 6;
+            this.NameOfDoorGroupNameTextbox.Text = "Name of Group";
+            this.NameOfDoorGroupNameTextbox.Visible = false;
+            // 
             // SaveEditedDoorGroupButton
             // 
-            this.SaveEditedDoorGroupButton.Location = new System.Drawing.Point(6, 150);
+            this.SaveEditedDoorGroupButton.Location = new System.Drawing.Point(132, 85);
             this.SaveEditedDoorGroupButton.Name = "SaveEditedDoorGroupButton";
             this.SaveEditedDoorGroupButton.Size = new System.Drawing.Size(75, 23);
             this.SaveEditedDoorGroupButton.TabIndex = 2;
@@ -2670,91 +2741,26 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 28);
+            this.label11.Location = new System.Drawing.Point(95, 54);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 13);
             this.label11.TabIndex = 1;
             this.label11.Text = "Select Doors";
             // 
-            // InEditExistingDoorsList
-            // 
-            this.InEditExistingDoorsList.FormattingEnabled = true;
-            this.InEditExistingDoorsList.Location = new System.Drawing.Point(6, 47);
-            this.InEditExistingDoorsList.Name = "InEditExistingDoorsList";
-            this.InEditExistingDoorsList.Size = new System.Drawing.Size(120, 95);
-            this.InEditExistingDoorsList.TabIndex = 0;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.NewDoorGroupNameTextbox);
-            this.groupBox5.Controls.Add(this.ExistingDoorsList);
-            this.groupBox5.Controls.Add(this.CreateDoorGroupButton);
-            this.groupBox5.Location = new System.Drawing.Point(56, 181);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 171);
-            this.groupBox5.TabIndex = 9;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Create a New Door Group";
-            // 
-            // NewDoorGroupNameTextbox
-            // 
-            this.NewDoorGroupNameTextbox.Location = new System.Drawing.Point(6, 19);
-            this.NewDoorGroupNameTextbox.Name = "NewDoorGroupNameTextbox";
-            this.NewDoorGroupNameTextbox.Size = new System.Drawing.Size(100, 20);
-            this.NewDoorGroupNameTextbox.TabIndex = 6;
-            this.NewDoorGroupNameTextbox.Text = "Name of Group";
-            this.NewDoorGroupNameTextbox.Visible = false;
-            // 
             // ExistingDoorsList
             // 
             this.ExistingDoorsList.FormattingEnabled = true;
-            this.ExistingDoorsList.Location = new System.Drawing.Point(6, 45);
+            this.ExistingDoorsList.Location = new System.Drawing.Point(6, 111);
             this.ExistingDoorsList.Name = "ExistingDoorsList";
-            this.ExistingDoorsList.Size = new System.Drawing.Size(120, 95);
-            this.ExistingDoorsList.TabIndex = 7;
-            // 
-            // CreateDoorGroupButton
-            // 
-            this.CreateDoorGroupButton.Location = new System.Drawing.Point(6, 142);
-            this.CreateDoorGroupButton.Name = "CreateDoorGroupButton";
-            this.CreateDoorGroupButton.Size = new System.Drawing.Size(141, 23);
-            this.CreateDoorGroupButton.TabIndex = 0;
-            this.CreateDoorGroupButton.Text = "Create New Door Group";
-            this.CreateDoorGroupButton.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(208, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 13);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Doors In Group";
-            // 
-            // ExistDoorGroupsList
-            // 
-            this.ExistDoorGroupsList.FormattingEnabled = true;
-            this.ExistDoorGroupsList.Location = new System.Drawing.Point(56, 48);
-            this.ExistDoorGroupsList.Name = "ExistDoorGroupsList";
-            this.ExistDoorGroupsList.Size = new System.Drawing.Size(120, 95);
-            this.ExistDoorGroupsList.TabIndex = 4;
-            this.ExistDoorGroupsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(53, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Existing Door Groups";
+            this.ExistingDoorsList.Size = new System.Drawing.Size(120, 238);
+            this.ExistingDoorsList.TabIndex = 0;
             // 
             // EditDoorGroupButton
             // 
             this.EditDoorGroupButton.Enabled = false;
-            this.EditDoorGroupButton.Location = new System.Drawing.Point(302, 31);
+            this.EditDoorGroupButton.Location = new System.Drawing.Point(536, 37);
             this.EditDoorGroupButton.Name = "EditDoorGroupButton";
-            this.EditDoorGroupButton.Size = new System.Drawing.Size(75, 23);
+            this.EditDoorGroupButton.Size = new System.Drawing.Size(104, 23);
             this.EditDoorGroupButton.TabIndex = 2;
             this.EditDoorGroupButton.Text = "Edit Group";
             this.EditDoorGroupButton.UseVisualStyleBackColor = true;
@@ -2762,10 +2768,11 @@
             // 
             // UserGroups
             // 
+            this.UserGroups.Controls.Add(this.groupBox7);
+            this.UserGroups.Controls.Add(this.groupBox5);
             this.UserGroups.Controls.Add(this.CreateUserButton);
-            this.UserGroups.Controls.Add(this.button3);
-            this.UserGroups.Controls.Add(this.button4);
-            this.UserGroups.Controls.Add(this.button5);
+            this.UserGroups.Controls.Add(this.EditUserGroupButton);
+            this.UserGroups.Controls.Add(this.CreateNewUserGroupButton);
             this.UserGroups.Location = new System.Drawing.Point(4, 22);
             this.UserGroups.Name = "UserGroups";
             this.UserGroups.Padding = new System.Windows.Forms.Padding(3);
@@ -2774,62 +2781,299 @@
             this.UserGroups.Text = "User Groups";
             this.UserGroups.UseVisualStyleBackColor = true;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.NameOfUserGroupTextbox);
+            this.groupBox7.Controls.Add(this.SaveUserGroupButton);
+            this.groupBox7.Controls.Add(this.label39);
+            this.groupBox7.Controls.Add(this.ExistingUserListBox);
+            this.groupBox7.Location = new System.Drawing.Point(665, 31);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(229, 355);
+            this.groupBox7.TabIndex = 13;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Edit Group";
+            this.groupBox7.Visible = false;
+            // 
+            // NameOfUserGroupTextbox
+            // 
+            this.NameOfUserGroupTextbox.Location = new System.Drawing.Point(6, 85);
+            this.NameOfUserGroupTextbox.Name = "NameOfUserGroupTextbox";
+            this.NameOfUserGroupTextbox.Size = new System.Drawing.Size(120, 20);
+            this.NameOfUserGroupTextbox.TabIndex = 6;
+            this.NameOfUserGroupTextbox.Text = "Name of Group";
+            this.NameOfUserGroupTextbox.Visible = false;
+            // 
+            // SaveUserGroupButton
+            // 
+            this.SaveUserGroupButton.Location = new System.Drawing.Point(132, 85);
+            this.SaveUserGroupButton.Name = "SaveUserGroupButton";
+            this.SaveUserGroupButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveUserGroupButton.TabIndex = 2;
+            this.SaveUserGroupButton.Text = "Save";
+            this.SaveUserGroupButton.UseVisualStyleBackColor = true;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(7, 28);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(67, 13);
+            this.label39.TabIndex = 1;
+            this.label39.Text = "Select Users";
+            // 
+            // ExistingUserListBox
+            // 
+            this.ExistingUserListBox.FormattingEnabled = true;
+            this.ExistingUserListBox.Location = new System.Drawing.Point(6, 111);
+            this.ExistingUserListBox.Name = "ExistingUserListBox";
+            this.ExistingUserListBox.Size = new System.Drawing.Size(120, 238);
+            this.ExistingUserListBox.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.ExistingUsersListBox);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Location = new System.Drawing.Point(37, 31);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(493, 355);
+            this.groupBox5.TabIndex = 12;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Existing User Groups";
+            // 
+            // ExistingUsersListBox
+            // 
+            this.ExistingUsersListBox.FormattingEnabled = true;
+            this.ExistingUsersListBox.Location = new System.Drawing.Point(6, 20);
+            this.ExistingUsersListBox.Name = "ExistingUsersListBox";
+            this.ExistingUsersListBox.Size = new System.Drawing.Size(120, 329);
+            this.ExistingUsersListBox.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(271, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Group Members";
+            // 
             // CreateUserButton
             // 
-            this.CreateUserButton.Location = new System.Drawing.Point(180, 70);
+            this.CreateUserButton.Location = new System.Drawing.Point(536, 95);
             this.CreateUserButton.Name = "CreateUserButton";
-            this.CreateUserButton.Size = new System.Drawing.Size(75, 23);
+            this.CreateUserButton.Size = new System.Drawing.Size(104, 23);
             this.CreateUserButton.TabIndex = 6;
             this.CreateUserButton.Text = "Create User";
             this.CreateUserButton.UseVisualStyleBackColor = true;
             this.CreateUserButton.Click += new System.EventHandler(this.CreateUserButton_Click);
             // 
-            // button3
+            // EditUserGroupButton
             // 
-            this.button3.Location = new System.Drawing.Point(180, 29);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Edit Group";
-            this.button3.UseVisualStyleBackColor = true;
+            this.EditUserGroupButton.Location = new System.Drawing.Point(536, 37);
+            this.EditUserGroupButton.Name = "EditUserGroupButton";
+            this.EditUserGroupButton.Size = new System.Drawing.Size(104, 23);
+            this.EditUserGroupButton.TabIndex = 5;
+            this.EditUserGroupButton.Text = "Edit Group";
+            this.EditUserGroupButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // CreateNewUserGroupButton
             // 
-            this.button4.Location = new System.Drawing.Point(38, 70);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Display Group";
-            this.button4.UseVisualStyleBackColor = true;
+            this.CreateNewUserGroupButton.Location = new System.Drawing.Point(536, 66);
+            this.CreateNewUserGroupButton.Name = "CreateNewUserGroupButton";
+            this.CreateNewUserGroupButton.Size = new System.Drawing.Size(104, 23);
+            this.CreateNewUserGroupButton.TabIndex = 3;
+            this.CreateNewUserGroupButton.Text = "Create New Group";
+            this.CreateNewUserGroupButton.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // InitializeCardReaders
             // 
-            this.button5.Location = new System.Drawing.Point(38, 30);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(114, 23);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Create User Group";
-            this.button5.UseVisualStyleBackColor = true;
+            this.InitializeCardReaders.Controls.Add(this.button1);
+            this.InitializeCardReaders.Controls.Add(this.groupBox8);
+            this.InitializeCardReaders.Controls.Add(this.tableLayoutPanel3);
+            this.InitializeCardReaders.Controls.Add(this.label47);
+            this.InitializeCardReaders.Controls.Add(this.CardReaderListBox);
+            this.InitializeCardReaders.Location = new System.Drawing.Point(4, 22);
+            this.InitializeCardReaders.Name = "InitializeCardReaders";
+            this.InitializeCardReaders.Padding = new System.Windows.Forms.Padding(3);
+            this.InitializeCardReaders.Size = new System.Drawing.Size(928, 697);
+            this.InitializeCardReaders.TabIndex = 2;
+            this.InitializeCardReaders.Text = "Initialize Card Readers";
+            this.InitializeCardReaders.UseVisualStyleBackColor = true;
             // 
-            // Misc
+            // tableLayoutPanel3
             // 
-            this.Misc.Controls.Add(this.label37);
-            this.Misc.Location = new System.Drawing.Point(4, 22);
-            this.Misc.Name = "Misc";
-            this.Misc.Padding = new System.Windows.Forms.Padding(3);
-            this.Misc.Size = new System.Drawing.Size(928, 697);
-            this.Misc.TabIndex = 2;
-            this.Misc.Text = "Misc";
-            this.Misc.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.36364F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.63636F));
+            this.tableLayoutPanel3.Controls.Add(this.label37, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label41, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label43, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.ReaderNameLabel, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.ReaderStatusLabel, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.ReaderNetworkAddressLabel, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label45, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.ReaderDoorLocationLabel, 1, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(127, 50);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(176, 78);
+            this.tableLayoutPanel3.TabIndex = 16;
             // 
             // label37
             // 
+            this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(84, 55);
+            this.label37.Location = new System.Drawing.Point(4, 0);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(233, 13);
+            this.label37.Size = new System.Drawing.Size(101, 13);
             this.label37.TabIndex = 0;
-            this.label37.Text = "NOTE: need to include Card Reactivation Here.";
+            this.label37.Text = "Card Reader Name:";
+            // 
+            // label41
+            // 
+            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(65, 19);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(40, 13);
+            this.label41.TabIndex = 1;
+            this.label41.Text = "Status:";
+            // 
+            // label43
+            // 
+            this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(14, 38);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(91, 13);
+            this.label43.TabIndex = 2;
+            this.label43.Text = "Network Address:";
+            // 
+            // ReaderNameLabel
+            // 
+            this.ReaderNameLabel.AutoSize = true;
+            this.ReaderNameLabel.Location = new System.Drawing.Point(111, 0);
+            this.ReaderNameLabel.Name = "ReaderNameLabel";
+            this.ReaderNameLabel.Size = new System.Drawing.Size(35, 13);
+            this.ReaderNameLabel.TabIndex = 3;
+            this.ReaderNameLabel.Text = "label7";
+            // 
+            // ReaderStatusLabel
+            // 
+            this.ReaderStatusLabel.AutoSize = true;
+            this.ReaderStatusLabel.Location = new System.Drawing.Point(111, 19);
+            this.ReaderStatusLabel.Name = "ReaderStatusLabel";
+            this.ReaderStatusLabel.Size = new System.Drawing.Size(35, 13);
+            this.ReaderStatusLabel.TabIndex = 4;
+            this.ReaderStatusLabel.Text = "label8";
+            // 
+            // ReaderNetworkAddressLabel
+            // 
+            this.ReaderNetworkAddressLabel.AutoSize = true;
+            this.ReaderNetworkAddressLabel.Location = new System.Drawing.Point(111, 38);
+            this.ReaderNetworkAddressLabel.Name = "ReaderNetworkAddressLabel";
+            this.ReaderNetworkAddressLabel.Size = new System.Drawing.Size(35, 13);
+            this.ReaderNetworkAddressLabel.TabIndex = 5;
+            this.ReaderNetworkAddressLabel.Text = "label9";
+            // 
+            // label45
+            // 
+            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(28, 58);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(77, 13);
+            this.label45.TabIndex = 6;
+            this.label45.Text = "Door Location:";
+            // 
+            // ReaderDoorLocationLabel
+            // 
+            this.ReaderDoorLocationLabel.AutoSize = true;
+            this.ReaderDoorLocationLabel.Location = new System.Drawing.Point(111, 58);
+            this.ReaderDoorLocationLabel.Name = "ReaderDoorLocationLabel";
+            this.ReaderDoorLocationLabel.Size = new System.Drawing.Size(35, 13);
+            this.ReaderDoorLocationLabel.TabIndex = 7;
+            this.ReaderDoorLocationLabel.Text = "label7";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(32, 34);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(67, 13);
+            this.label47.TabIndex = 15;
+            this.label47.Text = "Card Reader";
+            // 
+            // CardReaderListBox
+            // 
+            this.CardReaderListBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CardReaderListBox.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.CardReaderListBox.FormattingEnabled = true;
+            this.CardReaderListBox.Location = new System.Drawing.Point(33, 50);
+            this.CardReaderListBox.Name = "CardReaderListBox";
+            this.CardReaderListBox.Size = new System.Drawing.Size(66, 368);
+            this.CardReaderListBox.TabIndex = 14;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.textBox2);
+            this.groupBox8.Controls.Add(this.label51);
+            this.groupBox8.Controls.Add(this.label49);
+            this.groupBox8.Controls.Add(this.textBox1);
+            this.groupBox8.Location = new System.Drawing.Point(532, 28);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(200, 259);
+            this.groupBox8.TabIndex = 17;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Edit Card Reader Properties";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(322, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Edit Card Reader Properties";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(7, 21);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(103, 13);
+            this.label49.TabIndex = 1;
+            this.label49.Text = "Alarm Time-out (sec)";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(7, 79);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(123, 13);
+            this.label51.TabIndex = 2;
+            this.label51.Text = "Unlocked Time-out (sec)";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(10, 96);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 3;
             // 
             // SupervisorInterface
             // 
@@ -2857,14 +3101,21 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.DoorGroups.ResumeLayout(false);
-            this.DoorGroups.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.EditDoorGroupBox.ResumeLayout(false);
             this.EditDoorGroupBox.PerformLayout();
+            this.UserGroups.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.UserGroups.ResumeLayout(false);
-            this.Misc.ResumeLayout(false);
-            this.Misc.PerformLayout();
+            this.InitializeCardReaders.ResumeLayout(false);
+            this.InitializeCardReaders.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2880,7 +3131,7 @@
         private System.Windows.Forms.TextBox LastNameEntry;
         private System.Windows.Forms.TextBox FirstNameEntry;
         private System.Windows.Forms.Button CreateNewUserButton;
-        private System.Windows.Forms.TabPage Misc;
+        private System.Windows.Forms.TabPage InitializeCardReaders;
         private System.Windows.Forms.ListBox ListSelectUserGroup;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button ConfirmInfoPrintCard;
@@ -2947,11 +3198,8 @@
         private System.Windows.Forms.TabPage DoorGroups;
         private System.Windows.Forms.TabPage UserGroups;
         private System.Windows.Forms.Button EditDoorGroupButton;
-        private System.Windows.Forms.Button CreateDoorGroupButton;
         private System.Windows.Forms.Button CreateUserButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button EditUserGroupButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBox168;
         private System.Windows.Forms.CheckBox checkBox167;
@@ -3098,14 +3346,11 @@
         private System.Windows.Forms.CheckBox checkBox26;
         private System.Windows.Forms.CheckBox checkBox25;
         private System.Windows.Forms.ListBox ExistDoorGroupsList;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox EditDoorGroupBox;
         private System.Windows.Forms.Button SaveEditedDoorGroupButton;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox InEditExistingDoorsList;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox NewDoorGroupNameTextbox;
         private System.Windows.Forms.ListBox ExistingDoorsList;
+        private System.Windows.Forms.TextBox NameOfDoorGroupNameTextbox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label13;
@@ -3120,7 +3365,34 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button CreateNewDoorGroupButton;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TextBox NameOfUserGroupTextbox;
+        private System.Windows.Forms.Button SaveUserGroupButton;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ListBox ExistingUserListBox;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ListBox ExistingUsersListBox;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button CreateNewUserGroupButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label ReaderNameLabel;
+        private System.Windows.Forms.Label ReaderStatusLabel;
+        private System.Windows.Forms.Label ReaderNetworkAddressLabel;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label ReaderDoorLocationLabel;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.ListBox CardReaderListBox;
     }
 
 }
