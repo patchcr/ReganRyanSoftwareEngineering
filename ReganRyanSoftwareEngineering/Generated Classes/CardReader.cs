@@ -118,7 +118,9 @@ namespace ReganRyanSoftwareEngineering {
         private void OnTimeKeeperTimeOut(object source, ElapsedEventArgs e)
         {
             this.GetDoor().Lock();
-            this.panel.DisplayDoorRelocking();
+            this.panel.Invoke((System.Windows.Forms.MethodInvoker)(() => {
+                this.panel.DisplayDoorRelocking();
+            }));
             timeKeeper.Stop();
         }
 
