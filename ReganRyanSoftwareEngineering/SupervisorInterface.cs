@@ -20,7 +20,7 @@ namespace ReganRyanSoftwareEngineering
             dac = DoorAccessController.Instance;
 
             ExistingDoorsList.DataSource = dac.Doors;
-            ExistingUserListBox.DataSource = DBUserInterface.Instance.PersonList;
+            UserMembersListBox.DataSource = ExistingUserListBox.DataSource = DBUserInterface.Instance.PersonList;
             ListSelectDoorGroup.DataSource = ExistDoorGroupsList.DataSource = dac.DoorGroups;
             ListSelectUserGroup2.DataSource = ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
             ListSelectUserGroup.DataSource = dac.PersonGroups;
@@ -149,20 +149,33 @@ namespace ReganRyanSoftwareEngineering
         private void ExistDoorGroupsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             DoorGroup selected = (DoorGroup)ExistDoorGroupsList.SelectedItem;
-            DoorMembersListBox.DataSource = dac.FindDoorsByGroup(selected);
+            List<Door> doors = dac.FindDoorsByGroup(selected);
+            DoorMembersListBox.DataSource = doors;
+
+            for (int i = 0; i < ExistingDoorsList.Items.Count; i++) {
+                ExistingDoorsList.SetItemChecked(i, doors.Contains(ExistingDoorsList.Items[i]));
+            } 
         }
 
         private void EditDoorGroupButton_Click(object sender, EventArgs e)
         {
             EditDoorGroupBox.Visible = true;
             NameOfDoorGroupNameTextbox.Text = ExistDoorGroupsList.SelectedItem.ToString();
-            // TODO set the ExistingDoorsList selected items to the members
         }
 
         private void SaveEditedDoorGroupButton_Click(object sender, EventArgs e)
         {
-            // TODO Save edited door state back to the dac
-            // This should be able to handle both edited and NEW door groups
+            DoorGroup selected = (DoorGroup)ExistDoorGroupsList.SelectedItem;
+            for (int i = 0; i < ExistingDoorsList.Items.Count; i++) {
+                Door curDoor = (Door)ExistingDoorsList.Items[i];
+                if (ExistingDoorsList.GetItemChecked(i)) {
+                    curDoor.DoorGroup = selected;
+                } else if (curDoor.DoorGroup.Equals(selected)) {
+                    curDoor.DoorGroup = null;
+                }
+            }
+            EditDoorGroupBox.Visible = false;
+            DoorMembersListBox.DataSource = dac.FindDoorsByGroup(selected);
         }
 
         private void CreateNewDoorGroupButton_Click(object sender, EventArgs e)
@@ -180,16 +193,35 @@ namespace ReganRyanSoftwareEngineering
             tabControl1.SelectedIndex = 0;
 
         }
+        private void ExistingUserGroupsListBox_SelectedIndexChanged(object sender, EventArgs e) {
+            PersonGroup selected = (PersonGroup)ExistingUserGroupsListBox.SelectedItem;
+            List<Person> list = dac.FindPeopleByGroup(selected);
+            UserMembersListBox.DataSource = list;
 
+            for (int i = 0; i < ExistingUserListBox.Items.Count; i++) {
+                ExistingUserListBox.SetItemChecked(i, list.Contains(ExistingUserListBox.Items[i]));
+            }
+        }
         private void EditUserGroupButton_Click(object sender, EventArgs e)
         {
             EditUserGroupBox.Visible = true;
             NameOfUserGroupTextbox.Text = ExistingUserGroupsListBox.SelectedItem.ToString();
-            // TODO set the ExistingUserListBox selected items to the members.
         }
         private void SaveUserGroupButton_Click(object sender, EventArgs e)
         {
-            // TODO save edited user group back to the dac
+            PersonGroup selected = (PersonGroup)ExistingUserGroupsListBox.SelectedItem;
+            for (int i = 0; i < ExistingUserListBox.Items.Count; i++) {
+                Person curPerson = (Person) ExistingUserListBox.Items[i];
+                HashSet<PersonGroup> groups = curPerson.FindPersonGroups();
+                if (ExistingUserListBox.GetItemChecked(i)) {
+                    groups.Add(selected);
+                } else {
+                    groups.Remove(selected);
+                }
+                curPerson.SavePersonGroups(groups);
+            }
+            EditUserGroupBox.Visible = false;
+            UserMembersListBox.DataSource = dac.FindPeopleByGroup(selected);
         }
 
         private void CreateNewUserGroupButton_Click(object sender, EventArgs e)
@@ -202,24 +234,6 @@ namespace ReganRyanSoftwareEngineering
         /*************************
          * Edit Card Readers Tab *
          * ***********************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -235,29 +249,5 @@ namespace ReganRyanSoftwareEngineering
 
         }
 
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-       
-        
-
-
-
-
-
- 
     }
 }

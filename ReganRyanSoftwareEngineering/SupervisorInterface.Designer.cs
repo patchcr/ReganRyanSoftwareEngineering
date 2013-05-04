@@ -261,17 +261,17 @@
             this.ExistDoorGroupsList = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.EditDoorGroupBox = new System.Windows.Forms.GroupBox();
+            this.ExistingDoorsList = new System.Windows.Forms.CheckedListBox();
             this.NameOfDoorGroupNameTextbox = new System.Windows.Forms.TextBox();
             this.SaveEditedDoorGroupButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.ExistingDoorsList = new System.Windows.Forms.ListBox();
             this.EditDoorGroupButton = new System.Windows.Forms.Button();
             this.UserGroups = new System.Windows.Forms.TabPage();
             this.EditUserGroupBox = new System.Windows.Forms.GroupBox();
+            this.ExistingUserListBox = new System.Windows.Forms.CheckedListBox();
             this.NameOfUserGroupTextbox = new System.Windows.Forms.TextBox();
             this.SaveUserGroupButton = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
-            this.ExistingUserListBox = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.UserMembersListBox = new System.Windows.Forms.ListBox();
             this.ExistingUserGroupsListBox = new System.Windows.Forms.ListBox();
@@ -685,7 +685,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -2738,10 +2738,10 @@
             // 
             // EditDoorGroupBox
             // 
+            this.EditDoorGroupBox.Controls.Add(this.ExistingDoorsList);
             this.EditDoorGroupBox.Controls.Add(this.NameOfDoorGroupNameTextbox);
             this.EditDoorGroupBox.Controls.Add(this.SaveEditedDoorGroupButton);
             this.EditDoorGroupBox.Controls.Add(this.label11);
-            this.EditDoorGroupBox.Controls.Add(this.ExistingDoorsList);
             this.EditDoorGroupBox.Location = new System.Drawing.Point(665, 31);
             this.EditDoorGroupBox.Name = "EditDoorGroupBox";
             this.EditDoorGroupBox.Size = new System.Drawing.Size(229, 355);
@@ -2749,6 +2749,15 @@
             this.EditDoorGroupBox.TabStop = false;
             this.EditDoorGroupBox.Text = "Edit Group";
             this.EditDoorGroupBox.Visible = false;
+            // 
+            // ExistingDoorsList
+            // 
+            this.ExistingDoorsList.CheckOnClick = true;
+            this.ExistingDoorsList.FormattingEnabled = true;
+            this.ExistingDoorsList.Location = new System.Drawing.Point(4, 113);
+            this.ExistingDoorsList.Name = "ExistingDoorsList";
+            this.ExistingDoorsList.Size = new System.Drawing.Size(202, 214);
+            this.ExistingDoorsList.TabIndex = 7;
             // 
             // NameOfDoorGroupNameTextbox
             // 
@@ -2777,14 +2786,6 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Select Doors";
             // 
-            // ExistingDoorsList
-            // 
-            this.ExistingDoorsList.FormattingEnabled = true;
-            this.ExistingDoorsList.Location = new System.Drawing.Point(6, 111);
-            this.ExistingDoorsList.Name = "ExistingDoorsList";
-            this.ExistingDoorsList.Size = new System.Drawing.Size(120, 238);
-            this.ExistingDoorsList.TabIndex = 0;
-            // 
             // EditDoorGroupButton
             // 
             this.EditDoorGroupButton.Location = new System.Drawing.Point(536, 37);
@@ -2812,10 +2813,10 @@
             // 
             // EditUserGroupBox
             // 
+            this.EditUserGroupBox.Controls.Add(this.ExistingUserListBox);
             this.EditUserGroupBox.Controls.Add(this.NameOfUserGroupTextbox);
             this.EditUserGroupBox.Controls.Add(this.SaveUserGroupButton);
             this.EditUserGroupBox.Controls.Add(this.label39);
-            this.EditUserGroupBox.Controls.Add(this.ExistingUserListBox);
             this.EditUserGroupBox.Location = new System.Drawing.Point(665, 31);
             this.EditUserGroupBox.Name = "EditUserGroupBox";
             this.EditUserGroupBox.Size = new System.Drawing.Size(229, 355);
@@ -2823,6 +2824,15 @@
             this.EditUserGroupBox.TabStop = false;
             this.EditUserGroupBox.Text = "Edit Group";
             this.EditUserGroupBox.Visible = false;
+            // 
+            // ExistingUserListBox
+            // 
+            this.ExistingUserListBox.CheckOnClick = true;
+            this.ExistingUserListBox.FormattingEnabled = true;
+            this.ExistingUserListBox.Location = new System.Drawing.Point(10, 114);
+            this.ExistingUserListBox.Name = "ExistingUserListBox";
+            this.ExistingUserListBox.Size = new System.Drawing.Size(197, 229);
+            this.ExistingUserListBox.TabIndex = 14;
             // 
             // NameOfUserGroupTextbox
             // 
@@ -2851,14 +2861,6 @@
             this.label39.TabIndex = 1;
             this.label39.Text = "Select Users";
             // 
-            // ExistingUserListBox
-            // 
-            this.ExistingUserListBox.FormattingEnabled = true;
-            this.ExistingUserListBox.Location = new System.Drawing.Point(6, 111);
-            this.ExistingUserListBox.Name = "ExistingUserListBox";
-            this.ExistingUserListBox.Size = new System.Drawing.Size(120, 238);
-            this.ExistingUserListBox.TabIndex = 0;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.UserMembersListBox);
@@ -2886,6 +2888,7 @@
             this.ExistingUserGroupsListBox.Name = "ExistingUserGroupsListBox";
             this.ExistingUserGroupsListBox.Size = new System.Drawing.Size(120, 329);
             this.ExistingUserGroupsListBox.TabIndex = 4;
+            this.ExistingUserGroupsListBox.SelectedIndexChanged += new System.EventHandler(this.ExistingUserGroupsListBox_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -3399,7 +3402,6 @@
         private System.Windows.Forms.GroupBox EditDoorGroupBox;
         private System.Windows.Forms.Button SaveEditedDoorGroupButton;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ListBox ExistingDoorsList;
         private System.Windows.Forms.TextBox NameOfDoorGroupNameTextbox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -3421,7 +3423,6 @@
         private System.Windows.Forms.TextBox NameOfUserGroupTextbox;
         private System.Windows.Forms.Button SaveUserGroupButton;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.ListBox ExistingUserListBox;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ListBox ExistingUserGroupsListBox;
         private System.Windows.Forms.Label label7;
@@ -3447,6 +3448,8 @@
         private System.Windows.Forms.ListBox DoorMembersListBox;
         private System.Windows.Forms.ListBox UserMembersListBox;
         private System.Windows.Forms.Button ResetButton;
+        private System.Windows.Forms.CheckedListBox ExistingUserListBox;
+        private System.Windows.Forms.CheckedListBox ExistingDoorsList;
     }
 
 }

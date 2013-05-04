@@ -109,7 +109,7 @@ namespace ReganRyanSoftwareEngineering {
             HashSet<PersonGroup> pgroups = curPerson.FindPersonGroups();
             List<PersonGroup> pglist = new List<PersonGroup>();
             foreach (PersonGroup pg in pgroups) { pglist.Add(pg); }
-            if (dac.AccessPermissionsValidationRequest(date, hour, pglist, door.FindDoorGroup()))
+            if (dac.AccessPermissionsValidationRequest(date, hour, pglist, door.DoorGroup))
             {
                 return true;
             }

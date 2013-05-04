@@ -46,8 +46,17 @@
             lockState = true;
         }
 
-        public DoorGroup FindDoorGroup() {
-            return doorGroup;
+        public DoorGroup DoorGroup {
+            get { return doorGroup; }
+            set { doorGroup = value; }
+        }
+
+        public override bool Equals(object obj) {
+            return (obj is Door) && number.Equals(((Door) obj).Number);
+        }
+
+        public override int GetHashCode() {
+            return number;
         }
 
         public override string ToString() {
