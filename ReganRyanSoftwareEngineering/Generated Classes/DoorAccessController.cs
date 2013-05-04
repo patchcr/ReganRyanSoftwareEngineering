@@ -62,7 +62,7 @@ namespace ReganRyanSoftwareEngineering {
         public List<Door> FindDoorsByGroup(DoorGroup dg) {
             List<Door> list = new List<Door>();
             foreach (Door d in doors) {
-                if (d.DoorGroup.Equals(dg)) {
+                if (d.DoorGroup != null && d.DoorGroup.Equals(dg)) {
                     list.Add(d);
                 }
             }

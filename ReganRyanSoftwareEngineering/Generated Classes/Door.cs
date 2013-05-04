@@ -60,7 +60,7 @@
         }
 
         public override string ToString() {
-            return number + "";
+            return "Door " + number;
         }
 
     }
