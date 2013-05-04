@@ -106,6 +106,7 @@ namespace ReganRyanSoftwareEngineering {
             this.StandbyMode();
             this.panel.Invoke((System.Windows.Forms.MethodInvoker)(() => {
                 this.panel.DisplayAlarmAlert();
+                SecurityConsoleInterface.Instance.DisplayNotification("door " + door.Number + " held open too long");
             }));
             alarmTimer.Stop();
         }
