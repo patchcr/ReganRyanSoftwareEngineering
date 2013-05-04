@@ -43,6 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.DateTimeLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.DoorToggleButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.DoorToggleButton);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(27, 254);
             this.groupBox3.Name = "groupBox3";
@@ -203,6 +205,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 41);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
+            // DoorToggleButton
+            // 
+            this.DoorToggleButton.Location = new System.Drawing.Point(58, 63);
+            this.DoorToggleButton.Name = "DoorToggleButton";
+            this.DoorToggleButton.Size = new System.Drawing.Size(75, 23);
+            this.DoorToggleButton.TabIndex = 1;
+            this.DoorToggleButton.Text = "Open Door";
+            this.DoorToggleButton.UseVisualStyleBackColor = true;
+            this.DoorToggleButton.Click += new System.EventHandler(this.DoorToggleButton_Click);
+            // 
             // CardReaderPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,5 +255,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label DateTimeLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button DoorToggleButton;
     }
 }

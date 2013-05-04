@@ -51,7 +51,21 @@ namespace ReganRyanSoftwareEngineering
         private void SubmitPasswordButton_Click(object sender, EventArgs e)
         {
             // TODO Logic for checking to see if the password was correct.  All we have is the cardNumber and password. So some reverse lookup is needed.
+            // TODO We need to start a timer if the door is unlocked successfully. 
             groupBox3.Visible = true;
+        }
+
+        private void DoorToggleButton_Click(object sender, EventArgs e)
+        {
+            // TODO Stop the timer to avoid sending an alert to the Security Panel
+            if (DoorToggleButton.Text == "Close Door")
+            {
+                DoorToggleButton.Text = "Open Door";
+            }
+            else
+            {
+                DoorToggleButton.Text = "Close Door";
+            }
         }
 
         

@@ -29,17 +29,17 @@ namespace ReganRyanSoftwareEngineering
         private void CreateNewUserButton_MouseClick(object sender, MouseEventArgs e)
         {
             personCreated = new Person(FirstNameEntry.Text, LastNameEntry.Text, "", null);
-            groupBox3.Visible = true;
+            Step2GroupBox.Visible = true;
         }
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
         {
             personCreated.SavePassword(EnterPasswordMaskedText.Text);
-            groupBox1.Visible = true;
+            Step3GroupBox.Visible = true;
         }
         private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
         {
-            label15.Text = FirstNameEntry.Text;
-            groupBox2.Visible = true;
+            FirstNameLabel.Text = FirstNameEntry.Text;
+            Step4GroupBox.Visible = true;
         }
         private void ConfirmInfoPrintCard_Click(object sender, EventArgs e)
         {
@@ -110,6 +110,8 @@ namespace ReganRyanSoftwareEngineering
         {
 
         }
+
+
 
 
 
