@@ -21,12 +21,10 @@ namespace ReganRyanSoftwareEngineering {
             CardReaderSelectionList.DataSource = crli;
         }
 
-
-
         private void CardReaderSelectionList_SelectedIndexChanged(object sender, EventArgs e) {
             CardReader selected = cri.GetCardReader(CardReaderSelectionList.SelectedItem.ToString());
             ReaderNameLabel.Text = selected.getName();
-            ReaderStatusLabel.Text = selected.IsActive().ToString();
+            ReaderStatusLabel.Text = selected.IsActive() ? "Active" : "Inactive";
             ReaderNetworkAddressLabel.Text = selected.GetNetWorkAddress();
             ReaderDoorLocationLabel.Text = selected.GetDoor().Number.ToString();
         }

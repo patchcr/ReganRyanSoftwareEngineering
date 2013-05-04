@@ -25,8 +25,18 @@ namespace ReganRyanSoftwareEngineering {
             this.name = name;
             this.networkAddress = networdAddress;
             this.door = door;
+            alarmTimer = 100;
             alarmState = false;
+            activityMode = true;
             events = new List<Event>();
+        }
+
+        public int AlarmTimer {
+            get { return alarmTimer; }
+        }
+
+        public bool AlarmState {
+            get { return alarmState; }
         }
 
         public string getName() {
@@ -104,6 +114,10 @@ namespace ReganRyanSoftwareEngineering {
 
         public void SaveEvent() {
 
+        }
+
+        public override string ToString() {
+            return name;
         }
 
     }
