@@ -36,7 +36,14 @@ namespace ReganRyanSoftwareEngineering
         private void CreateNewUserButton_MouseClick(object sender, MouseEventArgs e)
         {
             personCreated = new Person(FirstNameEntry.Text, LastNameEntry.Text, "", null);
-            Step2GroupBox.Visible = true;
+            if (!DBUserInterface.Instance.VerifyExistence(personCreated))
+            {
+                Step2GroupBox.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("This user already exists");
+            }
         }
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
         {
@@ -59,9 +66,9 @@ namespace ReganRyanSoftwareEngineering
         }
         private void ConfirmInfoPrintCard_Click(object sender, EventArgs e)
         {
-            DBUserInterface dbui = DBUserInterface.Instance;
-            dbui.Save(personCreated);
+            personCreated.SaveInfo();
             MessageBox.Show("New User Successfully Created. Card is Printing.");
+            ResetButton_Click(sender, e);
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
@@ -124,14 +131,12 @@ namespace ReganRyanSoftwareEngineering
                     }
                     else
                     {
-                        ts[j].RevokeAccess();
+                        ts[i].RevokeAccess();
                     }
                 }
                 dayOfWeek.TimeSlots = ts;
-                
                 week.setTypicalDay(dayOfWeek, i);
             }
-            //Console.WriteLine(week);
             cal.TypicalWeek = week;
             dac.SaveCalendar(usergroup, doorgroup, cal);
         }
