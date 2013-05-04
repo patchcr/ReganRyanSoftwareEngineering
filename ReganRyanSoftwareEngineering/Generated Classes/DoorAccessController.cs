@@ -98,13 +98,13 @@ namespace ReganRyanSoftwareEngineering {
             return DBCalendarInterface.Instance.RetrieveCalendar(personGroup, doorGroup);
         }
 
-        public bool ValidateCard(int cardNum) {
+        public Card ValidateCard(int cardNum) {
             foreach (Person p in DBUserInterface.Instance.PersonList) {
                 if (p.Card.GetCardNumber() == cardNum) {
-                    return true;
+                    return p.Card;
                 }
             }
-            return false;
+            return null;
         }
 
 

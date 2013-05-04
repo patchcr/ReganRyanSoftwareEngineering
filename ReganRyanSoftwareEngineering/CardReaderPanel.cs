@@ -12,8 +12,6 @@ namespace ReganRyanSoftwareEngineering {
     public partial class CardReaderPanel : Form {
 
         private CardReader currentReader;
-        private DateTime currentTime;
-        private DoorAccessController dac;
 
         public CardReaderPanel() {
             InitializeComponent();
@@ -21,19 +19,23 @@ namespace ReganRyanSoftwareEngineering {
 
         public CardReaderPanel(CardReader cr, DateTime date) {
             InitializeComponent();
-            dac = DoorAccessController.Instance;
             currentReader = cr;
-            currentTime = date;
             ReaderNameLabel.Text = cr.getName();
             // NOTE for date formating "g" was found here: http://msdn.microsoft.com/en-us/library/zdtaw1bw.aspx
-            DateTimeLabel.Text = date.ToString("g");
+            DateTimeLabel.Text = DateTime.Now.ToString("g");
         }
 
         private void SwipeButton_Click(object sender, EventArgs e) {
-            if (dac.ValidateCard(Int32.Parse(CardNumberTextBox.Text))) {
-                groupBox2.Visible = true;
+            if (currentReader.IsActive()) {
+
+                int cardNum = Int32.Parse(CardNumberTextBox.Text);
+                if (currentReader.ReadCard(cardNum, this)) {
+                    EnterPasswordBox.Visible = true;
+                } else {
+                    DisplayInvalidCard();
+                }
             } else {
-                MessageBox.Show("Invalid Card Number. Please try again");
+                MessageBox.Show("This cardreader is currently in standby mode");
             }
         }
 
@@ -41,10 +43,31 @@ namespace ReganRyanSoftwareEngineering {
             MessageBox.Show("Invalid Password Entry. The password must be 4 numbers. No other characters are allowed.");
         }
 
+        public void DisplayInvalidCard() {
+            MessageBox.Show("Invalid Card Attempted.");
+        }
+
+        public void DisplayInvalidPassword(int attemptNum) {
+            MessageBox.Show("Invalid Password. Attempt #" + attemptNum);
+        }
+
+        public void DisplayExceededInvalidPasswordAttempts() {
+            MessageBox.Show("Invalid Password Limit Exceeded. Card Reader now deactivated");
+            SecurityConsoleInterface.Instance.Refresh();
+            EnterPasswordTextBox.Text = "";
+            EnterPasswordBox.Visible = false;
+        }
+
         private void SubmitPasswordButton_Click(object sender, EventArgs e) {
-            // TODO Logic for checking to see if the password was correct.  All we have is the cardNumber and password. So some reverse lookup is needed.
-            // TODO We need to start a timer if the door is unlocked successfully. 
-            groupBox3.Visible = true;
+            if (currentReader.EnterPassword(EnterPasswordTextBox.Text)) {
+                OpenDoorBox.Visible = true;
+            } else {
+                if (currentReader.Attempts >= 3) {
+                    DisplayExceededInvalidPasswordAttempts();
+                } else {
+                    DisplayInvalidPassword(currentReader.Attempts);
+                }
+            }
         }
 
         private void DoorToggleButton_Click(object sender, EventArgs e) {
