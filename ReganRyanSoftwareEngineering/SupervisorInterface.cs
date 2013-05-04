@@ -47,6 +47,7 @@ namespace ReganRyanSoftwareEngineering
         }
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
         {
+            // TODO Validate that the password is 4 digits. 
             personCreated.SavePassword(EnterPasswordMaskedText.Text);
             Step3GroupBox.Visible = true;
         }
@@ -60,6 +61,8 @@ namespace ReganRyanSoftwareEngineering
             LastNameLabel.Text = personCreated.LastName;
             PersonIDLabel.Text = personCreated.ID.ToString();
             CardIDLabel.Text = personCreated.Card.GetCardNumber().ToString();
+            // TODO fix the display of groups
+            // TODO checkbox list the groups in step 3. 
             UserGroupsLabel.Text = personCreated.FindPersonGroups().ToString();
             PasswordLabel.Text = personCreated.ValidatePassword(EnterPasswordMaskedText.Text).ToString();
             Step4GroupBox.Visible = true;
@@ -239,6 +242,8 @@ namespace ReganRyanSoftwareEngineering
         /*************************
          * Edit Card Readers Tab *
          * ***********************/
+
+        // TODO this whole tab.
 
         private void button2_Click(object sender, EventArgs e)
         {

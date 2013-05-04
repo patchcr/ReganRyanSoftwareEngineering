@@ -68,6 +68,12 @@ namespace ReganRyanSoftwareEngineering {
             resetCardReaderPanel();
         }
 
+        internal void DisplayAlarmAlert()
+        {
+            MessageBox.Show("ALARM.... SECURITY IS EN ROUTE");
+            resetCardReaderPanel();
+        }
+
         private void SubmitPasswordButton_Click(object sender, EventArgs e) {
             int accessHour = currentDate.Hour;
             if (currentReader.EnterPassword(EnterPasswordTextBox.Text)) {
@@ -88,15 +94,13 @@ namespace ReganRyanSoftwareEngineering {
 
         private void DoorToggleButton_Click(object sender, EventArgs e) {
 
-            if (currentReader.GetDoor().CloseState) 
-            {   // door is closed.
+            if (currentReader.GetDoor().isClosed == false) 
+            {   // User is clicking "Close Door"
+                currentReader.GetDoor().CloseDoor();
                 currentReader.TurnAlarmTimerOff();
-
                 resetCardReaderPanel();
-                
-
             } else { // User is clicking "Open Door"
-                currentReader.TurnAlarmTimerOn();
+                currentReader.TurnAlarmTimerOn(this);
                 currentReader.TurnTimeKeeperOff();
                 currentReader.GetDoor().OpenDoor();
                 DoorToggleButton.Text = "Close Door";
@@ -111,6 +115,8 @@ namespace ReganRyanSoftwareEngineering {
             EnterCardNumBox.Text = "";
             DoorToggleButton.Text = "Open Door";
         }
+
+        
     }
 
 }

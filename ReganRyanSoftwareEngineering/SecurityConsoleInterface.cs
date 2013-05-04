@@ -19,11 +19,11 @@ namespace ReganRyanSoftwareEngineering {
 
         private CardReaderInstallation cri;
 
-        private string notifications;
+        private List<string> notifications;
 
         private SecurityConsoleInterface() {
             InitializeComponent();
-            notifications = "";
+            notifications = new List<string>();
             cri = CardReaderInstallation.Instance;
         }
 
@@ -40,7 +40,10 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public void DisplayNotification(string msg) {
-            notifications += msg + "\n";
+            notifications.Insert(0,msg);
+            EventListBox.DataSource = new List<string>();
+            EventListBox.DataSource = notifications;
+            MessageBox.Show(msg);
         }
 
         private void showCurrentCardReaderInfo() {
@@ -54,9 +57,8 @@ namespace ReganRyanSoftwareEngineering {
         protected override void OnShown(EventArgs e) {
             base.OnShown(e);
             Dictionary<String, CardReader> dict = cri.CardReaders;
-            IList<String> crli = (IList<String>)dict.Keys.ToList();
-            CardReaderSelectionList.DataSource = crli;
-            EventListBox.Text = notifications;
+            CardReaderSelectionList.DataSource = (List<String>)dict.Keys.ToList();
+            EventListBox.DataSource = notifications;
             showCurrentCardReaderInfo();
         }
 
