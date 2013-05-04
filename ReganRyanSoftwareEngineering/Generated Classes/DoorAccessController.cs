@@ -21,10 +21,30 @@ namespace ReganRyanSoftwareEngineering {
             doorGroups = new List<DoorGroup>();
             doors = new List<Door>();
             personGroups = new List<PersonGroup>();
+
+            personGroups.Add(new PersonGroup("students", "persongroup1"));
+            personGroups.Add(new PersonGroup("faculty", "persongroup2"));
+            personGroups.Add(new PersonGroup("visitors", "persongroup3"));
+
+            doorGroups.Add(new DoorGroup("dg001", "doorgroup1"));
+            doorGroups.Add(new DoorGroup("dg002", "doorgroup2"));
+            doorGroups.Add(new DoorGroup("dg003", "doorgroup3"));
+
+            CreateDoor(doorGroups[0]);
+            CreateDoor(doorGroups[1]);
+            CreateDoor(doorGroups[2]);
         }
 
         public List<Door> Doors {
             get { return doors; }
+        }
+
+        public List<DoorGroup> DoorGroups {
+            get { return doorGroups; }
+        }
+
+        public List<PersonGroup> PersonGroups {
+            get { return personGroups; }
         }
 
         public void CreateDoor(DoorGroup dg) {

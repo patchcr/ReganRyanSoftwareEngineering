@@ -12,11 +12,16 @@ namespace ReganRyanSoftwareEngineering
     public partial class SupervisorInterface : Form
     {
         private Person personCreated;
+        private DoorAccessController dac;
 
         public SupervisorInterface()
         {
             InitializeComponent();
+            dac = DoorAccessController.Instance;
 
+            ExistingDoorsList.DataSource = dac.Doors;
+            ListSelectDoorGroup.DataSource = ExistDoorGroupsList.DataSource = dac.DoorGroups;
+            ListSelectUserGroup2.DataSource = ExistingUsersListBox.DataSource = dac.PersonGroups;
         }
 
         private void SupervisorInterface_Load(object sender, EventArgs e) {
@@ -108,6 +113,10 @@ namespace ReganRyanSoftwareEngineering
 
         private void ReactivateCardButton_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void ListSelectDoorGroup_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
 

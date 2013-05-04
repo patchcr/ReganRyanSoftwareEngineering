@@ -29,6 +29,10 @@ namespace ReganRyanSoftwareEngineering {
             return code.GetHashCode();
         }
 
+        public override string ToString() {
+            return code;
+        }
+
     }
 
 }
