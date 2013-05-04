@@ -43,9 +43,9 @@
             this.ReaderDoorLocationLabel = new System.Windows.Forms.Label();
             this.ReactivateCardReaderButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.personGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EventListBox = new System.Windows.Forms.ListBox();
             this.EventDisplayMultilineTextbox = new System.Windows.Forms.TextBox();
+            this.personGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.personGroupBindingSource)).BeginInit();
@@ -204,10 +204,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Active Card Readers";
             // 
-            // personGroupBindingSource
-            // 
-            this.personGroupBindingSource.DataSource = typeof(ReganRyanSoftwareEngineering.PersonGroup);
-            // 
             // EventListBox
             // 
             this.EventListBox.FormattingEnabled = true;
@@ -215,6 +211,7 @@
             this.EventListBox.Name = "EventListBox";
             this.EventListBox.Size = new System.Drawing.Size(286, 121);
             this.EventListBox.TabIndex = 10;
+            this.EventListBox.SelectedIndexChanged += new System.EventHandler(this.EventListBox_SelectedIndexChanged);
             // 
             // EventDisplayMultilineTextbox
             // 
@@ -223,6 +220,10 @@
             this.EventDisplayMultilineTextbox.Name = "EventDisplayMultilineTextbox";
             this.EventDisplayMultilineTextbox.Size = new System.Drawing.Size(100, 121);
             this.EventDisplayMultilineTextbox.TabIndex = 11;
+            // 
+            // personGroupBindingSource
+            // 
+            this.personGroupBindingSource.DataSource = typeof(ReganRyanSoftwareEngineering.PersonGroup);
             // 
             // SecurityConsoleInterface
             // 

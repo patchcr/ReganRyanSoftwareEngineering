@@ -57,8 +57,16 @@ namespace ReganRyanSoftwareEngineering
         }
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
         {
-            personCreated.SavePassword(EnterPasswordMaskedText.Text);
-            Step3GroupBox.Visible = true;
+            string Pass = EnterPasswordMaskedText.Text;
+            StringConverter sc = new StringConverter();
+            if (Pass.Length != 4)
+            {
+                MessageBox.Show("Password must be 4 numeric digits");
+            }else{
+              
+                personCreated.SavePassword(Pass);
+                Step3GroupBox.Visible = true;
+            }
         }
         private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
         {
@@ -68,16 +76,23 @@ namespace ReganRyanSoftwareEngineering
                     groups.Add((PersonGroup) ListSelectUserGroup.Items[i]);
                 }
             }
-            personCreated.SavePersonGroups(groups);
+            if (groups.Count == 0)
+            {
+                MessageBox.Show("At least One group must be selected");
+            }
+            else
+            {
+                personCreated.SavePersonGroups(groups);
 
-            // Setting up Step 4.
-            FirstNameLabel.Text = personCreated.FirstName;
-            LastNameLabel.Text = personCreated.LastName;
-            PersonIDLabel.Text = personCreated.ID.ToString();
-            CardIDLabel.Text = personCreated.Card.GetCardNumber().ToString();
-            UserGroupsLabel.Text = personCreated.FindPersonGroups().ToString();
-            PasswordLabel.Text = personCreated.ValidatePassword(EnterPasswordMaskedText.Text).ToString();
-            Step4GroupBox.Visible = true;
+                // Setting up Step 4.
+                FirstNameLabel.Text = personCreated.FirstName;
+                LastNameLabel.Text = personCreated.LastName;
+                PersonIDLabel.Text = personCreated.ID.ToString();
+                CardIDLabel.Text = personCreated.Card.GetCardNumber().ToString();
+                UserGroupsLabel.Text = personCreated.FindPersonGroups().ToString();
+                PasswordLabel.Text = personCreated.ValidatePassword(EnterPasswordMaskedText.Text).ToString();
+                Step4GroupBox.Visible = true;
+            }
         }
         private void ConfirmInfoPrintCard_Click(object sender, EventArgs e)
         {
