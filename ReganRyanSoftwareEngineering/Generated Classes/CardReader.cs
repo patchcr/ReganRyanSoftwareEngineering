@@ -21,6 +21,10 @@ namespace ReganRyanSoftwareEngineering {
 
         private List<Event> events;
 
+        private Person curPerson;
+
+        private int attempts;
+
         public CardReader(string name, string networdAddress, Door door) {
             this.name = name;
             this.networkAddress = networdAddress;
@@ -84,16 +88,36 @@ namespace ReganRyanSoftwareEngineering {
             timeKeeper.Stop();
         }
 
-        public void ReadCard(int cardNum, CardReaderPanel panel) {
-
+        public bool ReadCard(int cardNum, CardReaderPanel panel) {
+            Card c = DoorAccessController.Instance.ValidateCard(cardNum);
+            if (activityMode && c != null) {
+                curPerson = IdentifyPerson(c);
+                attempts = 0;
+                return true;
+            }
+            return false;
         }
 
         public Person IdentifyPerson(Card c) {
             return DBUserInterface.Instance.GetPerson(c.GetPersonID());
         }
 
-        public void EnterPassword() {
+        public bool EnterPassword(string pass) {
+            if (attempts < 3 && curPerson.ValidatePassword(pass)) {
+                return true;
+            } else {
+                attempts++;
+                if (attempts >= 3) {
+                    StandbyMode();
+                    events.Add(new Event("3 Invalid Password Attempts"));
+                    SecurityConsoleInterface.Instance.DisplayNotification("3 invalid password attempts");
+                }
+            }
+            return false;
+        }
 
+        public int Attempts {
+            get { return attempts; }
         }
 
         public void OpenSignal() {
@@ -101,22 +125,6 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public void CloseSignal() {
-
-        }
-
-        public void DisplayUnrecognizedCard() {
-
-        }
-
-        public void DisplayInvalidPassword() {
-
-        }
-
-        public void DisplayUnrecognizedAccess() {
-
-        }
-
-        public void SaveEvent() {
 
         }
 

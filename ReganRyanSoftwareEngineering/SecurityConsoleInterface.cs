@@ -11,22 +11,24 @@ namespace ReganRyanSoftwareEngineering {
 
     public partial class SecurityConsoleInterface : Form {
 
+        private static SecurityConsoleInterface instance = new SecurityConsoleInterface();
+
+        public static SecurityConsoleInterface Instance {
+            get { return instance; }
+        }
+
         private CardReaderInstallation cri;
 
-        public SecurityConsoleInterface() {
+        private string notifications;
+
+        private SecurityConsoleInterface() {
             InitializeComponent();
+            notifications = "";
             cri = CardReaderInstallation.Instance;
-            Dictionary<String, CardReader> dict = cri.CardReaders;
-            IList<String> crli = (IList<String>)dict.Keys.ToList();
-            CardReaderSelectionList.DataSource = crli;
         }
 
         private void CardReaderSelectionList_SelectedIndexChanged(object sender, EventArgs e) {
-            CardReader selected = cri.GetCardReader(CardReaderSelectionList.SelectedItem.ToString());
-            ReaderNameLabel.Text = selected.getName();
-            ReaderStatusLabel.Text = selected.IsActive() ? "Active" : "Inactive";
-            ReaderNetworkAddressLabel.Text = selected.GetNetWorkAddress();
-            ReaderDoorLocationLabel.Text = selected.GetDoor().Number.ToString();
+            showCurrentCardReaderInfo();
         }
 
         private void ReactivateCardReaderButton_Click(object sender, EventArgs e) {
@@ -35,6 +37,32 @@ namespace ReganRyanSoftwareEngineering {
             cr = cri.GetCardReader(name);
             cr.ActiveMode();
 
+        }
+
+        public void DisplayNotification(string msg) {
+            notifications += msg + "\n";
+        }
+
+        private void showCurrentCardReaderInfo() {
+            CardReader selected = cri.GetCardReader(CardReaderSelectionList.SelectedItem.ToString());
+            ReaderNameLabel.Text = selected.getName();
+            ReaderStatusLabel.Text = selected.IsActive() ? "Active" : "Inactive";
+            ReaderNetworkAddressLabel.Text = selected.GetNetWorkAddress();
+            ReaderDoorLocationLabel.Text = selected.GetDoor().Number.ToString();
+        }
+
+        protected override void OnShown(EventArgs e) {
+            base.OnShown(e);
+            Dictionary<String, CardReader> dict = cri.CardReaders;
+            IList<String> crli = (IList<String>)dict.Keys.ToList();
+            CardReaderSelectionList.DataSource = crli;
+            EventListBox.Text = notifications;
+            showCurrentCardReaderInfo();
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e) {
+            e.Cancel = true;
+            this.Hide();
         }
 
     }

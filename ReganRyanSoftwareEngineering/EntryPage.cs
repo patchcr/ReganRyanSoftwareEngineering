@@ -24,8 +24,7 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         private void SecurityConsoleButton_Click(object sender, EventArgs e) {
-            SecurityConsoleInterface sc = new SecurityConsoleInterface();
-            sc.Show();
+            SecurityConsoleInterface.Instance.Show();
         }
 
         private void CardReaderSelectorButton_Click(object sender, EventArgs e) {
