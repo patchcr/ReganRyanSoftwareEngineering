@@ -17,6 +17,10 @@ namespace ReganRyanSoftwareEngineering {
 
         public CardReaderInstallation() {
             cardReaders = new Dictionary<string, CardReader>();
+
+            AddCardReader("cr001", "nat001", DoorAccessController.Instance.Doors[0]);
+            AddCardReader("cr002", "nat002", DoorAccessController.Instance.Doors[1]);
+            AddCardReader("cr003", "nat003", DoorAccessController.Instance.Doors[2]);
         }
 
         public Dictionary<string, CardReader> CardReaders {

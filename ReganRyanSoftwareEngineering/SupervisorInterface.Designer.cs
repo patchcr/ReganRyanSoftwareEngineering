@@ -277,6 +277,12 @@
             this.EditUserGroupButton = new System.Windows.Forms.Button();
             this.CreateNewUserGroupButton = new System.Windows.Forms.Button();
             this.InitializeCardReaders = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label37 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -288,12 +294,6 @@
             this.ReaderDoorLocationLabel = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.CardReaderListBox = new System.Windows.Forms.ListBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -310,8 +310,8 @@
             this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.InitializeCardReaders.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -667,7 +667,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -2626,6 +2626,7 @@
             this.ListSelectDoorGroup.Name = "ListSelectDoorGroup";
             this.ListSelectDoorGroup.Size = new System.Drawing.Size(120, 95);
             this.ListSelectDoorGroup.TabIndex = 3;
+            this.ListSelectDoorGroup.SelectedIndexChanged += new System.EventHandler(this.ListSelectDoorGroup_SelectedIndexChanged);
             // 
             // ListSelectUserGroup2
             // 
@@ -2901,6 +2902,60 @@
             this.InitializeCardReaders.Text = "Initialize Card Readers";
             this.InitializeCardReaders.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(322, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Edit Card Reader Properties";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.textBox2);
+            this.groupBox8.Controls.Add(this.label51);
+            this.groupBox8.Controls.Add(this.label49);
+            this.groupBox8.Controls.Add(this.textBox1);
+            this.groupBox8.Location = new System.Drawing.Point(532, 28);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(200, 259);
+            this.groupBox8.TabIndex = 17;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Edit Card Reader Properties";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(10, 96);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(7, 79);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(123, 13);
+            this.label51.TabIndex = 2;
+            this.label51.Text = "Unlocked Time-out (sec)";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(7, 21);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(103, 13);
+            this.label49.TabIndex = 1;
+            this.label49.Text = "Alarm Time-out (sec)";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3021,60 +3076,6 @@
             this.CardReaderListBox.Size = new System.Drawing.Size(66, 368);
             this.CardReaderListBox.TabIndex = 14;
             // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.textBox2);
-            this.groupBox8.Controls.Add(this.label51);
-            this.groupBox8.Controls.Add(this.label49);
-            this.groupBox8.Controls.Add(this.textBox1);
-            this.groupBox8.Location = new System.Drawing.Point(532, 28);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(200, 259);
-            this.groupBox8.TabIndex = 17;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Edit Card Reader Properties";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(322, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Edit Card Reader Properties";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(7, 21);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(103, 13);
-            this.label49.TabIndex = 1;
-            this.label49.Text = "Alarm Time-out (sec)";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(7, 79);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(123, 13);
-            this.label51.TabIndex = 2;
-            this.label51.Text = "Unlocked Time-out (sec)";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(10, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
-            // 
             // SupervisorInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3112,10 +3113,10 @@
             this.groupBox5.PerformLayout();
             this.InitializeCardReaders.ResumeLayout(false);
             this.InitializeCardReaders.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

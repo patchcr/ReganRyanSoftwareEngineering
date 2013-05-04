@@ -50,6 +50,10 @@
             return doorGroup;
         }
 
+        public override string ToString() {
+            return number + "";
+        }
+
     }
 
 }

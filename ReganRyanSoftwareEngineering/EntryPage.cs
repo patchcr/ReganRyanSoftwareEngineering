@@ -7,32 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace ReganRyanSoftwareEngineering
-{
-    public partial class EntryPage : Form
-    {
+namespace ReganRyanSoftwareEngineering {
+
+    public partial class EntryPage : Form {
+
         public CardReaderInstallation cri;
-        public EntryPage()
-        {
+
+        public EntryPage() {
             InitializeComponent();
-            cri = new CardReaderInstallation();
+            cri = CardReaderInstallation.Instance;
         }
-        private void AdminConsoleButton_Click(object sender, EventArgs e)
-        {
+
+        private void AdminConsoleButton_Click(object sender, EventArgs e) {
             SupervisorInterface si = new SupervisorInterface();
             si.Show();
         }
 
-        private void SecurityConsoleButton_Click(object sender, EventArgs e)
-        {
+        private void SecurityConsoleButton_Click(object sender, EventArgs e) {
             SecurityConsoleInterface sc = new SecurityConsoleInterface();
             sc.Show();
         }
 
-        private void CardReaderSelectorButton_Click(object sender, EventArgs e)
-        {
+        private void CardReaderSelectorButton_Click(object sender, EventArgs e) {
             CardReaderSelector crs = new CardReaderSelector();
             crs.Show();
         }
+
     }
+
 }
