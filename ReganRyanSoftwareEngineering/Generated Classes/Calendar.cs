@@ -27,7 +27,7 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public bool ValidateAccess(DateTime date, int accessHour) {
-            return week.ReadDay(date).ReadSlots()[accessHour].ReadAccessPermission();
+            return week.ReadDay(date).TimeSlots[accessHour].ReadAccessPermission();
         }
 
     }

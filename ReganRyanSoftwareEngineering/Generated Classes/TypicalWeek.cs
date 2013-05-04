@@ -23,8 +23,15 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public TypicalDay ReadDay(DateTime date) {
-            Console.WriteLine((int)date.DayOfWeek);
             return days[(int)date.DayOfWeek];
+        }
+
+        public override string ToString() {
+            string s = "";
+            foreach (TypicalDay d in days) {
+                s += d.ToString() + "\n";
+            }
+            return s;
         }
 
     }

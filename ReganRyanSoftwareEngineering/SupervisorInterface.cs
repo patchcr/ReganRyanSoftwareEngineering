@@ -114,22 +114,24 @@ namespace ReganRyanSoftwareEngineering
             {
                 // 4/28/2013 is a Sunday
                 TypicalDay dayOfWeek = week.ReadDay(new DateTime(2013, 4, 21+i));
-                TimeSlot[] ts = dayOfWeek.ReadSlots();
+                TimeSlot[] ts = dayOfWeek.TimeSlots;
                 for (int j = 0; j < 24; j++)
                 {
                     check = (CheckBox)this.tableLayoutPanel1.Controls.Container.GetControlFromPosition(i+1, j);
                     if (check.Checked)
                     {
-                        ts[i].GrantAccess();
+                        ts[j].GrantAccess();
                     }
                     else
                     {
-                        ts[i].RevokeAccess();
+                        ts[j].RevokeAccess();
                     }
                 }
-                dayOfWeek.timeSlots = ts;
+                dayOfWeek.TimeSlots = ts;
+                
                 week.setTypicalDay(dayOfWeek, i);
             }
+            //Console.WriteLine(week);
             cal.TypicalWeek = week;
             dac.SaveCalendar(usergroup, doorgroup, cal);
         }

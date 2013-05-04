@@ -27,6 +27,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PageCardCreation = new System.Windows.Forms.TabPage();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.Step1GroupBox = new System.Windows.Forms.GroupBox();
             this.FirstNameEntry = new System.Windows.Forms.TextBox();
             this.CreateNewUserButton = new System.Windows.Forms.Button();
@@ -256,6 +257,7 @@
             this.DoorGroups = new System.Windows.Forms.TabPage();
             this.CreateNewDoorGroupButton = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.DoorMembersListBox = new System.Windows.Forms.ListBox();
             this.ExistDoorGroupsList = new System.Windows.Forms.ListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.EditDoorGroupBox = new System.Windows.Forms.GroupBox();
@@ -271,6 +273,7 @@
             this.label39 = new System.Windows.Forms.Label();
             this.ExistingUserListBox = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.UserMembersListBox = new System.Windows.Forms.ListBox();
             this.ExistingUserGroupsListBox = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CreateUserButton = new System.Windows.Forms.Button();
@@ -295,9 +298,6 @@
             this.ReaderDoorLocationLabel = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.CardReaderListBox = new System.Windows.Forms.ListBox();
-            this.DoorMembersListBox = new System.Windows.Forms.ListBox();
-            this.UserMembersListBox = new System.Windows.Forms.ListBox();
-            this.ResetButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.Step1GroupBox.SuspendLayout();
@@ -358,6 +358,16 @@
             this.PageCardCreation.TabIndex = 0;
             this.PageCardCreation.Text = "New User Creation";
             this.PageCardCreation.UseVisualStyleBackColor = true;
+            // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(14, 192);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(75, 23);
+            this.ResetButton.TabIndex = 16;
+            this.ResetButton.Text = "Reset Form";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // Step1GroupBox
             // 
@@ -660,7 +670,7 @@
             this.UpdateTypicalWeekButton.Name = "UpdateTypicalWeekButton";
             this.UpdateTypicalWeekButton.Size = new System.Drawing.Size(120, 23);
             this.UpdateTypicalWeekButton.TabIndex = 5;
-            this.UpdateTypicalWeekButton.Text = "Update Typical Week";
+            this.UpdateTypicalWeekButton.Text = "Save Typical Week";
             this.UpdateTypicalWeekButton.UseVisualStyleBackColor = true;
             this.UpdateTypicalWeekButton.Click += new System.EventHandler(this.UpdateTypicalWeekButton_Click);
             // 
@@ -675,7 +685,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -2700,6 +2710,14 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Existing Door Groups";
             // 
+            // DoorMembersListBox
+            // 
+            this.DoorMembersListBox.FormattingEnabled = true;
+            this.DoorMembersListBox.Location = new System.Drawing.Point(258, 35);
+            this.DoorMembersListBox.Name = "DoorMembersListBox";
+            this.DoorMembersListBox.Size = new System.Drawing.Size(120, 251);
+            this.DoorMembersListBox.TabIndex = 6;
+            // 
             // ExistDoorGroupsList
             // 
             this.ExistDoorGroupsList.FormattingEnabled = true;
@@ -2852,6 +2870,14 @@
             this.groupBox5.TabIndex = 12;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Existing User Groups";
+            // 
+            // UserMembersListBox
+            // 
+            this.UserMembersListBox.FormattingEnabled = true;
+            this.UserMembersListBox.Location = new System.Drawing.Point(260, 35);
+            this.UserMembersListBox.Name = "UserMembersListBox";
+            this.UserMembersListBox.Size = new System.Drawing.Size(120, 251);
+            this.UserMembersListBox.TabIndex = 7;
             // 
             // ExistingUserGroupsListBox
             // 
@@ -3098,32 +3124,6 @@
             this.CardReaderListBox.Name = "CardReaderListBox";
             this.CardReaderListBox.Size = new System.Drawing.Size(66, 368);
             this.CardReaderListBox.TabIndex = 14;
-            // 
-            // DoorMembersListBox
-            // 
-            this.DoorMembersListBox.FormattingEnabled = true;
-            this.DoorMembersListBox.Location = new System.Drawing.Point(258, 35);
-            this.DoorMembersListBox.Name = "DoorMembersListBox";
-            this.DoorMembersListBox.Size = new System.Drawing.Size(120, 251);
-            this.DoorMembersListBox.TabIndex = 6;
-            // 
-            // UserMembersListBox
-            // 
-            this.UserMembersListBox.FormattingEnabled = true;
-            this.UserMembersListBox.Location = new System.Drawing.Point(260, 35);
-            this.UserMembersListBox.Name = "UserMembersListBox";
-            this.UserMembersListBox.Size = new System.Drawing.Size(120, 251);
-            this.UserMembersListBox.TabIndex = 7;
-            // 
-            // ResetButton
-            // 
-            this.ResetButton.Location = new System.Drawing.Point(14, 192);
-            this.ResetButton.Name = "ResetButton";
-            this.ResetButton.Size = new System.Drawing.Size(75, 23);
-            this.ResetButton.TabIndex = 16;
-            this.ResetButton.Text = "Reset Form";
-            this.ResetButton.UseVisualStyleBackColor = true;
-            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
             // SupervisorInterface
             // 

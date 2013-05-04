@@ -34,6 +34,10 @@
             return accessPermission;
         }
 
+        public override string ToString() {
+            return accessPermission + "";
+        }
+
     }
 
 }

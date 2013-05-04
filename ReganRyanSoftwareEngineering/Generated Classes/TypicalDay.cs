@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace ReganRyanSoftwareEngineering {
 
@@ -20,8 +21,17 @@ namespace ReganRyanSoftwareEngineering {
             get { return name; }
         }
 
-        public TimeSlot[] ReadSlots() {
-            return timeSlots;
+        public TimeSlot[] TimeSlots {
+            get { return this.timeSlots; }
+            set { this.timeSlots = value; }
+        }
+
+        public override string ToString() {
+            string s = "";
+            foreach (TimeSlot t in timeSlots) {
+                s += (t.ReadAccessPermission() ? "X" : "-");
+            }
+            return s;
         }
 
     }
