@@ -22,6 +22,7 @@ namespace ReganRyanSoftwareEngineering
             ExistingDoorsList.DataSource = dac.Doors;
             ListSelectDoorGroup.DataSource = ExistDoorGroupsList.DataSource = dac.DoorGroups;
             ListSelectUserGroup2.DataSource = ExistingUsersListBox.DataSource = dac.PersonGroups;
+            ListSelectUserGroup.DataSource = dac.PersonGroups;
         }
 
         private void SupervisorInterface_Load(object sender, EventArgs e) {
@@ -43,17 +44,55 @@ namespace ReganRyanSoftwareEngineering
         }
         private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
         {
-            FirstNameLabel.Text = FirstNameEntry.Text;
+            // TODO Convert the ListSelectUserGroup.SelectedItems list collection to a HashSet somehow.
+            personCreated.SavePersonGroups(new HashSet<PersonGroup>());
+
+            // Setting up Step 4.
+            FirstNameLabel.Text = personCreated.FirstName;
+            LastNameLabel.Text = personCreated.LastName;
+            PersonIDLabel.Text = personCreated.ID.ToString();
+            CardIDLabel.Text = personCreated.Card.GetCardNumber().ToString();
+            UserGroupsLabel.Text = personCreated.FindPersonGroups().ToString();
+            PasswordLabel.Text = personCreated.ValidatePassword(EnterPasswordMaskedText.Text).ToString();
             Step4GroupBox.Visible = true;
         }
         private void ConfirmInfoPrintCard_Click(object sender, EventArgs e)
         {
+            DBUserInterface dbui = DBUserInterface.Instance;
+            dbui.Save(personCreated);
             MessageBox.Show("New User Successfully Created. Card is Printing.");
         }
 
         /***********************
          * Update Calendar Tab *
          * *********************/
+        private void ListSelectUserGroup2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListSelectDoorGroup_SelectedIndexChanged_1(sender, e);
+        }
+        private void ListSelectDoorGroup_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            PersonGroup usergroup = (PersonGroup)ListSelectUserGroup2.SelectedItem;
+            DoorGroup doorgroup = (DoorGroup)ListSelectDoorGroup.SelectedItem;
+            if (usergroup != null)
+            { // MAJOR HACK
+                DoorAccessController dac = DoorAccessController.Instance;
+                Calendar cal = dac.GetCalendar(usergroup, doorgroup);
+                TypicalWeek week = cal.TypicalWeek;
+                CheckBox check;
+                for (int i = 0; i < 7; i++)
+                {
+                    // 4/28/2013 is a Sunday
+                    TypicalDay dayOfWeek = week.ReadDay(new DateTime(2013, 4, 28 + i));
+                    TimeSlot[] ts = dayOfWeek.timeSlots;
+                    for (int j = 0; j < 24; j++)
+                    {
+                        check = (CheckBox)this.tableLayoutPanel1.Controls.Container.GetControlFromPosition(i + 1, j);
+                        check.Checked = ts[j].ReadAccessPermission();
+                    }
+                }
+            }
+        }
         private void UpdateTypicalWeekButton_Click(object sender, EventArgs e)
         {
             PersonGroup usergroup = (PersonGroup)ListSelectUserGroup2.SelectedItem;
@@ -83,7 +122,6 @@ namespace ReganRyanSoftwareEngineering
                 week.setTypicalDay(dayOfWeek, i);
             }
             cal.TypicalWeek = week;
-            // I think we need to send cal back to the dbCalendarInterface for storage?
         }
 
         /*******************
@@ -92,6 +130,12 @@ namespace ReganRyanSoftwareEngineering
         private void DoorGroups_Layout(object sender, LayoutEventArgs e)
         {
             // TODO Use this function to populate the list boxes.
+            // I think this gets called before initialization which is a bad idea.
+
+        }
+
+        private void ExistDoorGroupsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
 
@@ -119,6 +163,11 @@ namespace ReganRyanSoftwareEngineering
         private void ListSelectDoorGroup_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
+
+        
+
+       
+        
 
 
 
