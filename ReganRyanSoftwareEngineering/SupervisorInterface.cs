@@ -58,8 +58,9 @@ namespace ReganRyanSoftwareEngineering
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
         {
             string Pass = EnterPasswordMaskedText.Text;
-            StringConverter sc = new StringConverter();
-            if (Pass.Length != 4)
+            int Num;
+            bool isNum  = int.TryParse(Pass, out Num);
+            if (Pass.Length != 4 || isNum == false)
             {
                 MessageBox.Show("Password must be 4 numeric digits");
             }else{
@@ -89,7 +90,13 @@ namespace ReganRyanSoftwareEngineering
                 LastNameLabel.Text = personCreated.LastName;
                 PersonIDLabel.Text = personCreated.ID.ToString();
                 CardIDLabel.Text = personCreated.Card.GetCardNumber().ToString();
-                UserGroupsLabel.Text = personCreated.FindPersonGroups().ToString();
+                HashSet<PersonGroup> hash = personCreated.FindPersonGroups();
+                String sgroups = "";
+                foreach (PersonGroup p in hash)
+                {
+                    sgroups += p.Code + ",";
+                }
+                UserGroupsLabel.Text = sgroups;
                 PasswordLabel.Text = personCreated.ValidatePassword(EnterPasswordMaskedText.Text).ToString();
                 Step4GroupBox.Visible = true;
             }
