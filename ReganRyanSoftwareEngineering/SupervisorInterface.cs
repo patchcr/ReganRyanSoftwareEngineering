@@ -179,6 +179,7 @@ namespace ReganRyanSoftwareEngineering
                     curDoor.DoorGroup = null;
                 }
             }
+            ExistDoorGroupsList.DataSource = new List<DoorGroup>();
             ExistDoorGroupsList.DataSource = dac.DoorGroups;
             DoorMembersListBox.DataSource = dac.FindDoorsByGroup(selected);
             EditDoorGroupBox.Visible = false;
@@ -231,18 +232,20 @@ namespace ReganRyanSoftwareEngineering
                 curPerson.SavePersonGroups(groups);
             }
             selected.Code = NameOfUserGroupTextbox.Text;
+            ExistingUserGroupsListBox.DataSource = new List<PersonGroup>();
             ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
             UserMembersListBox.DataSource = dac.FindPeopleByGroup(selected);
-            foreach (Person p in dac.FindPeopleByGroup(selected)) {
-                Console.WriteLine(p);
-            }
             EditUserGroupBox.Visible = false;
         }
 
         private void CreateNewUserGroupButton_Click(object sender, EventArgs e)
         {
-            NameOfUserGroupTextbox.Text = "";
-            ExistingUserListBox.SelectedIndex = 0;
+            EditUserGroupBox.Visible = true;
+            PersonGroup newGroup = new PersonGroup("New Group", "");
+            dac.PersonGroups.Add(newGroup);
+            ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
+            UserMembersListBox.DataSource = dac.FindPeopleByGroup(newGroup);
+            ExistingUserGroupsListBox.SelectedIndex = dac.PersonGroups.IndexOf(newGroup);
         }
 
     }
