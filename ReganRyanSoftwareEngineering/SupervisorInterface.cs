@@ -158,6 +158,7 @@ namespace ReganRyanSoftwareEngineering
             }
             cal.TypicalWeek = week;
             dac.SaveCalendar(usergroup, doorgroup, cal);
+            MessageBox.Show("Calendar Week Successfully Saved");
         }
 
         /*******************
