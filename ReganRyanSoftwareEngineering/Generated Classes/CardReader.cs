@@ -12,11 +12,15 @@ namespace ReganRyanSoftwareEngineering {
 
         private Door door;
 
-        private int alarmTimer;
+        private Timer alarmTimer;
+
+        private double alarmTimeOut;
 
         private bool alarmState;
 
         private Timer timeKeeper;
+
+        private double timeKeeperTimeOut;
 
         private bool activityMode;
 
@@ -26,11 +30,14 @@ namespace ReganRyanSoftwareEngineering {
 
         private int attempts;
 
+        private CardReaderPanel panel;
+
         public CardReader(string name, string networdAddress, Door door) {
             this.name = name;
             this.networkAddress = networdAddress;
             this.door = door;
-            alarmTimer = 100;
+            alarmTimeOut = 10000;
+            timeKeeperTimeOut = 10000;
             alarmState = false;
             activityMode = true;
             events = new List<Event>();
@@ -40,9 +47,9 @@ namespace ReganRyanSoftwareEngineering {
             get { return DBUserInterface.Instance.CardList; }
         }
 
-        public int AlarmTimer {
-            get { return alarmTimer; }
-        }
+        //public int AlarmTimer {
+       //     get { return alarmTimer; }
+        //}
 
         public bool AlarmState {
             get { return alarmState; }
@@ -80,9 +87,18 @@ namespace ReganRyanSoftwareEngineering {
             return this.door;
         }
 
-        public void TurnTimeKeeperOn() {
-            timeKeeper = new Timer();
+        public void TurnTimeKeeperOn(CardReaderPanel panel) {
+            timeKeeper = new Timer(timeKeeperTimeOut);
+            timeKeeper.Elapsed += new ElapsedEventHandler(OnTimeKeeperTimeOut);
             timeKeeper.Start();
+            this.panel = panel;
+        }
+
+        private void OnTimeKeeperTimeOut(object source, ElapsedEventArgs e)
+        {
+            this.GetDoor().Lock();
+            this.panel.DisplayDoorRelocking();
+            timeKeeper.Stop();
         }
 
         public void TurnTimeKeeperOff() {
@@ -111,6 +127,7 @@ namespace ReganRyanSoftwareEngineering {
             foreach (PersonGroup pg in pgroups) { pglist.Add(pg); }
             if (dac.AccessPermissionsValidationRequest(date, hour, pglist, door.FindDoorGroup()))
             {
+                door.Unlock();
                 return true;
             }
             return false;
