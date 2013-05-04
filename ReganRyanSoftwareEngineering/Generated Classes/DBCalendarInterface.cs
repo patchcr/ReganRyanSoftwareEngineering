@@ -18,7 +18,7 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public Calendar RetrieveCalendar(PersonGroup personGroup, DoorGroup doorGroup) {
-            return calendars[new Tuple<PersonGroup, DoorGroup>(personGroup, doorGroup)];
+            return null;//return calendars[new Tuple<PersonGroup, DoorGroup>(personGroup, doorGroup)];
         }
 
     }

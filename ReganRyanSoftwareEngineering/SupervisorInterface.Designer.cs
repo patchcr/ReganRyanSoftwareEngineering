@@ -279,6 +279,7 @@
             this.InitializeCardReaders = new System.Windows.Forms.TabPage();
             this.EditReaderButton = new System.Windows.Forms.Button();
             this.EditCardReaderGroupBox = new System.Windows.Forms.GroupBox();
+            this.SaveCardReaderButton = new System.Windows.Forms.Button();
             this.UnlockTimeoutTextbox = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
@@ -294,7 +295,8 @@
             this.ReaderDoorLocationLabel = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.CardReaderListBox = new System.Windows.Forms.ListBox();
-            this.SaveCardReaderButton = new System.Windows.Forms.Button();
+            this.DoorMembersListBox = new System.Windows.Forms.ListBox();
+            this.UserMembersListBox = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.Step1GroupBox.SuspendLayout();
@@ -671,7 +673,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -2630,6 +2632,7 @@
             this.ListSelectDoorGroup.Name = "ListSelectDoorGroup";
             this.ListSelectDoorGroup.Size = new System.Drawing.Size(120, 95);
             this.ListSelectDoorGroup.TabIndex = 3;
+            this.ListSelectDoorGroup.SelectedIndexChanged += new System.EventHandler(this.ListSelectDoorGroup_SelectedIndexChanged_1);
             // 
             // ListSelectUserGroup2
             // 
@@ -2638,6 +2641,7 @@
             this.ListSelectUserGroup2.Name = "ListSelectUserGroup2";
             this.ListSelectUserGroup2.Size = new System.Drawing.Size(120, 95);
             this.ListSelectUserGroup2.TabIndex = 2;
+            this.ListSelectUserGroup2.SelectedIndexChanged += new System.EventHandler(this.ListSelectUserGroup2_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -2683,6 +2687,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.DoorMembersListBox);
             this.groupBox6.Controls.Add(this.ExistDoorGroupsList);
             this.groupBox6.Controls.Add(this.label9);
             this.groupBox6.Location = new System.Drawing.Point(37, 31);
@@ -2699,7 +2704,7 @@
             this.ExistDoorGroupsList.Name = "ExistDoorGroupsList";
             this.ExistDoorGroupsList.Size = new System.Drawing.Size(120, 329);
             this.ExistDoorGroupsList.TabIndex = 4;
-            this.ExistDoorGroupsList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.ExistDoorGroupsList.SelectedIndexChanged += new System.EventHandler(this.ExistDoorGroupsList_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -2836,6 +2841,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.UserMembersListBox);
             this.groupBox5.Controls.Add(this.ExistingUsersListBox);
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Location = new System.Drawing.Point(37, 31);
@@ -2927,6 +2933,15 @@
             this.EditCardReaderGroupBox.TabIndex = 17;
             this.EditCardReaderGroupBox.TabStop = false;
             this.EditCardReaderGroupBox.Text = "Edit Card Reader Properties";
+            // 
+            // SaveCardReaderButton
+            // 
+            this.SaveCardReaderButton.Location = new System.Drawing.Point(10, 134);
+            this.SaveCardReaderButton.Name = "SaveCardReaderButton";
+            this.SaveCardReaderButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveCardReaderButton.TabIndex = 4;
+            this.SaveCardReaderButton.Text = "Save";
+            this.SaveCardReaderButton.UseVisualStyleBackColor = true;
             // 
             // UnlockTimeoutTextbox
             // 
@@ -3080,14 +3095,21 @@
             this.CardReaderListBox.Size = new System.Drawing.Size(66, 368);
             this.CardReaderListBox.TabIndex = 14;
             // 
-            // SaveCardReaderButton
+            // DoorMembersListBox
             // 
-            this.SaveCardReaderButton.Location = new System.Drawing.Point(10, 134);
-            this.SaveCardReaderButton.Name = "SaveCardReaderButton";
-            this.SaveCardReaderButton.Size = new System.Drawing.Size(75, 23);
-            this.SaveCardReaderButton.TabIndex = 4;
-            this.SaveCardReaderButton.Text = "Save";
-            this.SaveCardReaderButton.UseVisualStyleBackColor = true;
+            this.DoorMembersListBox.FormattingEnabled = true;
+            this.DoorMembersListBox.Location = new System.Drawing.Point(258, 35);
+            this.DoorMembersListBox.Name = "DoorMembersListBox";
+            this.DoorMembersListBox.Size = new System.Drawing.Size(120, 251);
+            this.DoorMembersListBox.TabIndex = 6;
+            // 
+            // UserMembersListBox
+            // 
+            this.UserMembersListBox.FormattingEnabled = true;
+            this.UserMembersListBox.Location = new System.Drawing.Point(260, 35);
+            this.UserMembersListBox.Name = "UserMembersListBox";
+            this.UserMembersListBox.Size = new System.Drawing.Size(120, 251);
+            this.UserMembersListBox.TabIndex = 7;
             // 
             // SupervisorInterface
             // 
@@ -3408,6 +3430,8 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.ListBox CardReaderListBox;
         private System.Windows.Forms.Button SaveCardReaderButton;
+        private System.Windows.Forms.ListBox DoorMembersListBox;
+        private System.Windows.Forms.ListBox UserMembersListBox;
     }
 
 }
