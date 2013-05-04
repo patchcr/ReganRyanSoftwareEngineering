@@ -9,6 +9,13 @@ namespace ReganRyanSoftwareEngineering {
 
         public TypicalWeek() {
             days = new TypicalDay[7];
+            days[0] = new TypicalDay("Sunday");
+            days[1] = new TypicalDay("Monday");
+            days[2] = new TypicalDay("Tuesday");
+            days[3] = new TypicalDay("Wednesday");
+            days[4] = new TypicalDay("Thursday");
+            days[5] = new TypicalDay("Friday");
+            days[6] = new TypicalDay("Saturday");
         }
 
         public void setTypicalDay(TypicalDay day, int index) {

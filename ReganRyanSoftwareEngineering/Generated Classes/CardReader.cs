@@ -31,6 +31,10 @@ namespace ReganRyanSoftwareEngineering {
             events = new List<Event>();
         }
 
+        public List<Card> Cards {
+            get { return DBUserInterface.Instance.CardList; }
+        }
+
         public int AlarmTimer {
             get { return alarmTimer; }
         }
@@ -80,12 +84,12 @@ namespace ReganRyanSoftwareEngineering {
             timeKeeper.Stop();
         }
 
-        public void ReadCard() {
+        public void ReadCard(int cardNum, CardReaderPanel panel) {
 
         }
 
-        public void IdentifyPerson() {
-
+        public Person IdentifyPerson(Card c) {
+            return DBUserInterface.Instance.GetPerson(c.GetPersonID());
         }
 
         public void EnterPassword() {

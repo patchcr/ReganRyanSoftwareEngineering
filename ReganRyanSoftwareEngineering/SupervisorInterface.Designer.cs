@@ -27,16 +27,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PageCardCreation = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Step1GroupBox = new System.Windows.Forms.GroupBox();
             this.FirstNameEntry = new System.Windows.Forms.TextBox();
             this.CreateNewUserButton = new System.Windows.Forms.Button();
             this.LastNameEntry = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Step2GroupBox = new System.Windows.Forms.GroupBox();
             this.savePasswordButton = new System.Windows.Forms.Button();
             this.EnterPasswordMaskedText = new System.Windows.Forms.MaskedTextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Step4GroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.ConfirmInfoPrintCard = new System.Windows.Forms.Button();
             this.PersonInfoDisplay = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Step3GroupBox = new System.Windows.Forms.GroupBox();
             this.UserGroupSelectSubmit = new System.Windows.Forms.Button();
             this.ListSelectUserGroup = new System.Windows.Forms.ListBox();
             this.PageUpdateCalendar = new System.Windows.Forms.TabPage();
@@ -296,11 +296,11 @@
             this.CardReaderListBox = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.Step1GroupBox.SuspendLayout();
+            this.Step2GroupBox.SuspendLayout();
+            this.Step4GroupBox.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.Step3GroupBox.SuspendLayout();
             this.PageUpdateCalendar.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.DoorGroups.SuspendLayout();
@@ -342,10 +342,10 @@
             // 
             // PageCardCreation
             // 
-            this.PageCardCreation.Controls.Add(this.groupBox4);
-            this.PageCardCreation.Controls.Add(this.groupBox3);
-            this.PageCardCreation.Controls.Add(this.groupBox2);
-            this.PageCardCreation.Controls.Add(this.groupBox1);
+            this.PageCardCreation.Controls.Add(this.Step1GroupBox);
+            this.PageCardCreation.Controls.Add(this.Step2GroupBox);
+            this.PageCardCreation.Controls.Add(this.Step4GroupBox);
+            this.PageCardCreation.Controls.Add(this.Step3GroupBox);
             this.PageCardCreation.Location = new System.Drawing.Point(4, 22);
             this.PageCardCreation.Name = "PageCardCreation";
             this.PageCardCreation.Padding = new System.Windows.Forms.Padding(3);
@@ -354,17 +354,17 @@
             this.PageCardCreation.Text = "New User Creation";
             this.PageCardCreation.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // Step1GroupBox
             // 
-            this.groupBox4.Controls.Add(this.FirstNameEntry);
-            this.groupBox4.Controls.Add(this.CreateNewUserButton);
-            this.groupBox4.Controls.Add(this.LastNameEntry);
-            this.groupBox4.Location = new System.Drawing.Point(8, 37);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(168, 148);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Step 1. Create New User";
+            this.Step1GroupBox.Controls.Add(this.FirstNameEntry);
+            this.Step1GroupBox.Controls.Add(this.CreateNewUserButton);
+            this.Step1GroupBox.Controls.Add(this.LastNameEntry);
+            this.Step1GroupBox.Location = new System.Drawing.Point(8, 37);
+            this.Step1GroupBox.Name = "Step1GroupBox";
+            this.Step1GroupBox.Size = new System.Drawing.Size(168, 148);
+            this.Step1GroupBox.TabIndex = 15;
+            this.Step1GroupBox.TabStop = false;
+            this.Step1GroupBox.Text = "Step 1. Create New User";
             // 
             // FirstNameEntry
             // 
@@ -392,17 +392,17 @@
             this.LastNameEntry.TabIndex = 2;
             this.LastNameEntry.Text = "Last Name";
             // 
-            // groupBox3
+            // Step2GroupBox
             // 
-            this.groupBox3.Controls.Add(this.savePasswordButton);
-            this.groupBox3.Controls.Add(this.EnterPasswordMaskedText);
-            this.groupBox3.Location = new System.Drawing.Point(182, 37);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 148);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Step 2. Select Numeric PIN";
-            this.groupBox3.Visible = false;
+            this.Step2GroupBox.Controls.Add(this.savePasswordButton);
+            this.Step2GroupBox.Controls.Add(this.EnterPasswordMaskedText);
+            this.Step2GroupBox.Location = new System.Drawing.Point(182, 37);
+            this.Step2GroupBox.Name = "Step2GroupBox";
+            this.Step2GroupBox.Size = new System.Drawing.Size(200, 148);
+            this.Step2GroupBox.TabIndex = 14;
+            this.Step2GroupBox.TabStop = false;
+            this.Step2GroupBox.Text = "Step 2. Select Numeric PIN";
+            this.Step2GroupBox.Visible = false;
             // 
             // savePasswordButton
             // 
@@ -422,25 +422,25 @@
             this.EnterPasswordMaskedText.Size = new System.Drawing.Size(30, 20);
             this.EnterPasswordMaskedText.TabIndex = 1;
             // 
-            // groupBox2
+            // Step4GroupBox
             // 
-            this.groupBox2.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox2.Controls.Add(this.ConfirmInfoPrintCard);
-            this.groupBox2.Controls.Add(this.PersonInfoDisplay);
-            this.groupBox2.Location = new System.Drawing.Point(640, 37);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(268, 179);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Step 4. Confirmation";
-            this.groupBox2.Visible = false;
+            this.Step4GroupBox.Controls.Add(this.tableLayoutPanel2);
+            this.Step4GroupBox.Controls.Add(this.ConfirmInfoPrintCard);
+            this.Step4GroupBox.Controls.Add(this.PersonInfoDisplay);
+            this.Step4GroupBox.Location = new System.Drawing.Point(640, 37);
+            this.Step4GroupBox.Name = "Step4GroupBox";
+            this.Step4GroupBox.Size = new System.Drawing.Size(268, 179);
+            this.Step4GroupBox.TabIndex = 13;
+            this.Step4GroupBox.TabStop = false;
+            this.Step4GroupBox.Text = "Step 4. Confirmation";
+            this.Step4GroupBox.Visible = false;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.label13, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.FirstNameLabel, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label17, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label19, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label21, 0, 3);
@@ -464,14 +464,14 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(208, 86);
             this.tableLayoutPanel2.TabIndex = 16;
             // 
-            // label13
+            // FirstNameLabel
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(57, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "First Name";
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Location = new System.Drawing.Point(3, 0);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(57, 13);
+            this.FirstNameLabel.TabIndex = 0;
+            this.FirstNameLabel.Text = "First Name";
             // 
             // label17
             // 
@@ -590,17 +590,17 @@
             this.PersonInfoDisplay.TabIndex = 0;
             this.PersonInfoDisplay.Text = "Combined Info";
             // 
-            // groupBox1
+            // Step3GroupBox
             // 
-            this.groupBox1.Controls.Add(this.UserGroupSelectSubmit);
-            this.groupBox1.Controls.Add(this.ListSelectUserGroup);
-            this.groupBox1.Location = new System.Drawing.Point(402, 37);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(218, 148);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Step 3. Select User Groups";
-            this.groupBox1.Visible = false;
+            this.Step3GroupBox.Controls.Add(this.UserGroupSelectSubmit);
+            this.Step3GroupBox.Controls.Add(this.ListSelectUserGroup);
+            this.Step3GroupBox.Location = new System.Drawing.Point(402, 37);
+            this.Step3GroupBox.Name = "Step3GroupBox";
+            this.Step3GroupBox.Size = new System.Drawing.Size(218, 148);
+            this.Step3GroupBox.TabIndex = 12;
+            this.Step3GroupBox.TabStop = false;
+            this.Step3GroupBox.Text = "Step 3. Select User Groups";
+            this.Step3GroupBox.Visible = false;
             // 
             // UserGroupSelectSubmit
             // 
@@ -667,7 +667,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -3088,15 +3088,15 @@
             this.Load += new System.EventHandler(this.SupervisorInterface_Load);
             this.tabControl1.ResumeLayout(false);
             this.PageCardCreation.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.Step1GroupBox.ResumeLayout(false);
+            this.Step1GroupBox.PerformLayout();
+            this.Step2GroupBox.ResumeLayout(false);
+            this.Step2GroupBox.PerformLayout();
+            this.Step4GroupBox.ResumeLayout(false);
+            this.Step4GroupBox.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.Step3GroupBox.ResumeLayout(false);
             this.PageUpdateCalendar.ResumeLayout(false);
             this.PageUpdateCalendar.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -3128,20 +3128,20 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage PageCardCreation;
         private System.Windows.Forms.TabPage PageUpdateCalendar;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox Step3GroupBox;
         private System.Windows.Forms.TextBox LastNameEntry;
         private System.Windows.Forms.TextBox FirstNameEntry;
         private System.Windows.Forms.Button CreateNewUserButton;
         private System.Windows.Forms.TabPage InitializeCardReaders;
         private System.Windows.Forms.ListBox ListSelectUserGroup;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox Step4GroupBox;
         private System.Windows.Forms.Button ConfirmInfoPrintCard;
         private System.Windows.Forms.Label PersonInfoDisplay;
         private System.Windows.Forms.Button UserGroupSelectSubmit;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox Step2GroupBox;
         private System.Windows.Forms.Button savePasswordButton;
         private System.Windows.Forms.MaskedTextBox EnterPasswordMaskedText;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox Step1GroupBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.CheckBox checkBox21;
         private System.Windows.Forms.CheckBox checkBox20;
@@ -3354,7 +3354,7 @@
         private System.Windows.Forms.TextBox NameOfDoorGroupNameTextbox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
