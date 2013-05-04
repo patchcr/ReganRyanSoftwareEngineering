@@ -79,6 +79,10 @@ namespace ReganRyanSoftwareEngineering {
             return personGroups;
         }
 
+        public override string ToString() {
+            return lastName + ", " + firstName;
+        }
+
     }
 
 }
