@@ -63,11 +63,17 @@ namespace ReganRyanSoftwareEngineering {
             MessageBox.Show("Access is Not Authorized.");
         }
 
+        public void DisplayDoorRelocking(){
+            MessageBox.Show("Door Relocking Now.");
+            resetCardReaderPanel();
+        }
+
         private void SubmitPasswordButton_Click(object sender, EventArgs e) {
             int accessHour = currentDate.Hour;
             if (currentReader.EnterPassword(EnterPasswordTextBox.Text)) {
                 if (currentReader.ValidateAccess(currentDate.Date, currentDate.Hour)){
                     OpenDoorBox.Visible = true;
+                    currentReader.TurnTimeKeeperOn(this);
                 } else {
                     DisplayAccessNotAuthorized();
                 }
@@ -82,7 +88,8 @@ namespace ReganRyanSoftwareEngineering {
 
         private void DoorToggleButton_Click(object sender, EventArgs e) {
 
-            if (DoorToggleButton.Text == "Close Door") {
+            if (currentReader.GetDoor().CloseState) 
+            {   // door is closed.
                 currentReader.TurnAlarmTimerOff();
 
                 resetCardReaderPanel();
@@ -90,6 +97,8 @@ namespace ReganRyanSoftwareEngineering {
 
             } else { // User is clicking "Open Door"
                 currentReader.TurnAlarmTimerOn();
+                currentReader.TurnTimeKeeperOff();
+                currentReader.GetDoor().OpenDoor();
                 DoorToggleButton.Text = "Close Door";
             }
         }
