@@ -43,7 +43,10 @@ namespace ReganRyanSoftwareEngineering
         }
         private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
         {
-            FirstNameLabel.Text = FirstNameEntry.Text;
+            FirstNameLabel.Text = personCreated.FirstName;
+            LastNameLabel.Text = personCreated.LastName;
+            PersonIDLabel.Text = personCreated.ID.ToString();
+
             Step4GroupBox.Visible = true;
         }
         private void ConfirmInfoPrintCard_Click(object sender, EventArgs e)
