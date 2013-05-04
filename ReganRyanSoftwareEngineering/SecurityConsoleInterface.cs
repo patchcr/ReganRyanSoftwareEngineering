@@ -69,7 +69,7 @@ namespace ReganRyanSoftwareEngineering {
 
         private void EventListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EventDisplayMultilineTextbox.Text = EventListBox.SelectedItem.ToString();
+            //EventDisplayMultilineTextbox.Text = EventListBox.SelectedItem.ToString();
         }
 
     }

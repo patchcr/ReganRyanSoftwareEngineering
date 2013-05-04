@@ -44,7 +44,6 @@
             this.ReactivateCardReaderButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.EventListBox = new System.Windows.Forms.ListBox();
-            this.EventDisplayMultilineTextbox = new System.Windows.Forms.TextBox();
             this.personGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -213,14 +212,6 @@
             this.EventListBox.TabIndex = 10;
             this.EventListBox.SelectedIndexChanged += new System.EventHandler(this.EventListBox_SelectedIndexChanged);
             // 
-            // EventDisplayMultilineTextbox
-            // 
-            this.EventDisplayMultilineTextbox.Location = new System.Drawing.Point(367, 313);
-            this.EventDisplayMultilineTextbox.Multiline = true;
-            this.EventDisplayMultilineTextbox.Name = "EventDisplayMultilineTextbox";
-            this.EventDisplayMultilineTextbox.Size = new System.Drawing.Size(100, 121);
-            this.EventDisplayMultilineTextbox.TabIndex = 11;
-            // 
             // personGroupBindingSource
             // 
             this.personGroupBindingSource.DataSource = typeof(ReganRyanSoftwareEngineering.PersonGroup);
@@ -230,7 +221,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 477);
-            this.Controls.Add(this.EventDisplayMultilineTextbox);
             this.Controls.Add(this.EventListBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -264,6 +254,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label ReaderDoorLocationLabel;
         private System.Windows.Forms.ListBox EventListBox;
-        private System.Windows.Forms.TextBox EventDisplayMultilineTextbox;
     }
 }
