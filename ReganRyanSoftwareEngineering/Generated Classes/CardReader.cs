@@ -59,13 +59,7 @@ namespace ReganRyanSoftwareEngineering {
             return this.name;
         }
 
-        public void TurnAlarmTimerOn() {
-            alarmState = true;
-        }
-
-        public void TurnAlarmTimerOff() {
-            alarmState = false;
-        }
+  
 
         public void ActiveMode() {
             activityMode = true;
@@ -85,6 +79,27 @@ namespace ReganRyanSoftwareEngineering {
 
         public Door GetDoor() {
             return this.door;
+        }
+
+        public void TurnAlarmTimerOn(CardReaderPanel panel)
+        {
+            alarmTimer = new Timer(alarmTimeOut);
+            alarmTimer.Elapsed += new ElapsedEventHandler(OnAlarmTimeOut);
+            alarmTimer.Start();
+            this.panel = panel;
+        }
+
+        public void TurnAlarmTimerOff()
+        {
+            alarmTimer.Stop();
+        }
+
+        private void OnAlarmTimeOut(object source, ElapsedEventArgs e)
+        {
+            alarmState = true;
+            this.StandbyMode();
+            this.panel.DisplayAlarmAlert();
+            alarmTimer.Stop();
         }
 
         public void TurnTimeKeeperOn(CardReaderPanel panel) {
@@ -139,7 +154,6 @@ namespace ReganRyanSoftwareEngineering {
             } else {
                 attempts++;
                 if (attempts >= 3) {
-                    //StandbyMode();  We don't disable the reader for this. only the card.
                     curPerson.Card.DeactivateCard();
                     events.Add(new Event("3 Invalid Password Attempts"));
                     SecurityConsoleInterface.Instance.DisplayNotification("3 invalid password attempts");

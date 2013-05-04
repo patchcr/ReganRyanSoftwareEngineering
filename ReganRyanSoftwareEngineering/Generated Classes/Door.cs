@@ -16,13 +16,14 @@
             this.number = curNum;
             curNum++;
             this.doorGroup = doorGroup;
+            closeState = true;
         }
 
         public int Number {
             get { return this.number; }
         }
 
-        public bool CloseState {
+        public bool isClosed {
             get { return closeState; }
         }
 
