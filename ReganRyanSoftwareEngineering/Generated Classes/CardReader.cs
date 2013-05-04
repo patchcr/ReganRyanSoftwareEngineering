@@ -104,7 +104,9 @@ namespace ReganRyanSoftwareEngineering {
         {
             alarmState = true;
             this.StandbyMode();
-            this.panel.DisplayAlarmAlert();
+            this.panel.Invoke((System.Windows.Forms.MethodInvoker)(() => {
+                this.panel.DisplayAlarmAlert();
+            }));
             alarmTimer.Stop();
         }
 
