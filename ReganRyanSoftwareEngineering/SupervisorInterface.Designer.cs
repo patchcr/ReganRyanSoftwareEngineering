@@ -53,7 +53,6 @@
             this.PersonInfoDisplay = new System.Windows.Forms.Label();
             this.Step3GroupBox = new System.Windows.Forms.GroupBox();
             this.UserGroupSelectSubmit = new System.Windows.Forms.Button();
-            this.ListSelectUserGroup = new System.Windows.Forms.ListBox();
             this.PageUpdateCalendar = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.UpdateTypicalWeekButton = new System.Windows.Forms.Button();
@@ -298,6 +297,7 @@
             this.ReaderDoorLocationLabel = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.CardReaderListBox = new System.Windows.Forms.ListBox();
+            this.ListSelectUserGroup = new System.Windows.Forms.CheckedListBox();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.Step1GroupBox.SuspendLayout();
@@ -432,7 +432,6 @@
             // EnterPasswordMaskedText
             // 
             this.EnterPasswordMaskedText.Location = new System.Drawing.Point(6, 19);
-            this.EnterPasswordMaskedText.Mask = "0000";
             this.EnterPasswordMaskedText.Name = "EnterPasswordMaskedText";
             this.EnterPasswordMaskedText.PromptChar = ' ';
             this.EnterPasswordMaskedText.Size = new System.Drawing.Size(30, 20);
@@ -610,8 +609,8 @@
             // 
             // Step3GroupBox
             // 
-            this.Step3GroupBox.Controls.Add(this.UserGroupSelectSubmit);
             this.Step3GroupBox.Controls.Add(this.ListSelectUserGroup);
+            this.Step3GroupBox.Controls.Add(this.UserGroupSelectSubmit);
             this.Step3GroupBox.Location = new System.Drawing.Point(402, 37);
             this.Step3GroupBox.Name = "Step3GroupBox";
             this.Step3GroupBox.Size = new System.Drawing.Size(218, 148);
@@ -629,14 +628,6 @@
             this.UserGroupSelectSubmit.Text = "Submit";
             this.UserGroupSelectSubmit.UseVisualStyleBackColor = true;
             this.UserGroupSelectSubmit.Click += new System.EventHandler(this.UserGroupSelectSubmit_Click);
-            // 
-            // ListSelectUserGroup
-            // 
-            this.ListSelectUserGroup.FormattingEnabled = true;
-            this.ListSelectUserGroup.Location = new System.Drawing.Point(8, 19);
-            this.ListSelectUserGroup.Name = "ListSelectUserGroup";
-            this.ListSelectUserGroup.Size = new System.Drawing.Size(120, 95);
-            this.ListSelectUserGroup.TabIndex = 1;
             // 
             // PageUpdateCalendar
             // 
@@ -685,7 +676,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -3127,6 +3118,15 @@
             this.CardReaderListBox.Size = new System.Drawing.Size(66, 368);
             this.CardReaderListBox.TabIndex = 14;
             // 
+            // ListSelectUserGroup
+            // 
+            this.ListSelectUserGroup.CheckOnClick = true;
+            this.ListSelectUserGroup.FormattingEnabled = true;
+            this.ListSelectUserGroup.Location = new System.Drawing.Point(11, 20);
+            this.ListSelectUserGroup.Name = "ListSelectUserGroup";
+            this.ListSelectUserGroup.Size = new System.Drawing.Size(108, 109);
+            this.ListSelectUserGroup.TabIndex = 2;
+            // 
             // SupervisorInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3184,7 +3184,6 @@
         private System.Windows.Forms.TextBox FirstNameEntry;
         private System.Windows.Forms.Button CreateNewUserButton;
         private System.Windows.Forms.TabPage InitializeCardReaders;
-        private System.Windows.Forms.ListBox ListSelectUserGroup;
         private System.Windows.Forms.GroupBox Step4GroupBox;
         private System.Windows.Forms.Button ConfirmInfoPrintCard;
         private System.Windows.Forms.Label PersonInfoDisplay;
@@ -3449,6 +3448,7 @@
         private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.CheckedListBox ExistingUserListBox;
         private System.Windows.Forms.CheckedListBox ExistingDoorsList;
+        private System.Windows.Forms.CheckedListBox ListSelectUserGroup;
     }
 
 }

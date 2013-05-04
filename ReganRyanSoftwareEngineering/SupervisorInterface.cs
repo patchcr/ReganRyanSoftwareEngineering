@@ -18,16 +18,20 @@ namespace ReganRyanSoftwareEngineering
         {
             InitializeComponent();
             dac = DoorAccessController.Instance;
+            UpdateSources();
+        }
 
+        private void UpdateSources() {
             ExistingDoorsList.DataSource = dac.Doors;
 
-            BindingSource personBinding = new BindingSource(DBUserInterface.Instance.PersonList, null);
-            BindingSource personGroupBinding = new BindingSource(dac.PersonGroups, null);
-            BindingSource doorGroupBinding = new BindingSource(dac.DoorGroups, null);
+            UserMembersListBox.DataSource = ExistingUserListBox.DataSource = new List<Person>();
+            UserMembersListBox.DataSource = ExistingUserListBox.DataSource = DBUserInterface.Instance.PersonList;
 
-            UserMembersListBox.DataSource = ExistingUserListBox.DataSource = personBinding;
-            ListSelectDoorGroup.DataSource = ExistDoorGroupsList.DataSource = doorGroupBinding;
-            ListSelectUserGroup.DataSource = ListSelectUserGroup2.DataSource = ExistingUserGroupsListBox.DataSource = personGroupBinding;
+            ListSelectDoorGroup.DataSource = ExistDoorGroupsList.DataSource = new List<DoorGroup>();
+            ListSelectDoorGroup.DataSource = ExistDoorGroupsList.DataSource = dac.DoorGroups;
+
+            ListSelectUserGroup.DataSource = ListSelectUserGroup2.DataSource = ExistingUserGroupsListBox.DataSource = new List<PersonGroup>();
+            ListSelectUserGroup.DataSource = ListSelectUserGroup2.DataSource = ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
         }
 
         private void SupervisorInterface_Load(object sender, EventArgs e) {
@@ -56,8 +60,13 @@ namespace ReganRyanSoftwareEngineering
         }
         private void UserGroupSelectSubmit_Click(object sender, EventArgs e)
         {
-            // TODO Convert the ListSelectUserGroup.SelectedItems list collection to a HashSet somehow.
-            personCreated.SavePersonGroups(new HashSet<PersonGroup>());
+            HashSet<PersonGroup> groups = new HashSet<PersonGroup>();
+            for (int i = 0; i < ListSelectUserGroup.Items.Count; i++) {
+                if (ListSelectUserGroup.GetItemChecked(i)) {
+                    groups.Add((PersonGroup) ListSelectUserGroup.Items[i]);
+                }
+            }
+            personCreated.SavePersonGroups(groups);
 
             // Setting up Step 4.
             FirstNameLabel.Text = personCreated.FirstName;
@@ -71,13 +80,17 @@ namespace ReganRyanSoftwareEngineering
         private void ConfirmInfoPrintCard_Click(object sender, EventArgs e)
         {
             personCreated.SaveInfo();
+            UpdateSources();
             MessageBox.Show("New User Successfully Created. Card is Printing.");
             ResetButton_Click(sender, e);
         }
 
         private void ResetButton_Click(object sender, EventArgs e)
         {
-            // TODO reset functionality
+            Step2GroupBox.Visible = Step3GroupBox.Visible = Step4GroupBox.Visible = false;
+            FirstNameEntry.Text = "First Name";
+            LastNameEntry.Text = "Last Name";
+            EnterPasswordMaskedText.Text = "";
         }
 
         /***********************
@@ -92,7 +105,7 @@ namespace ReganRyanSoftwareEngineering
             PersonGroup usergroup = (PersonGroup)ListSelectUserGroup2.SelectedItem;
             DoorGroup doorgroup = (DoorGroup)ListSelectDoorGroup.SelectedItem;
             if (usergroup != null)
-            { // MAJOR HACK
+            {
                 DoorAccessController dac = DoorAccessController.Instance;
                 Calendar cal = dac.GetCalendar(usergroup, doorgroup);
                 TypicalWeek week = cal.TypicalWeek;
@@ -179,9 +192,7 @@ namespace ReganRyanSoftwareEngineering
                     curDoor.DoorGroup = null;
                 }
             }
-            ExistDoorGroupsList.DataSource = new List<DoorGroup>();
-            ExistDoorGroupsList.DataSource = dac.DoorGroups;
-            DoorMembersListBox.DataSource = dac.FindDoorsByGroup(selected);
+            UpdateSources();
             EditDoorGroupBox.Visible = false;
         }
 
@@ -190,7 +201,7 @@ namespace ReganRyanSoftwareEngineering
             EditDoorGroupBox.Visible = true;
             DoorGroup newGroup = new DoorGroup("New Group", "");
             dac.DoorGroups.Add(newGroup);
-            ExistDoorGroupsList.DataSource = dac.DoorGroups;
+            UpdateSources();
             DoorMembersListBox.DataSource = dac.FindDoorsByGroup(newGroup);
             ExistDoorGroupsList.SelectedIndex = dac.DoorGroups.IndexOf(newGroup);
         }
@@ -232,9 +243,7 @@ namespace ReganRyanSoftwareEngineering
                 curPerson.SavePersonGroups(groups);
             }
             selected.Code = NameOfUserGroupTextbox.Text;
-            ExistingUserGroupsListBox.DataSource = new List<PersonGroup>();
-            ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
-            UserMembersListBox.DataSource = dac.FindPeopleByGroup(selected);
+            UpdateSources();
             EditUserGroupBox.Visible = false;
         }
 
@@ -243,7 +252,7 @@ namespace ReganRyanSoftwareEngineering
             EditUserGroupBox.Visible = true;
             PersonGroup newGroup = new PersonGroup("New Group", "");
             dac.PersonGroups.Add(newGroup);
-            ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
+            UpdateSources();
             UserMembersListBox.DataSource = dac.FindPeopleByGroup(newGroup);
             ExistingUserGroupsListBox.SelectedIndex = dac.PersonGroups.IndexOf(newGroup);
         }
