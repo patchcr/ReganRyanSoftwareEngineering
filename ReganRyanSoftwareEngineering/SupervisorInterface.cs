@@ -105,7 +105,7 @@ namespace ReganRyanSoftwareEngineering
             {
                 // 4/28/2013 is a Sunday
                 TypicalDay dayOfWeek = week.ReadDay(new DateTime(2013, 4, 28+i));
-                TimeSlot[] ts = dayOfWeek.timeSlots;
+                TimeSlot[] ts = dayOfWeek.ReadSlots();
                 for (int j = 0; j < 24; j++)
                 {
                     check = (CheckBox)this.tableLayoutPanel1.Controls.Container.GetControlFromPosition(i+1, j);

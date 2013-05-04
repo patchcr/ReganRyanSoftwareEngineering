@@ -18,7 +18,13 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public Calendar RetrieveCalendar(PersonGroup personGroup, DoorGroup doorGroup) {
-            return null;//return calendars[new Tuple<PersonGroup, DoorGroup>(personGroup, doorGroup)];
+            try {
+                return calendars[new Tuple<PersonGroup, DoorGroup>(personGroup, doorGroup)];
+            } catch (KeyNotFoundException e) {
+                Calendar c = new Calendar(DateTime.Now.Year);
+                calendars[new Tuple<PersonGroup, DoorGroup>(personGroup, doorGroup)] = c;
+                return c;
+            }
         }
 
     }

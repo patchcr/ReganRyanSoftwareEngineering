@@ -4,6 +4,8 @@ namespace ReganRyanSoftwareEngineering {
 
     public class Card {
 
+        private static int cardNumSeq = 1;
+
         private int cardNumber;
 
         private DateTime creationDate;
@@ -13,7 +15,7 @@ namespace ReganRyanSoftwareEngineering {
         private int personID;
 
         public Card() {
-            this.cardNumber = GenerateCardNumber();
+            GenerateCardNumber();
             creationDate = DateTime.Now;
             activationStatus = true;
         }
@@ -26,9 +28,9 @@ namespace ReganRyanSoftwareEngineering {
             activationStatus = false;
         }
 
-        private int GenerateCardNumber() {
-            Random random = new Random();
-            return random.Next(Int32.MaxValue);
+        private void GenerateCardNumber() {
+            this.cardNumber = cardNumSeq;
+            cardNumSeq++;
         }
 
         public int GetCardNumber() {

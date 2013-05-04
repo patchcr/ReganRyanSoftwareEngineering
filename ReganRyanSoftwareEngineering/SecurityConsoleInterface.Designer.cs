@@ -39,10 +39,10 @@
             this.ReaderNameLabel = new System.Windows.Forms.Label();
             this.ReaderStatusLabel = new System.Windows.Forms.Label();
             this.ReaderNetworkAddressLabel = new System.Windows.Forms.Label();
-            this.ReactivateCardReaderButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ReaderDoorLocationLabel = new System.Windows.Forms.Label();
+            this.ReactivateCardReaderButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.personGroupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EventListBox = new System.Windows.Forms.ListBox();
             this.EventDisplayMultilineTextbox = new System.Windows.Forms.TextBox();
@@ -162,6 +162,25 @@
             this.ReaderNetworkAddressLabel.TabIndex = 5;
             this.ReaderNetworkAddressLabel.Text = "label9";
             // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(28, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Door Location:";
+            // 
+            // ReaderDoorLocationLabel
+            // 
+            this.ReaderDoorLocationLabel.AutoSize = true;
+            this.ReaderDoorLocationLabel.Location = new System.Drawing.Point(111, 58);
+            this.ReaderDoorLocationLabel.Name = "ReaderDoorLocationLabel";
+            this.ReaderDoorLocationLabel.Size = new System.Drawing.Size(35, 13);
+            this.ReaderDoorLocationLabel.TabIndex = 7;
+            this.ReaderDoorLocationLabel.Text = "label7";
+            // 
             // ReactivateCardReaderButton
             // 
             this.ReactivateCardReaderButton.AutoEllipsis = true;
@@ -184,25 +203,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Active Card Readers";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Door Location:";
-            // 
-            // ReaderDoorLocationLabel
-            // 
-            this.ReaderDoorLocationLabel.AutoSize = true;
-            this.ReaderDoorLocationLabel.Location = new System.Drawing.Point(111, 58);
-            this.ReaderDoorLocationLabel.Name = "ReaderDoorLocationLabel";
-            this.ReaderDoorLocationLabel.Size = new System.Drawing.Size(35, 13);
-            this.ReaderDoorLocationLabel.TabIndex = 7;
-            this.ReaderDoorLocationLabel.Text = "label7";
             // 
             // personGroupBindingSource
             // 

@@ -25,8 +25,22 @@ namespace ReganRyanSoftwareEngineering {
             this.name = name;
             this.networkAddress = networdAddress;
             this.door = door;
+            alarmTimer = 100;
             alarmState = false;
+            activityMode = true;
             events = new List<Event>();
+        }
+
+        public List<Card> Cards {
+            get { return DBUserInterface.Instance.CardList; }
+        }
+
+        public int AlarmTimer {
+            get { return alarmTimer; }
+        }
+
+        public bool AlarmState {
+            get { return alarmState; }
         }
 
         public string getName() {
@@ -70,12 +84,12 @@ namespace ReganRyanSoftwareEngineering {
             timeKeeper.Stop();
         }
 
-        public void ReadCard() {
+        public void ReadCard(int cardNum, CardReaderPanel panel) {
 
         }
 
-        public void IdentifyPerson() {
-
+        public Person IdentifyPerson(Card c) {
+            return DBUserInterface.Instance.GetPerson(c.GetPersonID());
         }
 
         public void EnterPassword() {
@@ -104,6 +118,10 @@ namespace ReganRyanSoftwareEngineering {
 
         public void SaveEvent() {
 
+        }
+
+        public override string ToString() {
+            return name;
         }
 
     }

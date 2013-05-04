@@ -14,10 +14,31 @@ namespace ReganRyanSoftwareEngineering {
 
         private DBUserInterface() {
             personList = new List<Person>();
+            HashSet<PersonGroup> groups = new HashSet<PersonGroup>();
+            groups.Add(DoorAccessController.Instance.PersonGroups[0]);
+            Save(new Person("Michael", "Regan", "1234", groups));
         }
 
         public List<Person> PersonList {
             get { return personList; }
+        }
+
+        public List<Card> CardList {
+            get {
+                List<Card> list = new List<Card>();
+                foreach (Person p in personList) {
+                    list.Add(p.Card);
+                }
+                return list;
+            }
+        }
+
+        public Person GetPerson(int personId) {
+            foreach (Person p in personList) {
+                if (p.ID == personId)
+                    return p;
+            }
+            return null;
         }
 
         public bool VerifyExistence(Person p) {

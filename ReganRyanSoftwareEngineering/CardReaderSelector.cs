@@ -19,7 +19,6 @@ namespace ReganRyanSoftwareEngineering {
             Dictionary<String, CardReader> dict = cri.CardReaders;
             IList<String> crli = (IList<String>)dict.Keys.ToList();
             CardReaderListBox.DataSource = crli;
-
         }
 
         private void LaunchCardReader_Click(object sender, EventArgs e) {
@@ -40,7 +39,7 @@ namespace ReganRyanSoftwareEngineering {
             String name = (String)CardReaderListBox.SelectedItem;
             CardReader selected = cri.GetCardReader(name);
             ReaderNameLabel.Text = selected.getName();
-            ReaderStatusLabel.Text = selected.IsActive().ToString();
+            ReaderStatusLabel.Text = selected.IsActive() ? "Active" : "Inactive";
             ReaderNetworkAddressLabel.Text = selected.GetNetWorkAddress();
             ReaderDoorLocationLabel.Text = selected.GetDoor().Number.ToString();
         }
