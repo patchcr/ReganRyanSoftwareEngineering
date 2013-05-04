@@ -24,6 +24,8 @@ namespace ReganRyanSoftwareEngineering
         private void UpdateSources() {
             ExistingDoorsList.DataSource = dac.Doors;
 
+            CardReaderListBox.DataSource = CardReaderInstallation.Instance.CardReaders.Keys.ToList();
+
             UserMembersListBox.DataSource = ExistingUserListBox.DataSource = new List<Person>();
             UserMembersListBox.DataSource = ExistingUserListBox.DataSource = DBUserInterface.Instance.PersonList;
 
@@ -255,6 +257,40 @@ namespace ReganRyanSoftwareEngineering
             UpdateSources();
             UserMembersListBox.DataSource = dac.FindPeopleByGroup(newGroup);
             ExistingUserGroupsListBox.SelectedIndex = dac.PersonGroups.IndexOf(newGroup);
+        }
+
+        private void CardReaderListBox_SelectedIndexChanged(object sender, EventArgs e) {
+            UpdateCardReaderInfo();
+        }
+
+        private void UpdateCardReaderInfo() {
+            CardReader cr = CardReaderInstallation.Instance.GetCardReader((string)CardReaderListBox.SelectedItem);
+            ReaderNameLabel.Text = cr.getName();
+            ReaderStatusLabel.Text = cr.IsActive() ? "Active" : "Inactive";
+            ReaderNetworkAddressLabel.Text = cr.GetNetWorkAddress();
+            ReaderDoorLocationLabel.Text = cr.GetDoor().ToString();
+            ReaderAlarmTimeOut.Text = cr.AlarmTimeOut + " ms";
+            ReaderUnlockedTimeOut.Text = cr.TimeKeeperTimeOut + " ms";
+        }
+
+        private void EditReaderButton_Click(object sender, EventArgs e) {
+            CardReader cr = CardReaderInstallation.Instance.GetCardReader((string)CardReaderListBox.SelectedItem);
+            EditCardReaderGroupBox.Visible = true;
+            AlarmTimeoutTextbox.Text = cr.AlarmTimeOut + "";
+            UnlockTimeoutTextbox.Text = cr.TimeKeeperTimeOut + "";
+        }
+
+        private void SaveCardReaderButton_Click(object sender, EventArgs e) {
+            CardReader cr = CardReaderInstallation.Instance.GetCardReader((string)CardReaderListBox.SelectedItem);
+            try {
+                cr.AlarmTimeOut = Double.Parse(AlarmTimeoutTextbox.Text);
+                cr.TimeKeeperTimeOut = Double.Parse(UnlockTimeoutTextbox.Text);
+                UpdateCardReaderInfo();
+                EditCardReaderGroupBox.Visible = false;
+            } catch (FormatException ex) {
+                MessageBox.Show("Invalid number entered");
+            }
+            
         }
 
     }

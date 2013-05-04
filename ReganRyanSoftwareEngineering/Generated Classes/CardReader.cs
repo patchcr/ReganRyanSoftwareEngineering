@@ -47,9 +47,15 @@ namespace ReganRyanSoftwareEngineering {
             get { return DBUserInterface.Instance.CardList; }
         }
 
-        //public int AlarmTimer {
-       //     get { return alarmTimer; }
-        //}
+        public double AlarmTimeOut {
+            get { return alarmTimeOut; }
+            set { alarmTimeOut = value; }
+        }
+
+        public double TimeKeeperTimeOut {
+            get { return timeKeeperTimeOut; }
+            set { timeKeeperTimeOut = value; }
+        }
 
         public bool AlarmState {
             get { return alarmState; }

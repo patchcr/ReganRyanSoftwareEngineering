@@ -52,6 +52,7 @@
             this.ConfirmInfoPrintCard = new System.Windows.Forms.Button();
             this.PersonInfoDisplay = new System.Windows.Forms.Label();
             this.Step3GroupBox = new System.Windows.Forms.GroupBox();
+            this.ListSelectUserGroup = new System.Windows.Forms.CheckedListBox();
             this.UserGroupSelectSubmit = new System.Windows.Forms.Button();
             this.PageUpdateCalendar = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
@@ -297,7 +298,10 @@
             this.ReaderDoorLocationLabel = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.CardReaderListBox = new System.Windows.Forms.ListBox();
-            this.ListSelectUserGroup = new System.Windows.Forms.CheckedListBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.ReaderAlarmTimeOut = new System.Windows.Forms.Label();
+            this.ReaderUnlockedTimeOut = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.Step1GroupBox.SuspendLayout();
@@ -619,6 +623,15 @@
             this.Step3GroupBox.Text = "Step 3. Select User Groups";
             this.Step3GroupBox.Visible = false;
             // 
+            // ListSelectUserGroup
+            // 
+            this.ListSelectUserGroup.CheckOnClick = true;
+            this.ListSelectUserGroup.FormattingEnabled = true;
+            this.ListSelectUserGroup.Location = new System.Drawing.Point(11, 20);
+            this.ListSelectUserGroup.Name = "ListSelectUserGroup";
+            this.ListSelectUserGroup.Size = new System.Drawing.Size(108, 109);
+            this.ListSelectUserGroup.TabIndex = 2;
+            // 
             // UserGroupSelectSubmit
             // 
             this.UserGroupSelectSubmit.Location = new System.Drawing.Point(134, 19);
@@ -676,7 +689,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel1.Controls.Add(this.checkBox168, 7, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox167, 6, 23);
             this.tableLayoutPanel1.Controls.Add(this.checkBox166, 5, 23);
@@ -2936,12 +2949,13 @@
             // 
             // EditReaderButton
             // 
-            this.EditReaderButton.Location = new System.Drawing.Point(345, 43);
+            this.EditReaderButton.Location = new System.Drawing.Point(410, 50);
             this.EditReaderButton.Name = "EditReaderButton";
             this.EditReaderButton.Size = new System.Drawing.Size(156, 23);
             this.EditReaderButton.TabIndex = 18;
             this.EditReaderButton.Text = "Edit Card Reader Properties";
             this.EditReaderButton.UseVisualStyleBackColor = true;
+            this.EditReaderButton.Click += new System.EventHandler(this.EditReaderButton_Click);
             // 
             // EditCardReaderGroupBox
             // 
@@ -2950,12 +2964,13 @@
             this.EditCardReaderGroupBox.Controls.Add(this.label51);
             this.EditCardReaderGroupBox.Controls.Add(this.label49);
             this.EditCardReaderGroupBox.Controls.Add(this.AlarmTimeoutTextbox);
-            this.EditCardReaderGroupBox.Location = new System.Drawing.Point(532, 28);
+            this.EditCardReaderGroupBox.Location = new System.Drawing.Point(410, 90);
             this.EditCardReaderGroupBox.Name = "EditCardReaderGroupBox";
             this.EditCardReaderGroupBox.Size = new System.Drawing.Size(200, 199);
             this.EditCardReaderGroupBox.TabIndex = 17;
             this.EditCardReaderGroupBox.TabStop = false;
             this.EditCardReaderGroupBox.Text = "Edit Card Reader Properties";
+            this.EditCardReaderGroupBox.Visible = false;
             // 
             // SaveCardReaderButton
             // 
@@ -2965,6 +2980,7 @@
             this.SaveCardReaderButton.TabIndex = 4;
             this.SaveCardReaderButton.Text = "Save";
             this.SaveCardReaderButton.UseVisualStyleBackColor = true;
+            this.SaveCardReaderButton.Click += new System.EventHandler(this.SaveCardReaderButton_Click);
             // 
             // UnlockTimeoutTextbox
             // 
@@ -2978,18 +2994,18 @@
             this.label51.AutoSize = true;
             this.label51.Location = new System.Drawing.Point(7, 79);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(123, 13);
+            this.label51.Size = new System.Drawing.Size(119, 13);
             this.label51.TabIndex = 2;
-            this.label51.Text = "Unlocked Time-out (sec)";
+            this.label51.Text = "Unlocked Time-out (ms)";
             // 
             // label49
             // 
             this.label49.AutoSize = true;
             this.label49.Location = new System.Drawing.Point(7, 25);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(103, 13);
+            this.label49.Size = new System.Drawing.Size(99, 13);
             this.label49.TabIndex = 1;
-            this.label49.Text = "Alarm Time-out (sec)";
+            this.label49.Text = "Alarm Time-out (ms)";
             // 
             // AlarmTimeoutTextbox
             // 
@@ -3012,22 +3028,28 @@
             this.tableLayoutPanel3.Controls.Add(this.ReaderNetworkAddressLabel, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.label45, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.ReaderDoorLocationLabel, 1, 3);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(127, 50);
+            this.tableLayoutPanel3.Controls.Add(this.label15, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.label27, 0, 5);
+            this.tableLayoutPanel3.Controls.Add(this.ReaderAlarmTimeOut, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.ReaderUnlockedTimeOut, 1, 5);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(168, 50);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tableLayoutPanel3.RowCount = 4;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowCount = 6;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(176, 78);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(222, 145);
             this.tableLayoutPanel3.TabIndex = 16;
             // 
             // label37
             // 
             this.label37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(4, 0);
+            this.label37.Location = new System.Drawing.Point(32, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(101, 13);
             this.label37.TabIndex = 0;
@@ -3037,7 +3059,7 @@
             // 
             this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(65, 19);
+            this.label41.Location = new System.Drawing.Point(93, 20);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(40, 13);
             this.label41.TabIndex = 1;
@@ -3047,7 +3069,7 @@
             // 
             this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(14, 38);
+            this.label43.Location = new System.Drawing.Point(42, 40);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(91, 13);
             this.label43.TabIndex = 2;
@@ -3056,7 +3078,7 @@
             // ReaderNameLabel
             // 
             this.ReaderNameLabel.AutoSize = true;
-            this.ReaderNameLabel.Location = new System.Drawing.Point(111, 0);
+            this.ReaderNameLabel.Location = new System.Drawing.Point(139, 0);
             this.ReaderNameLabel.Name = "ReaderNameLabel";
             this.ReaderNameLabel.Size = new System.Drawing.Size(35, 13);
             this.ReaderNameLabel.TabIndex = 3;
@@ -3065,7 +3087,7 @@
             // ReaderStatusLabel
             // 
             this.ReaderStatusLabel.AutoSize = true;
-            this.ReaderStatusLabel.Location = new System.Drawing.Point(111, 19);
+            this.ReaderStatusLabel.Location = new System.Drawing.Point(139, 20);
             this.ReaderStatusLabel.Name = "ReaderStatusLabel";
             this.ReaderStatusLabel.Size = new System.Drawing.Size(35, 13);
             this.ReaderStatusLabel.TabIndex = 4;
@@ -3074,7 +3096,7 @@
             // ReaderNetworkAddressLabel
             // 
             this.ReaderNetworkAddressLabel.AutoSize = true;
-            this.ReaderNetworkAddressLabel.Location = new System.Drawing.Point(111, 38);
+            this.ReaderNetworkAddressLabel.Location = new System.Drawing.Point(139, 40);
             this.ReaderNetworkAddressLabel.Name = "ReaderNetworkAddressLabel";
             this.ReaderNetworkAddressLabel.Size = new System.Drawing.Size(35, 13);
             this.ReaderNetworkAddressLabel.TabIndex = 5;
@@ -3084,7 +3106,7 @@
             // 
             this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(28, 58);
+            this.label45.Location = new System.Drawing.Point(56, 60);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(77, 13);
             this.label45.TabIndex = 6;
@@ -3093,7 +3115,7 @@
             // ReaderDoorLocationLabel
             // 
             this.ReaderDoorLocationLabel.AutoSize = true;
-            this.ReaderDoorLocationLabel.Location = new System.Drawing.Point(111, 58);
+            this.ReaderDoorLocationLabel.Location = new System.Drawing.Point(139, 60);
             this.ReaderDoorLocationLabel.Name = "ReaderDoorLocationLabel";
             this.ReaderDoorLocationLabel.Size = new System.Drawing.Size(35, 13);
             this.ReaderDoorLocationLabel.TabIndex = 7;
@@ -3115,17 +3137,47 @@
             this.CardReaderListBox.FormattingEnabled = true;
             this.CardReaderListBox.Location = new System.Drawing.Point(33, 50);
             this.CardReaderListBox.Name = "CardReaderListBox";
-            this.CardReaderListBox.Size = new System.Drawing.Size(66, 368);
+            this.CardReaderListBox.Size = new System.Drawing.Size(107, 368);
             this.CardReaderListBox.TabIndex = 14;
+            this.CardReaderListBox.SelectedIndexChanged += new System.EventHandler(this.CardReaderListBox_SelectedIndexChanged);
             // 
-            // ListSelectUserGroup
+            // label15
             // 
-            this.ListSelectUserGroup.CheckOnClick = true;
-            this.ListSelectUserGroup.FormattingEnabled = true;
-            this.ListSelectUserGroup.Location = new System.Drawing.Point(11, 20);
-            this.ListSelectUserGroup.Name = "ListSelectUserGroup";
-            this.ListSelectUserGroup.Size = new System.Drawing.Size(108, 109);
-            this.ListSelectUserGroup.TabIndex = 2;
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(34, 80);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(99, 13);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "Alarm Time-out (ms)";
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(14, 100);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(119, 13);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "Unlocked Time-out (ms)";
+            // 
+            // ReaderAlarmTimeOut
+            // 
+            this.ReaderAlarmTimeOut.AutoSize = true;
+            this.ReaderAlarmTimeOut.Location = new System.Drawing.Point(139, 80);
+            this.ReaderAlarmTimeOut.Name = "ReaderAlarmTimeOut";
+            this.ReaderAlarmTimeOut.Size = new System.Drawing.Size(41, 13);
+            this.ReaderAlarmTimeOut.TabIndex = 10;
+            this.ReaderAlarmTimeOut.Text = "label29";
+            // 
+            // ReaderUnlockedTimeOut
+            // 
+            this.ReaderUnlockedTimeOut.AutoSize = true;
+            this.ReaderUnlockedTimeOut.Location = new System.Drawing.Point(139, 100);
+            this.ReaderUnlockedTimeOut.Name = "ReaderUnlockedTimeOut";
+            this.ReaderUnlockedTimeOut.Size = new System.Drawing.Size(41, 13);
+            this.ReaderUnlockedTimeOut.TabIndex = 11;
+            this.ReaderUnlockedTimeOut.Text = "label29";
             // 
             // SupervisorInterface
             // 
@@ -3449,6 +3501,10 @@
         private System.Windows.Forms.CheckedListBox ExistingUserListBox;
         private System.Windows.Forms.CheckedListBox ExistingDoorsList;
         private System.Windows.Forms.CheckedListBox ListSelectUserGroup;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label ReaderAlarmTimeOut;
+        private System.Windows.Forms.Label ReaderUnlockedTimeOut;
     }
 
 }
