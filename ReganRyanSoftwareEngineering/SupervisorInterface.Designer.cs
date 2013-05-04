@@ -2686,7 +2686,6 @@
             this.DoorGroups.TabIndex = 3;
             this.DoorGroups.Text = "Door Groups";
             this.DoorGroups.UseVisualStyleBackColor = true;
-            this.DoorGroups.Layout += new System.Windows.Forms.LayoutEventHandler(this.DoorGroups_Layout);
             // 
             // CreateNewDoorGroupButton
             // 

@@ -15,6 +15,7 @@ namespace ReganRyanSoftwareEngineering {
 
         public string Code {
             get { return code; }
+            set { code = value; }
         }
 
         public string Description {

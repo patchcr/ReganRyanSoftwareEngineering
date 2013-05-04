@@ -20,10 +20,14 @@ namespace ReganRyanSoftwareEngineering
             dac = DoorAccessController.Instance;
 
             ExistingDoorsList.DataSource = dac.Doors;
-            UserMembersListBox.DataSource = ExistingUserListBox.DataSource = DBUserInterface.Instance.PersonList;
-            ListSelectDoorGroup.DataSource = ExistDoorGroupsList.DataSource = dac.DoorGroups;
-            ListSelectUserGroup2.DataSource = ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
-            ListSelectUserGroup.DataSource = dac.PersonGroups;
+
+            BindingSource personBinding = new BindingSource(DBUserInterface.Instance.PersonList, null);
+            BindingSource personGroupBinding = new BindingSource(dac.PersonGroups, null);
+            BindingSource doorGroupBinding = new BindingSource(dac.DoorGroups, null);
+
+            UserMembersListBox.DataSource = ExistingUserListBox.DataSource = personBinding;
+            ListSelectDoorGroup.DataSource = ExistDoorGroupsList.DataSource = doorGroupBinding;
+            ListSelectUserGroup.DataSource = ListSelectUserGroup2.DataSource = ExistingUserGroupsListBox.DataSource = personGroupBinding;
         }
 
         private void SupervisorInterface_Load(object sender, EventArgs e) {
@@ -47,7 +51,6 @@ namespace ReganRyanSoftwareEngineering
         }
         private void savePasswordButton_MouseClick(object sender, MouseEventArgs e)
         {
-            // TODO Validate that the password is 4 digits. 
             personCreated.SavePassword(EnterPasswordMaskedText.Text);
             Step3GroupBox.Visible = true;
         }
@@ -61,8 +64,6 @@ namespace ReganRyanSoftwareEngineering
             LastNameLabel.Text = personCreated.LastName;
             PersonIDLabel.Text = personCreated.ID.ToString();
             CardIDLabel.Text = personCreated.Card.GetCardNumber().ToString();
-            // TODO fix the display of groups
-            // TODO checkbox list the groups in step 3. 
             UserGroupsLabel.Text = personCreated.FindPersonGroups().ToString();
             PasswordLabel.Text = personCreated.ValidatePassword(EnterPasswordMaskedText.Text).ToString();
             Step4GroupBox.Visible = true;
@@ -147,12 +148,7 @@ namespace ReganRyanSoftwareEngineering
         /*******************
          * Door Groups Tab *
          * *****************/
-        private void DoorGroups_Layout(object sender, LayoutEventArgs e)
-        {
-            // TODO Use this function to populate the list boxes.
-            // I think this gets called before initialization which is a bad idea.
-
-        }
+        
 
         private void ExistDoorGroupsList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -174,22 +170,29 @@ namespace ReganRyanSoftwareEngineering
         private void SaveEditedDoorGroupButton_Click(object sender, EventArgs e)
         {
             DoorGroup selected = (DoorGroup)ExistDoorGroupsList.SelectedItem;
+            selected.Code = NameOfDoorGroupNameTextbox.Text;
             for (int i = 0; i < ExistingDoorsList.Items.Count; i++) {
                 Door curDoor = (Door)ExistingDoorsList.Items[i];
                 if (ExistingDoorsList.GetItemChecked(i)) {
                     curDoor.DoorGroup = selected;
-                } else if (curDoor.DoorGroup.Equals(selected)) {
+                } else if (curDoor.DoorGroup != null && curDoor.DoorGroup.Equals(selected)) {
                     curDoor.DoorGroup = null;
                 }
             }
-            EditDoorGroupBox.Visible = false;
+            ExistDoorGroupsList.DataSource = new List<DoorGroup>();
+            ExistDoorGroupsList.DataSource = dac.DoorGroups;
             DoorMembersListBox.DataSource = dac.FindDoorsByGroup(selected);
+            EditDoorGroupBox.Visible = false;
         }
 
         private void CreateNewDoorGroupButton_Click(object sender, EventArgs e)
         {
-            NameOfDoorGroupNameTextbox.Text = "";
-            ExistingDoorsList.SelectedIndex = 0;
+            EditDoorGroupBox.Visible = true;
+            DoorGroup newGroup = new DoorGroup("New Group", "");
+            dac.DoorGroups.Add(newGroup);
+            ExistDoorGroupsList.DataSource = dac.DoorGroups;
+            DoorMembersListBox.DataSource = dac.FindDoorsByGroup(newGroup);
+            ExistDoorGroupsList.SelectedIndex = dac.DoorGroups.IndexOf(newGroup);
         }
         
         /********************
@@ -228,35 +231,21 @@ namespace ReganRyanSoftwareEngineering
                 }
                 curPerson.SavePersonGroups(groups);
             }
-            EditUserGroupBox.Visible = false;
+            selected.Code = NameOfUserGroupTextbox.Text;
+            ExistingUserGroupsListBox.DataSource = new List<PersonGroup>();
+            ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
             UserMembersListBox.DataSource = dac.FindPeopleByGroup(selected);
+            EditUserGroupBox.Visible = false;
         }
 
         private void CreateNewUserGroupButton_Click(object sender, EventArgs e)
         {
-            NameOfUserGroupTextbox.Text = "";
-            ExistingUserListBox.SelectedIndex = 0;
-        }
-
-
-        /*************************
-         * Edit Card Readers Tab *
-         * ***********************/
-
-        // TODO this whole tab.
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            EditDoorGroupBox.Visible = true;
-        }
-
-        private void ReactivateCardButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ListSelectDoorGroup_SelectedIndexChanged(object sender, EventArgs e) {
-
+            EditUserGroupBox.Visible = true;
+            PersonGroup newGroup = new PersonGroup("New Group", "");
+            dac.PersonGroups.Add(newGroup);
+            ExistingUserGroupsListBox.DataSource = dac.PersonGroups;
+            UserMembersListBox.DataSource = dac.FindPeopleByGroup(newGroup);
+            ExistingUserGroupsListBox.SelectedIndex = dac.PersonGroups.IndexOf(newGroup);
         }
 
     }
