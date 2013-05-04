@@ -100,7 +100,7 @@ namespace ReganRyanSoftwareEngineering {
 
         public Card ValidateCard(int cardNum) {
             foreach (Person p in DBUserInterface.Instance.PersonList) {
-                if (p.Card.GetCardNumber() == cardNum) {
+                if (p.Card.GetCardNumber() == cardNum && p.Card.isActive()) {
                     return p.Card;
                 }
             }

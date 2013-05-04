@@ -1,5 +1,6 @@
 ﻿using System.Timers;
 using System.Collections.Generic;
+using System;
 
 namespace ReganRyanSoftwareEngineering {
 
@@ -102,13 +103,27 @@ namespace ReganRyanSoftwareEngineering {
             return DBUserInterface.Instance.GetPerson(c.GetPersonID());
         }
 
+        public bool ValidateAccess(DateTime date, int hour)
+        {
+            DoorAccessController dac = DoorAccessController.Instance;
+            HashSet<PersonGroup> pgroups = curPerson.FindPersonGroups();
+            List<PersonGroup> pglist = new List<PersonGroup>();
+            foreach (PersonGroup pg in pgroups) { pglist.Add(pg); }
+            if (dac.AccessPermissionsValidationRequest(date, hour, pglist, door.FindDoorGroup()))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public bool EnterPassword(string pass) {
             if (attempts < 3 && curPerson.ValidatePassword(pass)) {
                 return true;
             } else {
                 attempts++;
                 if (attempts >= 3) {
-                    StandbyMode();
+                    //StandbyMode();  We don't disable the reader for this. only the card.
+                    curPerson.Card.DeactivateCard();
                     events.Add(new Event("3 Invalid Password Attempts"));
                     SecurityConsoleInterface.Instance.DisplayNotification("3 invalid password attempts");
                 }

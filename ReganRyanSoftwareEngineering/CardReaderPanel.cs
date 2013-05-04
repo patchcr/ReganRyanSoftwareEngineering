@@ -12,6 +12,7 @@ namespace ReganRyanSoftwareEngineering {
     public partial class CardReaderPanel : Form {
 
         private CardReader currentReader;
+        private DateTime currentDate;
 
         public CardReaderPanel() {
             InitializeComponent();
@@ -20,9 +21,10 @@ namespace ReganRyanSoftwareEngineering {
         public CardReaderPanel(CardReader cr, DateTime date) {
             InitializeComponent();
             currentReader = cr;
+            currentDate = date;
             ReaderNameLabel.Text = cr.getName();
             // NOTE for date formating "g" was found here: http://msdn.microsoft.com/en-us/library/zdtaw1bw.aspx
-            DateTimeLabel.Text = DateTime.Now.ToString("g");
+            DateTimeLabel.Text = currentDate.ToString("g");
         }
 
         private void SwipeButton_Click(object sender, EventArgs e) {
@@ -52,15 +54,23 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         public void DisplayExceededInvalidPasswordAttempts() {
-            MessageBox.Show("Invalid Password Limit Exceeded. Card Reader now deactivated");
+            MessageBox.Show("Invalid Password Limit Exceeded. Card now deactivated");
             SecurityConsoleInterface.Instance.Refresh();
-            EnterPasswordTextBox.Text = "";
-            EnterPasswordBox.Visible = false;
+            resetCardReaderPanel();
+        }
+
+        public void DisplayAccessNotAuthorized(){
+            MessageBox.Show("Access is Not Authorized.");
         }
 
         private void SubmitPasswordButton_Click(object sender, EventArgs e) {
+            int accessHour = currentDate.Hour;
             if (currentReader.EnterPassword(EnterPasswordTextBox.Text)) {
-                OpenDoorBox.Visible = true;
+                if (currentReader.ValidateAccess(currentDate.Date, currentDate.Hour)){
+                    OpenDoorBox.Visible = true;
+                } else {
+                    DisplayAccessNotAuthorized();
+                }
             } else {
                 if (currentReader.Attempts >= 3) {
                     DisplayExceededInvalidPasswordAttempts();
@@ -71,14 +81,27 @@ namespace ReganRyanSoftwareEngineering {
         }
 
         private void DoorToggleButton_Click(object sender, EventArgs e) {
-            // TODO Stop the timer to avoid sending an alert to the Security Panel
+
             if (DoorToggleButton.Text == "Close Door") {
-                DoorToggleButton.Text = "Open Door";
-            } else {
+                currentReader.TurnAlarmTimerOff();
+
+                resetCardReaderPanel();
+                
+
+            } else { // User is clicking "Open Door"
+                currentReader.TurnAlarmTimerOn();
                 DoorToggleButton.Text = "Close Door";
             }
         }
 
+        private void resetCardReaderPanel()
+        {
+            OpenDoorBox.Visible = false;
+            EnterPasswordBox.Visible = false;
+            EnterPasswordTextBox.Text = "";
+            EnterCardNumBox.Text = "";
+            DoorToggleButton.Text = "Open Door";
+        }
     }
 
 }
