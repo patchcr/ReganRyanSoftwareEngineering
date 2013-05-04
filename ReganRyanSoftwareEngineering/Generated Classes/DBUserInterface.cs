@@ -17,6 +17,9 @@ namespace ReganRyanSoftwareEngineering {
             HashSet<PersonGroup> groups = new HashSet<PersonGroup>();
             groups.Add(DoorAccessController.Instance.PersonGroups[0]);
             Save(new Person("Michael", "Regan", "1234", groups));
+            groups.Clear();
+            groups.Add(DoorAccessController.Instance.PersonGroups[1]);
+            Save(new Person("Patrick", "Ryan", "1234", groups));
         }
 
         public List<Person> PersonList {
