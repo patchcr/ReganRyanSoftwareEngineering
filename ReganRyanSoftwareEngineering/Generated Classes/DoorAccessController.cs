@@ -107,6 +107,11 @@ namespace ReganRyanSoftwareEngineering {
             return false;
         }
 
+
+        internal void SaveCalendar(PersonGroup personGroup, DoorGroup doorGroup, Calendar cal)
+        {
+            DBCalendarInterface.Instance.SaveCalendar(personGroup, doorGroup, cal);
+        }
     }
 
 }

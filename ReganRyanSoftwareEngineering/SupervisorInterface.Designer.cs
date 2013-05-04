@@ -265,13 +265,13 @@
             this.ExistingDoorsList = new System.Windows.Forms.ListBox();
             this.EditDoorGroupButton = new System.Windows.Forms.Button();
             this.UserGroups = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.EditUserGroupBox = new System.Windows.Forms.GroupBox();
             this.NameOfUserGroupTextbox = new System.Windows.Forms.TextBox();
             this.SaveUserGroupButton = new System.Windows.Forms.Button();
             this.label39 = new System.Windows.Forms.Label();
             this.ExistingUserListBox = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.ExistingUsersListBox = new System.Windows.Forms.ListBox();
+            this.ExistingUserGroupsListBox = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CreateUserButton = new System.Windows.Forms.Button();
             this.EditUserGroupButton = new System.Windows.Forms.Button();
@@ -297,6 +297,7 @@
             this.CardReaderListBox = new System.Windows.Forms.ListBox();
             this.DoorMembersListBox = new System.Windows.Forms.ListBox();
             this.UserMembersListBox = new System.Windows.Forms.ListBox();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.PageCardCreation.SuspendLayout();
             this.Step1GroupBox.SuspendLayout();
@@ -310,7 +311,7 @@
             this.groupBox6.SuspendLayout();
             this.EditDoorGroupBox.SuspendLayout();
             this.UserGroups.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            this.EditUserGroupBox.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.InitializeCardReaders.SuspendLayout();
             this.EditCardReaderGroupBox.SuspendLayout();
@@ -345,6 +346,7 @@
             // 
             // PageCardCreation
             // 
+            this.PageCardCreation.Controls.Add(this.ResetButton);
             this.PageCardCreation.Controls.Add(this.Step1GroupBox);
             this.PageCardCreation.Controls.Add(this.Step2GroupBox);
             this.PageCardCreation.Controls.Add(this.Step4GroupBox);
@@ -2684,6 +2686,7 @@
             this.CreateNewDoorGroupButton.TabIndex = 12;
             this.CreateNewDoorGroupButton.Text = "Create New Group";
             this.CreateNewDoorGroupButton.UseVisualStyleBackColor = true;
+            this.CreateNewDoorGroupButton.Click += new System.EventHandler(this.CreateNewDoorGroupButton_Click);
             // 
             // groupBox6
             // 
@@ -2736,7 +2739,6 @@
             this.NameOfDoorGroupNameTextbox.Size = new System.Drawing.Size(120, 20);
             this.NameOfDoorGroupNameTextbox.TabIndex = 6;
             this.NameOfDoorGroupNameTextbox.Text = "Name of Group";
-            this.NameOfDoorGroupNameTextbox.Visible = false;
             // 
             // SaveEditedDoorGroupButton
             // 
@@ -2746,6 +2748,7 @@
             this.SaveEditedDoorGroupButton.TabIndex = 2;
             this.SaveEditedDoorGroupButton.Text = "Save";
             this.SaveEditedDoorGroupButton.UseVisualStyleBackColor = true;
+            this.SaveEditedDoorGroupButton.Click += new System.EventHandler(this.SaveEditedDoorGroupButton_Click);
             // 
             // label11
             // 
@@ -2766,18 +2769,17 @@
             // 
             // EditDoorGroupButton
             // 
-            this.EditDoorGroupButton.Enabled = false;
             this.EditDoorGroupButton.Location = new System.Drawing.Point(536, 37);
             this.EditDoorGroupButton.Name = "EditDoorGroupButton";
             this.EditDoorGroupButton.Size = new System.Drawing.Size(104, 23);
             this.EditDoorGroupButton.TabIndex = 2;
             this.EditDoorGroupButton.Text = "Edit Group";
             this.EditDoorGroupButton.UseVisualStyleBackColor = true;
-            this.EditDoorGroupButton.Click += new System.EventHandler(this.button2_Click);
+            this.EditDoorGroupButton.Click += new System.EventHandler(this.EditDoorGroupButton_Click);
             // 
             // UserGroups
             // 
-            this.UserGroups.Controls.Add(this.groupBox7);
+            this.UserGroups.Controls.Add(this.EditUserGroupBox);
             this.UserGroups.Controls.Add(this.groupBox5);
             this.UserGroups.Controls.Add(this.CreateUserButton);
             this.UserGroups.Controls.Add(this.EditUserGroupButton);
@@ -2790,19 +2792,19 @@
             this.UserGroups.Text = "User Groups";
             this.UserGroups.UseVisualStyleBackColor = true;
             // 
-            // groupBox7
+            // EditUserGroupBox
             // 
-            this.groupBox7.Controls.Add(this.NameOfUserGroupTextbox);
-            this.groupBox7.Controls.Add(this.SaveUserGroupButton);
-            this.groupBox7.Controls.Add(this.label39);
-            this.groupBox7.Controls.Add(this.ExistingUserListBox);
-            this.groupBox7.Location = new System.Drawing.Point(665, 31);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(229, 355);
-            this.groupBox7.TabIndex = 13;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Edit Group";
-            this.groupBox7.Visible = false;
+            this.EditUserGroupBox.Controls.Add(this.NameOfUserGroupTextbox);
+            this.EditUserGroupBox.Controls.Add(this.SaveUserGroupButton);
+            this.EditUserGroupBox.Controls.Add(this.label39);
+            this.EditUserGroupBox.Controls.Add(this.ExistingUserListBox);
+            this.EditUserGroupBox.Location = new System.Drawing.Point(665, 31);
+            this.EditUserGroupBox.Name = "EditUserGroupBox";
+            this.EditUserGroupBox.Size = new System.Drawing.Size(229, 355);
+            this.EditUserGroupBox.TabIndex = 13;
+            this.EditUserGroupBox.TabStop = false;
+            this.EditUserGroupBox.Text = "Edit Group";
+            this.EditUserGroupBox.Visible = false;
             // 
             // NameOfUserGroupTextbox
             // 
@@ -2811,7 +2813,6 @@
             this.NameOfUserGroupTextbox.Size = new System.Drawing.Size(120, 20);
             this.NameOfUserGroupTextbox.TabIndex = 6;
             this.NameOfUserGroupTextbox.Text = "Name of Group";
-            this.NameOfUserGroupTextbox.Visible = false;
             // 
             // SaveUserGroupButton
             // 
@@ -2821,6 +2822,7 @@
             this.SaveUserGroupButton.TabIndex = 2;
             this.SaveUserGroupButton.Text = "Save";
             this.SaveUserGroupButton.UseVisualStyleBackColor = true;
+            this.SaveUserGroupButton.Click += new System.EventHandler(this.SaveUserGroupButton_Click);
             // 
             // label39
             // 
@@ -2842,7 +2844,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.UserMembersListBox);
-            this.groupBox5.Controls.Add(this.ExistingUsersListBox);
+            this.groupBox5.Controls.Add(this.ExistingUserGroupsListBox);
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Location = new System.Drawing.Point(37, 31);
             this.groupBox5.Name = "groupBox5";
@@ -2851,13 +2853,13 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Existing User Groups";
             // 
-            // ExistingUsersListBox
+            // ExistingUserGroupsListBox
             // 
-            this.ExistingUsersListBox.FormattingEnabled = true;
-            this.ExistingUsersListBox.Location = new System.Drawing.Point(6, 20);
-            this.ExistingUsersListBox.Name = "ExistingUsersListBox";
-            this.ExistingUsersListBox.Size = new System.Drawing.Size(120, 329);
-            this.ExistingUsersListBox.TabIndex = 4;
+            this.ExistingUserGroupsListBox.FormattingEnabled = true;
+            this.ExistingUserGroupsListBox.Location = new System.Drawing.Point(6, 20);
+            this.ExistingUserGroupsListBox.Name = "ExistingUserGroupsListBox";
+            this.ExistingUserGroupsListBox.Size = new System.Drawing.Size(120, 329);
+            this.ExistingUserGroupsListBox.TabIndex = 4;
             // 
             // label7
             // 
@@ -2886,6 +2888,7 @@
             this.EditUserGroupButton.TabIndex = 5;
             this.EditUserGroupButton.Text = "Edit Group";
             this.EditUserGroupButton.UseVisualStyleBackColor = true;
+            this.EditUserGroupButton.Click += new System.EventHandler(this.EditUserGroupButton_Click);
             // 
             // CreateNewUserGroupButton
             // 
@@ -2895,6 +2898,7 @@
             this.CreateNewUserGroupButton.TabIndex = 3;
             this.CreateNewUserGroupButton.Text = "Create New Group";
             this.CreateNewUserGroupButton.UseVisualStyleBackColor = true;
+            this.CreateNewUserGroupButton.Click += new System.EventHandler(this.CreateNewUserGroupButton_Click);
             // 
             // InitializeCardReaders
             // 
@@ -3111,6 +3115,16 @@
             this.UserMembersListBox.Size = new System.Drawing.Size(120, 251);
             this.UserMembersListBox.TabIndex = 7;
             // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(14, 192);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(75, 23);
+            this.ResetButton.TabIndex = 16;
+            this.ResetButton.Text = "Reset Form";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // SupervisorInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3142,8 +3156,8 @@
             this.EditDoorGroupBox.ResumeLayout(false);
             this.EditDoorGroupBox.PerformLayout();
             this.UserGroups.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
+            this.EditUserGroupBox.ResumeLayout(false);
+            this.EditUserGroupBox.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.InitializeCardReaders.ResumeLayout(false);
@@ -3403,13 +3417,13 @@
         private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.Button CreateNewDoorGroupButton;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox EditUserGroupBox;
         private System.Windows.Forms.TextBox NameOfUserGroupTextbox;
         private System.Windows.Forms.Button SaveUserGroupButton;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.ListBox ExistingUserListBox;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ListBox ExistingUsersListBox;
+        private System.Windows.Forms.ListBox ExistingUserGroupsListBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button CreateNewUserGroupButton;
         private System.Windows.Forms.Button EditReaderButton;
@@ -3432,6 +3446,7 @@
         private System.Windows.Forms.Button SaveCardReaderButton;
         private System.Windows.Forms.ListBox DoorMembersListBox;
         private System.Windows.Forms.ListBox UserMembersListBox;
+        private System.Windows.Forms.Button ResetButton;
     }
 
 }

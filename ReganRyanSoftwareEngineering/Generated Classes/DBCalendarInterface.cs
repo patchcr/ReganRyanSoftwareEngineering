@@ -27,6 +27,11 @@ namespace ReganRyanSoftwareEngineering {
             }
         }
 
+        public void SaveCalendar(PersonGroup personGroup, DoorGroup doorGroup, Calendar cal)
+        {
+            calendars[new Tuple<PersonGroup, DoorGroup>(personGroup, doorGroup)] = cal;
+        }
+
     }
 
 }
